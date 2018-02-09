@@ -8,14 +8,13 @@ export function card(cardData) {
     card.classList.add('card');
 
     if(cardData && cardData.content){
-        // for (let item in cardData.content) {
-        let item = cardData.content[0];
-        if('title' == item.type) {
-            card.appendChild(createTitle(item.content));
-        } else {
-            card.appendChild(createLongText(item.content));
+        for (let item of cardData.content) {
+            if('title' == item.type) {
+                card.appendChild(createTitle(item.content));
+            } else {
+                card.appendChild(createLongText(item.content));
+            }
         }
-        // }
     }
 
     shape.appendChild(card); 
