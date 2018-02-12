@@ -61,7 +61,8 @@ describe("A single card", () => {
         expect(beautify.html(rendered.outerHTML))
             .toBe(expectedFile('single_gray_card.html'));
     });
-    it('should render title', () => {
+
+    it('should be rendered with field', () => {
         var card = {
             content: [
                 {
@@ -77,6 +78,25 @@ describe("A single card", () => {
             .toBe(expectedFile('single_gray_card_with_field.html'));
     });
 
+});
+
+describe("A landscape card", () => {
+    it('should be rendered with field', () => {
+        var card = {
+            type: 'landscape',
+            content: [
+                {
+                    type: 'field',
+                    header: 'Type de carte',
+                    value: 'MJ'
+                 }
+            ]
+        };
+        var rendered = cards.card(card);
+
+        expect(beautify.html(rendered.outerHTML))
+            .toBe(expectedFile('single_gray_landscape_card_with_field.html'));
+    });
 });
 
 function expectedFile(filename){

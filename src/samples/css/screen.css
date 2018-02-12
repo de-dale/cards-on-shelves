@@ -112,10 +112,12 @@ body {
 }
 
 .card-field-header {
+    display: inline-flex;
 	font-weight: bold;
 }
 
 .card-field-value {
+    display: inline-flex;
 	font-family: "Arial", sans-serif;
 	font-variant: small-caps;
 	text-transform: lowercase;

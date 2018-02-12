@@ -1,20 +1,25 @@
 'use strict'
 
-export function card(cardData) {
+export function card(card) {
     var shape = document.createElement('div');
     shape.classList.add('card-shape');
 
-    var card = document.createElement('div');
-    card.classList.add('card');
+    var cardElement = document.createElement('div');
+    cardElement.classList.add('card');
 
-    if(cardData && cardData.content){
-        for (let item of cardData.content) {
+    if(card && card.content){
+        if('landscape' == card.type) {
+            shape.classList.add('landscape');
+        }
+
+
+        for (let item of card.content) {
             let itemElement = createItemElement(item);
-            card.appendChild(itemElement);
+            cardElement.appendChild(itemElement);
         }
     }
 
-    shape.appendChild(card); 
+    shape.appendChild(cardElement); 
     return shape;
 }
 
