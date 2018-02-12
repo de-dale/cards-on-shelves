@@ -61,6 +61,22 @@ describe("A single card", () => {
         expect(beautify.html(rendered.outerHTML))
             .toBe(expectedFile('single_gray_card.html'));
     });
+    it('should render title', () => {
+        var card = {
+            content: [
+                {
+                    type: 'field',
+                    header: 'Type de carte',
+                    value: 'MJ'
+                 }
+            ]
+        };
+        var rendered = cards.card(card);
+
+        expect(beautify.html(rendered.outerHTML))
+            .toBe(expectedFile('single_gray_card_with_field.html'));
+    });
+
 });
 
 function expectedFile(filename){
