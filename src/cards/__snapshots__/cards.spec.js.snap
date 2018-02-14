@@ -1,0 +1,130 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`A single Component card could be empty 1`] = `
+<div
+  className="card-shape"
+>
+  <div
+    className="card"
+  />
+</div>
+`;
+
+exports[`A single Component card could be landscaped 1`] = `
+<div
+  className="card-shape landscape"
+>
+  <div
+    className="card"
+  >
+    <div
+      className="card-item short no-padding"
+    >
+      <div
+        className="card-field"
+      >
+        <div
+          className="card-field-header"
+        >
+          Type de carte
+        </div>
+        <div
+          className="card-field-value"
+        >
+          MJ
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`A single Component card should be rendered with field 1`] = `
+<div
+  className="card-shape"
+>
+  <div
+    className="card"
+  >
+    <div
+      className="card-item short no-padding"
+    >
+      <div
+        className="card-field"
+      >
+        <div
+          className="card-field-header"
+        >
+          Type de carte
+        </div>
+        <div
+          className="card-field-value"
+        >
+          MJ
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`A single Component card should render title 1`] = `
+<div
+  className="card-shape"
+>
+  <div
+    className="card"
+  >
+    <div
+      className="card-item emphasized short"
+    >
+      <span
+        className="card-header-name"
+      >
+        Titre de la carte.
+      </span>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`A single Component card should render with long text 1`] = `
+<div
+  className="card-shape"
+>
+  <div
+    className="card"
+  >
+    <div
+      className="card-item card-long-text"
+    >
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam dui magna, tristique ac volutpat sed, sollicitudin molestie magna. Cras sed purus at metus viverra venenatis a et dolor. Pellentesque egestas nisi in mollis aliquam. Sed scelerisque fermentum tincidunt. Nulla interdum venenatis sapien, sit amet condimentum lectus. Phasellus malesuada semper quam, ut pulvinar dolor iaculis vitae. Praesent eu lorem quis nisl lobortis venenatis non id massa. Curabitur non ex sodales, mollis tellus in, dapibus purus. Maecenas eget odio commodo, posuere sapien eget, congue arcu. Donec id facilisis lectus. Proin vitae ipsum libero. Quisque vitae tellus dui. Nulla tincidunt est ac quam faucibus, a lobortis elit venenatis. Sed quis neque sit amet leo finibus cursus. Aenean gravida consectetur erat, sit amet lobortis magna volutpat iaculis.
+    </div>
+  </div>
+</div>
+`;
+
+exports[`A single Component card should render with title and long text 1`] = `
+<div
+  className="card-shape"
+>
+  <div
+    className="card"
+  >
+    <div
+      className="card-item emphasized short"
+    >
+      <span
+        className="card-header-name"
+      >
+        Titre de la carte.
+      </span>
+    </div>
+    <div
+      className="card-item card-long-text"
+    >
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam dui magna, tristique ac volutpat sed, sollicitudin molestie magna. Cras sed purus at metus viverra venenatis a et dolor. Pellentesque egestas nisi in mollis aliquam. Sed scelerisque fermentum tincidunt. Nulla interdum venenatis sapien, sit amet condimentum lectus. Phasellus malesuada semper quam, ut pulvinar dolor iaculis vitae. Praesent eu lorem quis nisl lobortis venenatis non id massa. Curabitur non ex sodales, mollis tellus in, dapibus purus. Maecenas eget odio commodo, posuere sapien eget, congue arcu. Donec id facilisis lectus. Proin vitae ipsum libero. Quisque vitae tellus dui. Nulla tincidunt est ac quam faucibus, a lobortis elit venenatis. Sed quis neque sit amet leo finibus cursus. Aenean gravida consectetur erat, sit amet lobortis magna volutpat iaculis.
+    </div>
+  </div>
+</div>
+`;
