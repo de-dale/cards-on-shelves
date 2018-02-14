@@ -198,13 +198,13 @@ describe("A single Component card", () => {
 });
 
 function printCard(card) {
-    var rendered = document.createElement('div');
+    var renderRoot = document.createElement('div');
     ReactDOM.render(
           <Card card={card} />,
-          rendered
+          renderRoot
     );
 
-    return beautify.html(rendered.innerHTML);
+    return beautify.html(renderRoot.innerHTML);
 }
 
 function expectedFile(filename){
