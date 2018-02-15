@@ -37,9 +37,12 @@ let card =  {
         }*/
     ]
 };
+var cards = [];
+cards.push(card);
+cards.push(card);
 
 ReactDOM.render(
-          <CardContainer name="Conteneur de test" card={card}/>,
+          <CardContainer name="Conteneur de test" cards={cards}/>,
           document.getElementById('react-root')
 );
 

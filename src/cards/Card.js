@@ -6,22 +6,23 @@ import classNames from 'classnames';
 export class Card extends React.Component {
     constructor(props) {
         super(props);
+        this.card = props.card;
+        this.cardItems = props.card.content || [];
     }
 
     render() {
-        const card = this.props.card;
+        const card = this.card;
         const shapeClasses = classNames('card-shape',
             {'landscape': 'landscape' == card.type}
         );
         const cardClasses = classNames('card');
-        const items = card.content || [];
-        const listItems = items.map((item, index) =>
+        const cardItems = this.cardItems.map((item, index) =>
             <CardItem key={index} item={item} />
         );
         return (
             <div className={shapeClasses}>
                 <div className={cardClasses}>
-                    {listItems}
+                    {cardItems}
                 </div>
             </div>
         );

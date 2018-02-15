@@ -7,13 +7,21 @@ import { Card } from './Card.js';
 export class CardContainer extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {date: new Date()};
+        this.name = props.name;
+        this.cards = props.cards || [];
     }
 
     render() {
-        return (<div>
-            <h1>Cartes  : {this.props.name}</h1>
-            <Card card={this.props.card} />
-        </div>);
+        const name = this.name;
+        const cards = this.cards.map((item, index) =>
+             <Card key={index} card={item} />
+        );
+        return (
+            <div>
+                <h1>{name}</h1>
+                <div className="card-container">
+                    {cards}
+                </div>
+            </div>);
     }
 }
