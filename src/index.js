@@ -20,16 +20,16 @@ export function aDiv(id) {
 document.body.appendChild(aDiv('react-root'));
 
 let card =  {
-    type: 'landscape',
-    content: [
+    "type": "landscape",
+    "content": [
         {
-            type: 'title',
-            content: 'Titre de la carte.'
+            "type": "title",
+            "content": "Titre de la carte."
         },
         {
-            type: 'field',
-            header: 'Type de carte',
-            value: 'MJ'
+            "type": "field",
+            "header": "Type de carte",
+            "value": "MJ"
         }/*,
         {
             type: 'long-text',
@@ -42,7 +42,7 @@ var cards = [];
 // cards.push(card);
 
 ReactDOM.render(
-          <CardContainer name="Conteneur de test" cards={cards}/>,
-          document.getElementById('react-root')
+    <CardContainer name="Conteneur de test" cards={cards}/>,
+    document.getElementById('react-root')
 );
 
