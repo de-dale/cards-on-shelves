@@ -13,7 +13,7 @@ export class Card extends React.Component {
     render() {
         const card = this.card;
         const shapeClasses = classNames('card-shape',
-            {'landscape': 'landscape' == card.type}
+            {'landscape': 'landscape' == card.shape}
         );
         const cardClasses = classNames('card');
         const cardItems = this.cardItems.map((item, index) =>

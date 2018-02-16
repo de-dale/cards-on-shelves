@@ -21,19 +21,19 @@ describe("A card container", () => {
     it('could be filled', () => {
         let name = "Deck";
         let cards = [{
-            content: [
+            "content": [
                 {
-                    type: 'title',
-                    content: 'Titre de la carte.'
+                    "type": "title",
+                    "content": "Titre de la carte."
                 }
             ]
         },{
-            type: 'landscape',
-            content: [
+            "type": "landscape",
+            "content": [
                 {
-                    type: 'field',
-                    header: 'Type de carte',
-                    value: 'MJ'
+                    "type": "field",
+                    "header": "Type de carte",
+                    "value": "MJ"
                  }
             ]
         },{
