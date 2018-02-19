@@ -7,15 +7,15 @@ import ReactRenderer from 'react-test-renderer';
 import fs from 'fs';
 import beautify from 'js-beautify';
 
-import { CardContainer } from './CardContainer.js';
+import { Deck } from './Deck.js';
 
-describe("A card container", () => {
+describe("A Deck", () => {
     it('could be empty', () => {
         let name = "Deck";
         let cards = [];
-        let rendered = printCardContainer(name, cards);
+        let rendered = printDeck(name, cards);
         expect(rendered)
-            .toBe(expectedFile('cardContainer_empty.html'));
+            .toBe(expectedFile('deck_empty.html'));
     });
 
     it('could be filled', () => {
@@ -39,16 +39,16 @@ describe("A card container", () => {
         },{
             
         }];
-        let rendered = printCardContainer(name, cards);
+        let rendered = printDeck(name, cards);
         expect(rendered)
-            .toBe(expectedFile('cardContainer_filled.html'));
+            .toBe(expectedFile('deck_filled.html'));
     });
 });
 
-function printCardContainer(name, cards) {
+function printDeck(name, cards) {
     let renderRoot = document.createElement('div');
     ReactDOM.render(
-        <CardContainer name={name} cards={cards}/>,
+        <Deck name={name} cards={cards}/>,
         renderRoot
     );
 
@@ -56,5 +56,5 @@ function printCardContainer(name, cards) {
 }
 
 function expectedFile(filename){
-        return fs.readFileSync('./src/cards/expects/'+ filename, 'utf-8').trim();
+        return fs.readFileSync('./src/deck/expects/'+ filename, 'utf-8').trim();
 }
