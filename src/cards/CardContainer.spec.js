@@ -28,7 +28,7 @@ describe("A card container", () => {
                 }
             ]
         },{
-            "type": "landscape",
+            "shape": "landscape",
             "content": [
                 {
                     "type": "field",
