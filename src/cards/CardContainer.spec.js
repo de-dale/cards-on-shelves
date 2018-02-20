@@ -21,6 +21,7 @@ describe("A card container", () => {
     it('could be filled', () => {
         let name = "Deck";
         let cards = [{
+            "name": "Carte avec titre",
             "content": [
                 {
                     "type": "title",
@@ -28,6 +29,7 @@ describe("A card container", () => {
                 }
             ]
         },{
+            "name" : "Carte avec champ",
             "shape": "landscape",
             "content": [
                 {
@@ -37,7 +39,7 @@ describe("A card container", () => {
                  }
             ]
         },{
-            
+            "name" : "Carte vide"
         }];
         let rendered = printCardContainer(name, cards);
         expect(rendered)

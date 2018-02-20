@@ -3,6 +3,7 @@
 import React from 'react';
 
 import { Card } from './Card.js';
+import { CardEditor } from './CardEditor.js';
 import { CardImporter } from './CardImporter.js';
 
 export class CardContainer extends React.Component {
@@ -24,7 +25,7 @@ export class CardContainer extends React.Component {
     render() {
         const name = this.state.name;
         const cards = this.state.cards.map((item, index) =>
-             <Card key={index} card={item} />
+             <CardEditor key={index} card={item} />
         );
         return (
             <div>
