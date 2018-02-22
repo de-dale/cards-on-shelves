@@ -55,7 +55,7 @@ function CardField(props) {
         <div className="card-item short no-padding">
             <div className="card-field">
                 <div className="card-field-header">{item.header}</div>
-                <div className="card-field-value">{item.value}</div>
+                <div className="card-field-value">{item.content}</div>
             </div>
         </div>
     );

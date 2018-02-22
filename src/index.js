@@ -30,7 +30,7 @@ let card =  {
         {
             "type": "field",
             "header": "Type de carte",
-            "value": "MJ"
+            "content": "MJ"
         },
         {
             "type": "long-text",

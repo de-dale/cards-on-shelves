@@ -12,7 +12,7 @@ export class CardEditor extends React.Component {
             card: props.card
         };
         this.handleCardChange = this.handleCardChange.bind(this);
-        this.updateItem= this.updateItem.bind(this);
+        this.updateItem = this.updateItem.bind(this);
     }
 
     render() {
@@ -45,7 +45,7 @@ export class CardEditor extends React.Component {
 
     handleCardChange(event) {
         const target = event.target;
-        const value = target.type === 'checkbox' ? target.checked : target.value;
+        const value = target.value;
         const name = target.name;
 
         let card = this.state.card;
@@ -85,24 +85,20 @@ class CardTitleInput extends React.Component {
         this.state = {
             item: props.item
         };
-        this.handleItemChange = this.handleItemChange.bind(this);
+        this.handleTitleChange = this.handleTitleChange.bind(this);
         this.onUpdate = props.onUpdate;
     }
 
     render() {
         const item = this.state.item;
         return (
-            <input type="text" value={item.content} onChange={ this.handleItemChange } />
+            <input type="text" value={item.content} onChange={ this.handleTitleChange } />
         );
     }
     
-    handleItemChange(event) {
-        const target = event.target;
-        const value = target.type === 'checkbox' ? target.checked : target.value;
-        const name = target.name;
-
+    handleTitleChange(event) {
         let item = this.state.item;
-        item.content = value;
+        item.content = event.target.value;
 
         this.updateItem(item)
     }
@@ -115,20 +111,78 @@ class CardTitleInput extends React.Component {
     }
 }
 
-function CardFieldInput(props) {
-    let item = props.item;
-    return (
-        <div className="card-item short no-padding">
-            <div className="card-field">
-                <div className="card-field-header">{item.header}</div>
-                <div className="card-field-value">{item.value}</div>
+class CardFieldInput extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            item: props.item
+        };
+        this.handleHeaderChange = this.handleHeaderChange.bind(this);
+        this.handleValueChange = this.handleValueChange.bind(this);
+        this.onUpdate = props.onUpdate;
+    }
+
+    render() {
+        let item = this.state.item;
+        return (
+            <div className="card-input-field">
+                <input type="text" value={item.header} onChange={ this.handleHeaderChange } />
+                <input type="text" value={item.content} onChange={ this.handleValueChange } />
             </div>
-        </div>
-    );
+        );
+    }
+
+    handleHeaderChange(event) {
+        let item = this.state.item;
+        item.header = event.target.value;
+
+        this.updateItem(item)
+    }
+
+    handleValueChange(event) {
+        let item = this.state.item;
+        item.content = event.target.value;
+
+        this.updateItem(item)
+    }
+
+    updateItem(item){
+        this.setState({
+            item: item
+        });
+        this.onUpdate(item);
+    }
+
 }
 
-function CardTextInput(props) {
-    const item = props.item;
-    return (<div className="card-item card-long-text">{item.content}</div>);
-}
+class CardTextInput extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            item: props.item
+        };
+        this.handleTextChange = this.handleTextChange.bind(this);
+        this.onUpdate = props.onUpdate;
+    }
 
+    render() {
+        const item = this.state.item;
+        return (
+            <textarea value={item.content} onChange={ this.handleTextChange } />
+        );
+    }
+    
+    handleTextChange(event) {
+        let item = this.state.item;
+        item.content = event.target.value;
+
+        this.updateItem(item)
+    }
+
+    updateItem(item){
+        this.setState({
+                        item: item
+                    });
+        this.onUpdate(item);
+    }
+}

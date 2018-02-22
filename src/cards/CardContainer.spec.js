@@ -35,7 +35,7 @@ describe("A card container", () => {
                 {
                     "type": "field",
                     "header": "Type de carte",
-                    "value": "MJ"
+                    "content": "MJ"
                  }
             ]
         },{

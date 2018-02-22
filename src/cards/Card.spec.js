@@ -68,7 +68,7 @@ describe("A single card", () => {
                 {
                     "type": "field",
                     "header": "Type de carte",
-                    "value": "MJ"
+                    "content": "MJ"
                  }
             ]
         };
@@ -87,7 +87,7 @@ describe("A landscape card", () => {
                 {
                     "type": "field",
                     "header": "Type de carte",
-                    "value": "MJ"
+                    "content": "MJ"
                  }
             ]
         };
@@ -167,7 +167,7 @@ describe("A single Component card", () => {
                 {
                     "type": "field",
                     "header": "Type de carte",
-                    "value": "MJ"
+                    "content": "MJ"
                  }
             ]
         };
@@ -185,7 +185,7 @@ describe("A single Component card", () => {
                 {
                     "type": "field",
                     "header": "Type de carte",
-                    "value": "MJ"
+                    "content": "MJ"
                  }
             ]
         };
