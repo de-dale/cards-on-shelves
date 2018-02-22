@@ -79,6 +79,45 @@ function CardItemInput(props){
     return <CardTextInput item={item} onUpdate={props.onUpdate} />;
 }
 
+class CardItemTypeSelector extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            item: props.item
+        };
+        this.handleTypeChange = this.handleTypeChange.bind(this);
+        this.onUpdate = props.onUpdate;
+    }
+
+    handleTypeChange(event) {
+        let item = this.state.item;
+        item.type = event.target.value;
+
+        this.updateItem(item)
+    }
+
+    updateItem(item){
+        this.setState({
+            item: item
+        });
+        this.onUpdate(item);
+    }
+
+    render() {
+        let item = this.state.item;
+        const options = ['title', 'field', 'text'];
+        
+        const typesOptions = options.map((type, index) =>
+                <option key={index} value={type}>{type}</option>
+            );
+    
+        return (
+            <select value={item.type} onChange={ this.handleTypeChange }>
+                {typesOptions}
+            </select>
+        );
+    }
+}
 class CardTitleInput extends React.Component {
     constructor(props) {
         super(props);
@@ -92,7 +131,10 @@ class CardTitleInput extends React.Component {
     render() {
         const item = this.state.item;
         return (
-            <input type="text" value={item.content} onChange={ this.handleTitleChange } />
+            <div className="card-input-title">
+                <input type="text" value={item.content} onChange={ this.handleTitleChange } />
+                <CardItemTypeSelector item={item} onUpdate={ this.onUpdate }/>
+            </div>
         );
     }
     
@@ -128,6 +170,7 @@ class CardFieldInput extends React.Component {
             <div className="card-input-field">
                 <input type="text" value={item.header} onChange={ this.handleHeaderChange } />
                 <input type="text" value={item.content} onChange={ this.handleValueChange } />
+                <CardItemTypeSelector item={item} onUpdate={ this.onUpdate }/>
             </div>
         );
     }
@@ -161,6 +204,7 @@ class CardTextInput extends React.Component {
         this.state = {
             item: props.item
         };
+        console.log('Text item type: ' + props.item.type);
         this.handleTextChange = this.handleTextChange.bind(this);
         this.onUpdate = props.onUpdate;
     }
@@ -168,7 +212,10 @@ class CardTextInput extends React.Component {
     render() {
         const item = this.state.item;
         return (
-            <textarea value={item.content} onChange={ this.handleTextChange } />
+            <div className="card-input-text">
+                <textarea value={item.content} onChange={ this.handleTextChange } />
+                <CardItemTypeSelector item={item} onUpdate={ this.onUpdate }/>
+            </div>
         );
     }
     
@@ -181,8 +228,8 @@ class CardTextInput extends React.Component {
 
     updateItem(item){
         this.setState({
-                        item: item
-                    });
+            item: item
+        });
         this.onUpdate(item);
     }
 }
