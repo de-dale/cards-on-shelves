@@ -20,20 +20,19 @@ describe("Card Edition", () => {
             .toBe(expectedFile('edit_card_from_scratch.html'));
     });
 
-    xit('could be landscaped', () => {
+    it('could be landscaped', () => {
         var card = {
             "name": "Ma Carte", 
             "content": [
                 {
-                    "type": "field",
-                    "header": "Type de carte",
-                    "value": "MJ"
+                    "type": "title",
+                    "content": "Titre de ma carte"
                  }
             ]
         };
         let rendered = printCardEditor(card);
         expect(rendered)
-            .toBe(expectedFile('single_gray_card_with_header.html'));
+            .toBe(expectedFile('edit_card_with_a_field.html'));
     });
 });
 
