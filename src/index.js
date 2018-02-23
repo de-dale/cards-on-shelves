@@ -43,7 +43,7 @@ cards.push(card);
 cards.push(card);
 
 ReactDOM.render(
-    <CardContainer name="Conteneur de test" cards={cards}/>,
+    <CardContainer name="Codex De-Dale" cards={cards}/>,
     document.getElementById('react-root')
 );
 
