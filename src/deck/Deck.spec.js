@@ -33,7 +33,7 @@ describe("A Deck", () => {
                 {
                     "type": "field",
                     "header": "Type de carte",
-                    "value": "MJ"
+                    "content": "MJ"
                  }
             ]
         },{
