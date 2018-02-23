@@ -11,15 +11,15 @@ export class CardImporter extends React.Component {
     
     createFileImporter(onImport) {
         let reader = new FileReader();
-        reader.onload = function (evt) {
+        reader.onload = function (event) {
             try {
-                let cards = JSON.parse(evt.target.result);
+                let cards = JSON.parse(event.target.result);
                 onImport(cards);
             } catch (e) {
                 throw e;
             }
         }
-        reader.onerror = function (evt) {
+        reader.onerror = function (event) {
             console.error('Error reading file');
         }
         return reader;
