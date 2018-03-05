@@ -16,6 +16,8 @@ export class CardEditor extends React.Component {
         this.createItem = this.createItem.bind(this);
         this.updateItem = this.updateItem.bind(this);
         this.removeItem = this.removeItem.bind(this);
+        this.onDuplicate = props.onDuplicate;
+        this.onRemove = props.onRemove;
     }
 
     render() {
@@ -27,9 +29,11 @@ export class CardEditor extends React.Component {
 
         return (
             <div className="card-editor-container">
-                <div className="sheet-name">{card.name}</div>
+                <div className="sheet-name">{card.name}</div> 
+                <button type="button" onClick={ this.onRemove}>Supprimer</button>
                 <Card card={card} />
                 <form className="card-editor">
+                    <button type="button" onClick={ this.onDuplicate }>Dupliquer</button>
                     <input name="name" type="text" value={card.name} onChange={ this.handleCardChange } />
                     <button type="button" onClick={this.createItem}>+</button>
                     <fieldset>
@@ -52,8 +56,9 @@ export class CardEditor extends React.Component {
     }
 
     createItem() {
+        const aNewItem = {"type":"title", "content":""};
         let card = this.state.card;
-        card.content.push({"type":"title", "content":"Nouveau"});
+        card.content.push(aNewItem);
 
         this.updateCard(card);
     }

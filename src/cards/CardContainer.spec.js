@@ -45,6 +45,14 @@ describe("A card container", () => {
         expect(rendered)
             .toBe(expectedFile('cardContainer_filled.html'));
     });
+    
+    it('should have a new card', () => {
+        let name = "Deck";
+        let cards = [];
+        let rendered = printCardContainer(name, cards);
+        expect(rendered)
+            .toBe(expectedFile('cardContainer_filled.html'));
+    });
 });
 
 function printCardContainer(name, cards) {

@@ -13,7 +13,6 @@ export class CardItemInput extends React.Component {
         this.state = {
             item: props.item
         };
-//        this.removeItem = this.removeItem.bind(this);
         this.onUpdate = props.onUpdate;
         this.onRemove = props.onRemove;
     }
