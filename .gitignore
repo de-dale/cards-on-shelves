@@ -8,6 +8,7 @@ dist/*
 # Vim Exclusions
 .*~
 .editorconfig
+.idea/
 
 # Others
 *.lock

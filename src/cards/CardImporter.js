@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 import React from 'react';
 
@@ -8,7 +8,7 @@ export class CardImporter extends React.Component {
         this.handleChange = this.handleChange.bind(this);
         this.fileImporter = this.createFileImporter(props.onImport);
     }
-    
+
     createFileImporter(onImport) {
         let reader = new FileReader();
         reader.onload = function (event) {
@@ -18,20 +18,20 @@ export class CardImporter extends React.Component {
             } catch (e) {
                 throw e;
             }
-        }
-        reader.onerror = function (event) {
+        };
+        reader.onerror = function () {
             console.error('Error reading file');
-        }
+        };
         return reader;
     }
 
-    render() { 
+    render() {
         return (
-            <input type="file" onChange={(e) => this.handleChange(e.target.files) } />
+            <input type="file" onChange={(e) => this.handleChange(e.target.files)}/>
         );
     }
-    
-    handleChange(selectorFiles: FileList) {
+
+    handleChange(selectorFiles) {
         Array.from(selectorFiles).forEach(file => this.importFile(file));
     }
 

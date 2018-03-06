@@ -4,7 +4,7 @@ import _ from 'lodash';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import { CardContainer } from './cards/CardContainer.js';
+import { Codex } from './cards/Codex.js';
 
 import './style.css';
 import './samples/css/colors.css';
@@ -43,7 +43,7 @@ cards.push(card);
 cards.push(card);
 
 ReactDOM.render(
-    <CardContainer name="Codex De-Dale" cards={cards}/>,
+    <Codex name="Codex De-Dale" cards={cards}/>,
     document.getElementById('react-root')
 );
 

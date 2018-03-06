@@ -1,10 +1,8 @@
-'use strict'
+'use strict';
 
 import React from 'react';
-import classNames from 'classnames';
 
-import { Card } from './Card.js';
-import { CardItemInput } from './inputs/CardItemInput.js';
+import {CardItemInput} from './inputs/CardItemInput.js';
 
 export class CardEditor extends React.Component {
     constructor(props) {
@@ -16,31 +14,24 @@ export class CardEditor extends React.Component {
         this.createItem = this.createItem.bind(this);
         this.updateItem = this.updateItem.bind(this);
         this.removeItem = this.removeItem.bind(this);
-        this.onDuplicate = props.onDuplicate;
-        this.onRemove = props.onRemove;
+        this.onUpdate = props.onUpdate;
     }
 
     render() {
         const card = this.state.card;
         const cardItems = card.content || [];
         const cardItemInputs = cardItems.map((item, index) =>
-            <CardItemEditor key={index} item={item} onUpdate={ this.updateItem } onRemove={ this.removeItem }/>
+            <CardItemEditor key={index} item={item} onUpdate={this.updateItem} onRemove={this.removeItem}/>
         );
 
         return (
-            <div className="card-editor-container">
-                <div className="sheet-name">{card.name}</div> 
-                <button type="button" onClick={ this.onRemove}>Supprimer</button>
-                <Card card={card} />
-                <form className="card-editor">
-                    <button type="button" onClick={ this.onDuplicate }>Dupliquer</button>
-                    <input name="name" type="text" value={card.name} onChange={ this.handleCardChange } />
-                    <button type="button" onClick={this.createItem}>+</button>
-                    <fieldset>
-                        {cardItemInputs}
-                    </fieldset>
-                </form>
-            </div>
+            <form className="card-editor">
+                <input name="name" type="text" value={card.name} onChange={this.handleCardChange}/>
+                <button type="button" onClick={this.createItem}>+</button>
+                <fieldset>
+                    {cardItemInputs}
+                </fieldset>
+            </form>
         );
     }
 
@@ -56,13 +47,16 @@ export class CardEditor extends React.Component {
     }
 
     createItem() {
-        const aNewItem = {"type":"title", "content":""};
+        const aNewItem = {
+            "type": "title",
+            "content": ""
+        };
         let card = this.state.card;
         card.content.push(aNewItem);
 
         this.updateCard(card);
     }
-    
+
     removeItem(item) {
         let card = this.state.card;
         let itemIndex = card.content.indexOf(item);
@@ -72,7 +66,7 @@ export class CardEditor extends React.Component {
     }
 
     updateCard(card) {
-        this.setState({card: card});
+        this.onUpdate(card);
     }
 
     updateItem(item) {
@@ -99,9 +93,9 @@ class CardItemEditor extends React.Component {
         let item = this.state.item;
         return (
             <div className="card-item-editor">
-                <CardItemTypeSelector item={ item } onUpdate={ this.onUpdate } />
-                <CardItemInput item={ item } onUpdate={ this.onUpdate } />
-                <button type="button" onClick={ this.onRemove }>-</button>
+                <CardItemTypeSelector item={item} onUpdate={this.onUpdate}/>
+                <CardItemInput item={item} onUpdate={this.onUpdate}/>
+                <button type="button" onClick={this.onRemove}>-</button>
             </div>
         );
     }
@@ -122,16 +116,16 @@ class CardItemTypeSelector extends React.Component {
         let item = this.state.item;
         const itemTypes = [
             {"name": "title", "label": "Titre"},
-            {"name": "field", "label":"Clé/Valeur"},
+            {"name": "field", "label": "Clé/Valeur"},
             {"name": "text", "label": "Texte long"}
         ];
-        
+
         const typesOptions = itemTypes.map((itemType, index) =>
             <option key={index} value={itemType.name}>{itemType.label}</option>
         );
-    
+
         return (
-            <select value={item.type} onChange={ this.handleTypeChange }>
+            <select value={item.type} onChange={this.handleTypeChange}>
                 {typesOptions}
             </select>
         );
@@ -144,7 +138,7 @@ class CardItemTypeSelector extends React.Component {
         this.updateItem(item)
     }
 
-    updateItem(item){
+    updateItem(item) {
         this.setState({
             item: item
         });
