@@ -1,27 +1,25 @@
-'use strict'
+'use strict';
 
-import _ from 'lodash';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import { Codex } from './cards/Codex.js';
+import {Codex} from './components/codex/Codex.js';
 
-import './style.css';
-import './samples/css/colors.css';
-import './samples/css/icons.css';
-import './samples/css/screen.css';
+import './css/colors.css';
+import './css/icons.css';
+import './css/screen.css';
 
 export function aDiv(id) {
-    var element = document.createElement('div');
+    let element = document.createElement('div');
     element.setAttribute("id", id);
     return element;
 }
 
 document.body.appendChild(aDiv('react-root'));
 
-let card =  {
+let card = {
     "name": "Ma Carte de Test",
-/*    "shape": "landscape",*/
+    /*    "shape": "landscape",*/
     "content": [
         {
             "type": "title",
@@ -38,7 +36,7 @@ let card =  {
         }/**/
     ]
 };
-var cards = [];
+let cards = [];
 cards.push(card);
 cards.push(card);
 
