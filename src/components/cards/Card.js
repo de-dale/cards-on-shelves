@@ -3,7 +3,7 @@
 import React, {Component} from 'react';
 import classNames from 'classnames';
 
-import {CardItems} from './items/CardItems.js';
+import {CardItemContainer} from './items/CardItemContainer.js';
 
 export class Card extends Component{
     constructor(props) {
@@ -19,7 +19,7 @@ export class Card extends Component{
         );
         return (
             <div className={shapeClasses}>
-                <CardItems cardItems={ this.cardItems } />
+                <CardItemContainer cardItems={ this.cardItems } />
             </div>
         );
     }

@@ -4,7 +4,7 @@ import React, {Component} from 'react';
 
 import {CardItemTypes} from "./CardItemTypes";
 
-export class CardItems extends Component {
+export class CardItemContainer extends Component {
 
     constructor(props) {
         super(props);
