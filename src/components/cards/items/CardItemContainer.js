@@ -4,6 +4,8 @@ import React, {Component} from 'react';
 
 import {CardItemTypes} from "./CardItemTypes";
 
+import styles from './cardItemContainer.css';
+
 export class CardItemContainer extends Component {
 
     constructor(props) {
@@ -16,7 +18,7 @@ export class CardItemContainer extends Component {
             <CardItem key={index} item={item}/>
         );
         return (
-            <div className="card">
+            <div className={styles.card}>
                 {cardItems}
             </div>
         );
