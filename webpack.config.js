@@ -1,4 +1,5 @@
-const path = require('path');
+import path from "path";
+
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const webpack = require('webpack');
@@ -16,7 +17,7 @@ module.exports = {
     plugins: [
         new CleanWebpackPlugin(['dist']),
         new HtmlWebpackPlugin({
-             title: 'De-Dale - Shelves'
+            title: 'De-Dale - Shelves'
         }),
         new webpack.NamedModulesPlugin(),
         new webpack.HotModuleReplacementPlugin()
@@ -36,10 +37,19 @@ module.exports = {
             {
                 test: /\.css$/,
                 use: [
-                    'style-loader',
-                    'css-loader'
+                    {
+                        loader: 'style-loader',
+                    },
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            modules: true,
+                            // localIdentName: '[local]--[hash:base64:5]'
+                            localIdentName: '[local]'
+                        }
+                    }
                 ]
-	        },
+            },
             {
                 test: /\.(woff|woff2|eot|ttf|otf)$/,
                 use: [

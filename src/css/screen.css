@@ -2,15 +2,6 @@ body {
 	background-color: #eeeeee;
 }
 
-.card-container {
-	display: flex;
-	flex-wrap: wrap;
-}
-
-.card-container>* {
-	margin: 0.08em;
-}
-
 .card-shape {
 	background-color: black;
 	border-color: black;
