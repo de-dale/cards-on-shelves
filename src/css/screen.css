@@ -38,8 +38,3 @@ body {
   height: 1.25em;*/
 	
 }
-
-.card-long-text {
-	flex-grow: 1;
-	text-align: justify;
-}

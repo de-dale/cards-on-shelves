@@ -4,8 +4,8 @@ import {CardTitle} from "./title/CardTitle";
 import {CardTitleInput} from "./title/CardTitleInput";
 import {CardField} from "./field/CardField";
 import {CardFieldInput} from "./field/CardFieldInput";
-import {CardText} from "./CardText";
-import {CardTextInput} from "./CardTextInput";
+import {CardText} from "./text/CardText";
+import {CardTextInput} from "./text/CardTextInput";
 
 const _CardItemTypes = {
 
