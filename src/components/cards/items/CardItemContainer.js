@@ -15,7 +15,7 @@ export class CardItemContainer extends Component {
 
     render() {
         const cardItems = this.cardItems.map((item, index) =>
-            <CardItem key={index} item={item}/>
+            <CardItem className={styles["card-item"]} key={index} item={item}/>
         );
         return (
             <div className={styles.card}>
@@ -29,7 +29,7 @@ const CardItem = (props) => {
     const item = props.item;
     const ItemHandler = CardItemTypes[item.type].view || DefaultCardItem;
 
-    return <ItemHandler item={item}/>;
+    return <ItemHandler {...props} />;
 };
 
 const DefaultCardItem = () => {
