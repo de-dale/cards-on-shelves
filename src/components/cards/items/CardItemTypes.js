@@ -1,7 +1,7 @@
 'use strict';
 
-import {CardTitle} from "./CardTitle";
-import {CardTitleInput} from "./CardTitleInput";
+import {CardTitle} from "./title/CardTitle";
+import {CardTitleInput} from "./title/CardTitleInput";
 import {CardField} from "./CardField";
 import {CardFieldInput} from "./CardFieldInput";
 import {CardText} from "./CardText";

@@ -2,6 +2,8 @@
 
 import React, {Component} from 'react';
 
+import styles from './card-title.css';
+
 export class CardTitle extends Component {
 
     constructor(props) {
@@ -11,9 +13,10 @@ export class CardTitle extends Component {
 
     render() {
         const item = this.item;
+
         return (
-            <div className="card-item emphasized short">
-                <span className="card-header-name">{item.content}</span>
+            <div className={styles["card-title"]}>
+                {item.content}
             </div>
         );
     }
