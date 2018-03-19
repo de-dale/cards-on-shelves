@@ -2,8 +2,8 @@
 
 import {CardTitle} from "./title/CardTitle";
 import {CardTitleInput} from "./title/CardTitleInput";
-import {CardField} from "./CardField";
-import {CardFieldInput} from "./CardFieldInput";
+import {CardField} from "./field/CardField";
+import {CardFieldInput} from "./field/CardFieldInput";
 import {CardText} from "./CardText";
 import {CardTextInput} from "./CardTextInput";
 

@@ -24,47 +24,6 @@ body {
 	max-height: 1.8em;
 }
 
-.card-field-container {
-	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-}
-
-.card-field {
-	flex-grow: 1;
-	border-style: solid;
-	border-radius: 0.30em;
-	border-width: 0.15em;
-	padding-top: 0.15em;
-	padding-bottom: 0.15em;
-	padding-left: 0.30em;
-	padding-right: 0.30em;
-}
-
-.card-field+.card-field {
-	margin-left: -0.15em;
-}
-
-.card-field-header {
-    display: inline-flex;
-	font-weight: bold;
-}
-
-.card-field-value {
-    display: inline-flex;
-	font-family: "Arial", sans-serif;
-	font-variant: small-caps;
-	text-transform: lowercase;
-}
-
-.card-field-header+.card-field-value:not(.card-field-right)::before {
-	content: ": ";
-}
-
-.card-field-right {
-	float: right;
-}
-
 .card-image {
 	/*flex-grow: 1;*/
 	background-repeat: no-repeat;
