@@ -4,7 +4,7 @@ import React, {Component} from 'react';
 
 import {CardItemTypes} from "./CardItemTypes";
 
-import styles from './cardItemContainer.css';
+import styles from './card-item-container.css';
 
 export class CardItemContainer extends Component {
 

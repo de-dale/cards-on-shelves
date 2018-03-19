@@ -1,5 +1,5 @@
 .card-field-container {
-    composes: card-item from '../cardItemContainer.css';
+    composes: card-item from '../card-item-container.css';
 
     min-height: 1.2em;
     max-height: 1.2em;

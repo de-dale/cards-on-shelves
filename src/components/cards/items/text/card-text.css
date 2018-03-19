@@ -1,5 +1,5 @@
 .card-text {
-    composes: card-item from '../cardItemContainer.css';
+    composes: card-item from '../card-item-container.css';
 
     flex-grow: 1;
     text-align: justify;
