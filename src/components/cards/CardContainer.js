@@ -6,6 +6,8 @@ import {Card} from './Card.js';
 import {CardEditor} from './CardEditor.js';
 import {CardImporter} from './CardImporter.js';
 
+import styles from './cardContainer.css';
+
 export class CardContainer extends Component {
     constructor(props) {
         super(props);
@@ -53,12 +55,12 @@ export class CardContainer extends Component {
             <CardContainerItem key={index} card={card} addCard={this.addCard} removeCard={this.removeCard}/>
         );
         return (
-            <div className="card-container">
-                <div className="card-container-toolbar">
+            <div className={styles["card-container"]}>
+                <div className={styles["card-container-toolbar"]}>
                     <button type="button" onClick={this.createCard}>+</button>
                     <CardImporter onImport={this.addCards}/>
                 </div>
-                <div className="card-container-items">
+                <div className={styles["card-container-items"]}>
                     {items}
                 </div>
             </div>);

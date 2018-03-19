@@ -5,7 +5,9 @@ import classNames from 'classnames';
 
 import {CardItemContainer} from './items/CardItemContainer.js';
 
-export class Card extends Component{
+import styles from './card.css';
+
+export class Card extends Component {
     constructor(props) {
         super(props);
         this.card = props.card;
@@ -14,12 +16,12 @@ export class Card extends Component{
 
     render() {
         const card = this.card;
-        const shapeClasses = classNames('card-shape',
+        const shapeClasses = classNames.bind(styles)('card-shape',
             {'landscape': 'landscape' === card.shape}
         );
         return (
             <div className={shapeClasses}>
-                <CardItemContainer cardItems={ this.cardItems } />
+                <CardItemContainer cardItems={this.cardItems}/>
             </div>
         );
     }

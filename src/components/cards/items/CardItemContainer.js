@@ -4,6 +4,8 @@ import React, {Component} from 'react';
 
 import {CardItemTypes} from "./CardItemTypes";
 
+import styles from './cardItemContainer.css';
+
 export class CardItemContainer extends Component {
 
     constructor(props) {
@@ -13,10 +15,10 @@ export class CardItemContainer extends Component {
 
     render() {
         const cardItems = this.cardItems.map((item, index) =>
-            <CardItem key={index} item={item}/>
+            <CardItem className={styles["card-item"]} key={index} item={item}/>
         );
         return (
-            <div className="card">
+            <div className={styles.card}>
                 {cardItems}
             </div>
         );
@@ -27,7 +29,7 @@ const CardItem = (props) => {
     const item = props.item;
     const ItemHandler = CardItemTypes[item.type].view || DefaultCardItem;
 
-    return <ItemHandler item={item}/>;
+    return <ItemHandler {...props} />;
 };
 
 const DefaultCardItem = () => {

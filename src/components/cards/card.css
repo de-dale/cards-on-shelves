@@ -1,0 +1,18 @@
+.card-shape {
+    background-color: black;
+    border-color: black;
+    border-radius: 0.5em;
+    border-style: solid;
+    border-width: 0.08em;
+    box-sizing: border-box;
+    padding: 0.3em;
+    width: 18.4em;
+    height: 25.6em;
+    font-family: "Book Antiqua", serif;
+    font-size: large;
+}
+
+.landscape {
+    height: 18.4em;
+    width: 25.6em;
+}
