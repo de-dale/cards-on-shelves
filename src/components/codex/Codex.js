@@ -1,9 +1,10 @@
 'use strict';
 
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 
-import { CardContainer } from '../cards/CardContainer.js';
-import { CodexExporter } from './CodexExporter.js';
+import {CardContainer} from '../cards/CardContainer.js';
+import {CodexExporter} from './CodexExporter.js';
+import {DeckButton} from "../deck/DeckButton.js";
 
 export class Codex extends Component {
     constructor(props) {
@@ -19,13 +20,12 @@ export class Codex extends Component {
     }
 
     updateCodex(codex) {
-        this.setState({ codex : codex });
+        this.setState({codex: codex});
     }
 
     updateCards(cards) {
         let codex = this.state.codex;
         codex.cards = cards;
-        console.log('CARDS Updated', cards);
         this.updateCodex(codex);
     }
 
@@ -33,10 +33,11 @@ export class Codex extends Component {
         let codex = this.state.codex;
         let cards = codex.cards;
         return (
-            <div className="codex">
-                <h1>{ codex.name }</h1>
-                <CodexExporter codex={ codex } />
-                <CardContainer cards={ cards } onUpdateContainer={ this.updateCards }/>
+            <div className='codex'>
+                <h1>{codex.name}</h1>
+                <CodexExporter codex={codex}/>
+                <DeckButton label="Afficher Deck" name={codex.name} cards={cards}/>
+                <CardContainer cards={cards} onUpdateContainer={this.updateCards}/>
             </div>);
     }
 }
