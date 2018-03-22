@@ -18,12 +18,26 @@ export class PopupButton extends Component {
     }
 
     openPopup() {
-        const popup = window.open('', '', 'width=800,height=400,left=200,top=200');
+        const popup = window.open('', '', 'width=800,height=800,left=200,top=200');
         this.copyStyles(document, popup.document);
 
-        const popupRoot = popup.document.createElement('div')
+        const popupDoc = popup.document;
+        const popupStyleSheet = popupDoc.createElement('style');
+        Array.from([
+            'body {margin: 0;background-color: white;}',
+            'body * {visibility: hidden;}',
+            '#popup-root * {visibility: visible;}',
+            '@page {margin: 8mm;}'
+        ])
+            .map((cssRule) => popupDoc.createTextNode(cssRule))
+            .forEach((cssRule) => popupStyleSheet.appendChild(cssRule));
+
+        popupDoc.head.appendChild(popupStyleSheet);
+
+
+        const popupRoot = popupDoc.createElement('div')
         popupRoot.id = 'popup-root';
-        popup.document.body.appendChild(popupRoot);
+        popupDoc.body.appendChild(popupRoot);
 
         ReactDOM.render(this.props.children, popupRoot);
     }

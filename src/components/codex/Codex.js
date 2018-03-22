@@ -30,13 +30,18 @@ export class Codex extends Component {
     }
 
     render() {
-        let codex = this.state.codex;
-        let cards = codex.cards;
+        const codex = this.state.codex;
+        const cards = codex.cards;
         return (
             <div className='codex'>
                 <h1>{codex.name}</h1>
                 <CodexExporter codex={codex}/>
-                <DeckButton label="Afficher Deck" name={codex.name} cards={cards}/>
+                <DeckButton label="Afficher Deck" onLoadDeck={() => {
+                    return {
+                        name: codex.name,
+                        cards: codex.cards
+                    };
+                }}/>
                 <CardContainer cards={cards} onUpdateContainer={this.updateCards}/>
             </div>);
     }
