@@ -1,16 +1,17 @@
 .deck {
-	page-break-after: always;
-    display: flex;
-    flex-wrap: wrap;
 }
 
 .deck > * {
     margin: 0.08em;
+    display: inline-block;
+}
+
+.deck .page-break {
+    break-after: page;
 }
 
 .deck .card-shape {
 	font-size: small;
-	page-break-inside: avoid;
 }
 
 .deck .landscape {

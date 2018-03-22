@@ -15,9 +15,13 @@ export class Deck extends Component {
     }
 
     render() {
-        const cards = this.state.cards.map((item, index) =>
-            <Card key={index} card={item}/>
-        );
+        const cards = this.state.cards.map((item, index) => {
+            return (
+                <div key={index} className={((index + 1) % 9 === 0) ? "page-break" : undefined}>
+                    <Card card={item}/>
+                </div>
+            );
+        });
         return (
             <div className="deck">
                 {cards}
