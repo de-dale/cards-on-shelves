@@ -36,7 +36,7 @@ export class Codex extends Component {
             <div className='codex'>
                 <h1>{codex.name}</h1>
                 <CodexExporter codex={codex}/>
-                <DeckButton label="Afficher Deck" onLoadDeck={() => {
+                <DeckButton label="Imprimer Codex" onLoadDeck={() => {
                     return {
                         name: codex.name,
                         cards: codex.cards
