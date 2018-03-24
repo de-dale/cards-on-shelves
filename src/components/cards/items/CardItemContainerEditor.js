@@ -1,3 +1,5 @@
+'use strict';
+
 import React, {Component} from "react";
 import {CardItemTypes} from "./CardItemTypes";
 import {CardItemTypeSelector} from "./CardItemTypeSelector";

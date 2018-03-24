@@ -10,6 +10,7 @@ export class CardEditor extends Component{
             card: props.card
         };
         this.handleCardChange = this.handleCardChange.bind(this);
+        this.updateCardContent = this.updateCardContent.bind(this);
         this.onUpdate = props.onUpdate;
     }
 
@@ -20,7 +21,7 @@ export class CardEditor extends Component{
         return (
             <form className="card-editor">
                 <input name="name" type="text" value={card.name} onChange={this.handleCardChange}/>
-                <CardItemContainerEditor container={cardItems} onUpdate={this.onUpdate} onRemove={this.removeItem}/>
+                <CardItemContainerEditor container={cardItems} onUpdate={this.updateCardContent} onRemove={this.removeItem}/>
             </form>
         );
     }
@@ -33,6 +34,12 @@ export class CardEditor extends Component{
         let card = this.state.card;
         card[name] = value;
 
+        this.props.onUpdate(card);
+    }
+
+    updateCardContent(content) {
+        const card = this.state.card;
+        card.content = content;
         this.props.onUpdate(card);
     }
 }
