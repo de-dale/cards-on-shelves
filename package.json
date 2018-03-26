@@ -43,6 +43,8 @@
   },
   "scripts": {
     "build": "webpack --mode production",
+    "deploy": "./scripts/deploy.sh",
+    "release": "webpack --mode production && ./scripts/deploy.sh",
     "watch": "webpack --mode development --watch",
     "start": "webpack-dev-server --open",
     "test": "jest",

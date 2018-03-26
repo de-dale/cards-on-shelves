@@ -14,3 +14,7 @@ dist/*
 *.lock
 *-lock.json
 *.log
+
+# Credentials and sercrets
+*.credentials
+*.secrets
