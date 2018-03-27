@@ -17,7 +17,8 @@ module.exports = {
     plugins: [
         new CleanWebpackPlugin(['dist']),
         new HtmlWebpackPlugin({
-            title: 'De-Dale - Shelves'
+            title: 'De-Dale - Shelves',
+            template: 'src/index.html'
         }),
         new webpack.NamedModulesPlugin(),
         new webpack.HotModuleReplacementPlugin()
