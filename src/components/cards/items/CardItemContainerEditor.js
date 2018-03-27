@@ -1,8 +1,10 @@
 'use strict';
 
-import React, {Component} from "react";
-import {CardItemTypes} from "./CardItemTypes";
-import {CardItemTypeSelector} from "./CardItemTypeSelector";
+import React, {Component} from 'react';
+import PropTypes from 'prop-types';
+
+import {CardItemTypes} from './CardItemTypes';
+import {CardItemTypeSelector} from './CardItemTypeSelector';
 
 export class CardItemContainerEditor extends Component {
     constructor(props) {
@@ -21,8 +23,8 @@ export class CardItemContainerEditor extends Component {
         const container = this.state.container;
 
         container.push({
-            "type": "title",
-            "content": ""
+            'type': 'title',
+            'content': ''
         });
 
         this.onUpdate(container);
@@ -34,12 +36,12 @@ export class CardItemContainerEditor extends Component {
         const itemIndex = container.indexOf(item);
         container.splice(itemIndex, 1);
 
-        this.onUpdate(container)
+        this.onUpdate(container);
     }
 
     updateItem() {
         const container = this.state.container;
-        this.onUpdate(container)
+        this.onUpdate(container);
     }
 
     render() {
@@ -59,6 +61,11 @@ export class CardItemContainerEditor extends Component {
         );
     }
 }
+
+CardItemContainerEditor.propTypes = {
+    container: PropTypes.array.isRequired,
+    onUpdate: PropTypes.func.isRequired
+};
 
 class CardItemEditor extends Component {
     constructor(props) {
@@ -82,9 +89,26 @@ class CardItemEditor extends Component {
     }
 }
 
+CardItemEditor.propTypes = {
+    item: PropTypes.object.isRequired,
+    onUpdate: PropTypes.func.isRequired,
+    onRemove: PropTypes.func.isRequired
+};
+
 const CardItemInput = (props) => {
     const item = props.item;
 
     const InputItemHandler = CardItemTypes[item.type].input || DefaultCardItem;
     return <InputItemHandler item={item} onUpdate={props.onUpdate}/>;
+};
+
+const DefaultCardItem = () => {
+    return <div>Empty</div>;
+};
+
+CardItemInput.propTypes = {
+    item: PropTypes.shape({
+        type: PropTypes.string.isRequired
+    }).isRequired,
+    onUpdate: PropTypes.func.isRequired
 };

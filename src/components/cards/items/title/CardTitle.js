@@ -1,6 +1,7 @@
 'use strict';
 
 import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 
 import styles from './card-title.css';
 
@@ -15,9 +16,15 @@ export class CardTitle extends Component {
         const item = this.item;
 
         return (
-            <div className={styles["card-title"]}>
+            <div className={styles['card-title']}>
                 {item.content}
             </div>
         );
     }
 }
+
+CardTitle.propTypes = {
+    item: PropTypes.shape({
+        content: PropTypes.string.isRequired
+    }).isRequired
+};

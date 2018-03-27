@@ -1,10 +1,11 @@
 'use strict';
 
 import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 
 import {CardContainer} from '../cards/CardContainer.js';
 import {CodexExporter} from './CodexExporter.js';
-import {DeckButton} from "../deck/DeckButton.js";
+import {DeckButton} from '../deck/DeckButton.js';
 
 export class Codex extends Component {
     constructor(props) {
@@ -46,3 +47,8 @@ export class Codex extends Component {
             </div>);
     }
 }
+
+Codex.propTypes = {
+    name: PropTypes.string.isRequired,
+    cards: PropTypes.array
+};

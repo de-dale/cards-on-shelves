@@ -1,7 +1,9 @@
 'use strict';
 
-import React, {Component} from "react";
-import {CardItemTypes} from "./CardItemTypes";
+import React, {Component} from 'react';
+import PropTypes from 'prop-types';
+
+import {CardItemTypes} from './CardItemTypes';
 
 export class CardItemTypeSelector extends Component {
     constructor(props) {
@@ -31,7 +33,7 @@ export class CardItemTypeSelector extends Component {
         let item = this.state.item;
         item.type = event.target.value;
 
-        this.updateItem(item)
+        this.updateItem(item);
     }
 
     updateItem(item) {
@@ -42,3 +44,10 @@ export class CardItemTypeSelector extends Component {
     }
 
 }
+
+CardItemTypeSelector.propTypes = {
+    item: PropTypes.shape({
+        type: PropTypes.string.isRequired
+    }).isRequired,
+    onUpdate: PropTypes.func.isRequired
+};

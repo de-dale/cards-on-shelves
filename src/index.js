@@ -9,7 +9,7 @@ import './css/screen.css';
 
 export function aDiv(id) {
     const element = document.createElement('div');
-    element.setAttribute("id", id);
+    element.setAttribute('id', id);
     return element;
 }
 

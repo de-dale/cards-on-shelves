@@ -1,6 +1,7 @@
 'use strict';
 
 import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 
 export class CardFieldInput extends Component{
     constructor(props) {
@@ -27,14 +28,14 @@ export class CardFieldInput extends Component{
         let item = this.state.item;
         item.header = event.target.value;
 
-        this.updateItem(item)
+        this.updateItem(item);
     }
 
     handleValueChange(event) {
         let item = this.state.item;
         item.content = event.target.value;
 
-        this.updateItem(item)
+        this.updateItem(item);
     }
 
     updateItem(item){
@@ -43,5 +44,13 @@ export class CardFieldInput extends Component{
         });
         this.onUpdate(item);
     }
-
 }
+
+
+CardFieldInput.propTypes = {
+    item: PropTypes.shape({
+        header: PropTypes.string.isRequired,
+        content: PropTypes.string.isRequired,
+    }).isRequired,
+    onUpdate: PropTypes.func.isRequired
+};

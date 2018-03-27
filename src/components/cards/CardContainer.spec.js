@@ -8,9 +8,9 @@ import beautify from 'js-beautify';
 
 import { CardContainer } from './CardContainer.js';
 
-describe("A card container", () => {
+describe('A card container', () => {
     it('could be empty', () => {
-        let name = "Deck";
+        let name = 'Deck';
         let cards = [];
         let rendered = printCardContainer(name, cards);
         expect(rendered)
@@ -18,27 +18,27 @@ describe("A card container", () => {
     });
 
     it('could be filled', () => {
-        let name = "Deck";
+        let name = 'Deck';
         let cards = [{
-            "name": "Carte avec titre",
-            "content": [
+            'name': 'Carte avec titre',
+            'content': [
                 {
-                    "type": "title",
-                    "content": "Titre de la carte."
+                    'type': 'title',
+                    'content': 'Titre de la carte.'
                 }
             ]
         },{
-            "name" : "Carte avec champ",
-            "shape": "landscape",
-            "content": [
+            'name' : 'Carte avec champ',
+            'shape': 'landscape',
+            'content': [
                 {
-                    "type": "field",
-                    "header": "Type de carte",
-                    "content": "MJ"
-                 }
+                    'type': 'field',
+                    'header': 'Type de carte',
+                    'content': 'MJ'
+                }
             ]
         },{
-            "name" : "Carte vide"
+            'name' : 'Carte vide'
         }];
         let rendered = printCardContainer(name, cards);
         expect(rendered)
@@ -46,7 +46,7 @@ describe("A card container", () => {
     });
     
     it('should have a new card', () => {
-        let name = "Deck";
+        let name = 'Deck';
         let cards = [];
         let rendered = printCardContainer(name, cards);
         expect(rendered)
@@ -57,7 +57,7 @@ describe("A card container", () => {
 function printCardContainer(name, cards) {
     let renderRoot = document.createElement('div');
     ReactDOM.render(
-        <CardContainer name={name} cards={cards}/>,
+        <CardContainer name={name} cards={cards} onUpdateContainer={()=>{}}/>,
         renderRoot
     );
 
@@ -65,5 +65,5 @@ function printCardContainer(name, cards) {
 }
 
 function expectedFile(filename){
-        return fs.readFileSync('./src/codex/expects/'+ filename, 'utf-8').trim();
+    return fs.readFileSync('./src/codex/expects/'+ filename, 'utf-8').trim();
 }

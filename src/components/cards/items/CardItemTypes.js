@@ -1,26 +1,26 @@
 'use strict';
 
-import {CardTitle} from "./title/CardTitle";
-import {CardTitleInput} from "./title/CardTitleInput";
-import {CardField} from "./field/CardField";
-import {CardFieldInput} from "./field/CardFieldInput";
-import {CardText} from "./text/CardText";
-import {CardTextInput} from "./text/CardTextInput";
+import {CardTitle} from './title/CardTitle';
+import {CardTitleInput} from './title/CardTitleInput';
+import {CardField} from './field/CardField';
+import {CardFieldInput} from './field/CardFieldInput';
+import {CardText} from './text/CardText';
+import {CardTextInput} from './text/CardTextInput';
 
 const _CardItemTypes = {
 
     title: {
-        label: "Titre",
+        label: 'Titre',
         input: CardTitleInput,
         view: CardTitle
     },
     text: {
-        label: "Texte long",
+        label: 'Texte long',
         input: CardTextInput,
         view: CardText
     },
     field: {
-        label: "Clé/Valeur",
+        label: 'Clé/Valeur',
         input: CardFieldInput,
         view: CardField
     }

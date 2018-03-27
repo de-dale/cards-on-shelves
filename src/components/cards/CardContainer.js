@@ -1,6 +1,7 @@
 'use strict';
 
 import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 
 import {Card} from './Card.js';
 import {CardEditor} from './CardEditor.js';
@@ -28,8 +29,8 @@ export class CardContainer extends Component {
 
     createCard() {
         const aNewCard = {
-            "name": "",
-            "content": []
+            'name': '',
+            'content': []
         };
         this.addCard(aNewCard);
     }
@@ -55,17 +56,22 @@ export class CardContainer extends Component {
             <CardContainerItem key={index} card={card} addCard={this.addCard} removeCard={this.removeCard}/>
         );
         return (
-            <div className={styles["card-container"]}>
-                <div className={styles["card-container-toolbar"]}>
+            <div className={styles['card-container']}>
+                <div className={styles['card-container-toolbar']}>
                     <button type="button" onClick={this.createCard}>+</button>
                     <CardImporter onImport={this.addCards}/>
                 </div>
-                <div className={styles["card-container-items"]}>
+                <div className={styles['card-container-items']}>
                     {items}
                 </div>
             </div>);
     }
 }
+
+CardContainer.propTypes = {
+    cards: PropTypes.array.isRequired,
+    onUpdateContainer: PropTypes.func.isRequired
+};
 
 class CardContainerItem extends Component {
     constructor(props) {
@@ -94,6 +100,12 @@ class CardContainerItem extends Component {
                 <Card card={card}/>
                 <CardEditor card={card} onUpdate={this.onUpdateCard}/>
             </div>
-        )
+        );
     }
 }
+
+CardContainerItem.propTypes = {
+    card: PropTypes.object.isRequired,
+    addCard: PropTypes.func.isRequired,
+    removeCard: PropTypes.func.isRequired
+};

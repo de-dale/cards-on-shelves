@@ -1,9 +1,10 @@
 'use strict';
 
 import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 
-import {Deck} from "./Deck.js";
-import {PopupButton} from "../popup/PopupButton";
+import {Deck} from './Deck.js';
+import {PopupButton} from '../popup/PopupButton';
 
 export class DeckButton extends Component {
     constructor(props) {
@@ -24,3 +25,8 @@ export class DeckButton extends Component {
         );
     }
 }
+
+DeckButton.propTypes = {
+    label: PropTypes.string.isRequired,
+    onLoadDeck: PropTypes.func.isRequired
+};

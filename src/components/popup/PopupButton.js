@@ -2,6 +2,7 @@
 
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
+import PropTypes from 'prop-types';
 
 export class PopupButton extends Component {
     constructor(props) {
@@ -35,7 +36,7 @@ export class PopupButton extends Component {
         popupDoc.head.appendChild(popupStyleSheet);
 
 
-        const popupRoot = popupDoc.createElement('div')
+        const popupRoot = popupDoc.createElement('div');
         popupRoot.id = 'popup-root';
         popupDoc.body.appendChild(popupRoot);
 
@@ -52,7 +53,7 @@ export class PopupButton extends Component {
         if (styleSheet.cssRules) {
             return this.copyStyleElement(targetDoc, styleSheet);
         } else if (styleSheet.href) {
-            return this.copyStyleLink(targetDoc, styleSheet);
+            return PopupButton.copyStyleLink(targetDoc, styleSheet);
         }
     }
 
@@ -66,7 +67,7 @@ export class PopupButton extends Component {
         return targetStyleSheet;
     }
 
-    copyStyleLink(targetDoc, styleSheet) {
+    static copyStyleLink(targetDoc, styleSheet) {
         const targetStyleLink = targetDoc.createElement('link');
         targetStyleLink.rel = 'stylesheet';
         targetStyleLink.href = styleSheet.href;
@@ -74,3 +75,8 @@ export class PopupButton extends Component {
     }
 }
 
+
+PopupButton.propTypes = {
+    label: PropTypes.string.isRequired,
+    children: PropTypes.element
+};

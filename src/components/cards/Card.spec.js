@@ -8,7 +8,7 @@ import fs from 'fs';
 import beautify from 'js-beautify';
 import reactrenderer from 'react-test-renderer';
 
-describe("A single card", () => {
+describe('A single card', () => {
     it('could be empty', () => {
         const card = {};
         const rendered = printCard(card);
@@ -18,10 +18,10 @@ describe("A single card", () => {
 
     it('should render title', () => {
         const card = {
-            "content": [
+            'content': [
                 {
-                    "type": "title",
-                    "content": "Titre de la carte."
+                    'type': 'title',
+                    'content': 'Titre de la carte.'
                 }
             ]
         };
@@ -32,10 +32,10 @@ describe("A single card", () => {
 
     it('should render with long text', () => {
         const card = {
-            "content": [
+            'content': [
                 {
-                    "type": "long-text",
-                    "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam dui magna, tristique ac volutpat sed, sollicitudin molestie magna. Cras sed purus at metus viverra venenatis a et dolor. Pellentesque egestas nisi in mollis aliquam. Sed scelerisque fermentum tincidunt. Nulla interdum venenatis sapien, sit amet condimentum lectus. Phasellus malesuada semper quam, ut pulvinar dolor iaculis vitae. Praesent eu lorem quis nisl lobortis venenatis non id massa. Curabitur non ex sodales, mollis tellus in, dapibus purus. Maecenas eget odio commodo, posuere sapien eget, congue arcu. Donec id facilisis lectus. Proin vitae ipsum libero. Quisque vitae tellus dui. Nulla tincidunt est ac quam faucibus, a lobortis elit venenatis. Sed quis neque sit amet leo finibus cursus. Aenean gravida consectetur erat, sit amet lobortis magna volutpat iaculis."
+                    'type': 'long-text',
+                    'content': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam dui magna, tristique ac volutpat sed, sollicitudin molestie magna. Cras sed purus at metus viverra venenatis a et dolor. Pellentesque egestas nisi in mollis aliquam. Sed scelerisque fermentum tincidunt. Nulla interdum venenatis sapien, sit amet condimentum lectus. Phasellus malesuada semper quam, ut pulvinar dolor iaculis vitae. Praesent eu lorem quis nisl lobortis venenatis non id massa. Curabitur non ex sodales, mollis tellus in, dapibus purus. Maecenas eget odio commodo, posuere sapien eget, congue arcu. Donec id facilisis lectus. Proin vitae ipsum libero. Quisque vitae tellus dui. Nulla tincidunt est ac quam faucibus, a lobortis elit venenatis. Sed quis neque sit amet leo finibus cursus. Aenean gravida consectetur erat, sit amet lobortis magna volutpat iaculis.'
                 }
             ]
         };
@@ -46,14 +46,14 @@ describe("A single card", () => {
 
     it('should render with title and long text', () => {
         const card = {
-            "content": [
-                 {
-                    "type": "title",
-                    "content": "Titre de la carte."
+            'content': [
+                {
+                    'type': 'title',
+                    'content': 'Titre de la carte.'
                 },
                 {
-                    "type": "long-text",
-                    "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam dui magna, tristique ac volutpat sed, sollicitudin molestie magna. Cras sed purus at metus viverra venenatis a et dolor. Pellentesque egestas nisi in mollis aliquam. Sed scelerisque fermentum tincidunt. Nulla interdum venenatis sapien, sit amet condimentum lectus. Phasellus malesuada semper quam, ut pulvinar dolor iaculis vitae. Praesent eu lorem quis nisl lobortis venenatis non id massa. Curabitur non ex sodales, mollis tellus in, dapibus purus. Maecenas eget odio commodo, posuere sapien eget, congue arcu. Donec id facilisis lectus. Proin vitae ipsum libero. Quisque vitae tellus dui. Nulla tincidunt est ac quam faucibus, a lobortis elit venenatis. Sed quis neque sit amet leo finibus cursus. Aenean gravida consectetur erat, sit amet lobortis magna volutpat iaculis."
+                    'type': 'long-text',
+                    'content': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam dui magna, tristique ac volutpat sed, sollicitudin molestie magna. Cras sed purus at metus viverra venenatis a et dolor. Pellentesque egestas nisi in mollis aliquam. Sed scelerisque fermentum tincidunt. Nulla interdum venenatis sapien, sit amet condimentum lectus. Phasellus malesuada semper quam, ut pulvinar dolor iaculis vitae. Praesent eu lorem quis nisl lobortis venenatis non id massa. Curabitur non ex sodales, mollis tellus in, dapibus purus. Maecenas eget odio commodo, posuere sapien eget, congue arcu. Donec id facilisis lectus. Proin vitae ipsum libero. Quisque vitae tellus dui. Nulla tincidunt est ac quam faucibus, a lobortis elit venenatis. Sed quis neque sit amet leo finibus cursus. Aenean gravida consectetur erat, sit amet lobortis magna volutpat iaculis.'
                 }
             ]
         };
@@ -64,12 +64,12 @@ describe("A single card", () => {
 
     it('should be rendered with field', () => {
         const card = {
-            "content": [
+            'content': [
                 {
-                    "type": "field",
-                    "header": "Type de carte",
-                    "content": "MJ"
-                 }
+                    'type': 'field',
+                    'header': 'Type de carte',
+                    'content': 'MJ'
+                }
             ]
         };
         const rendered = printCard(card);
@@ -79,16 +79,16 @@ describe("A single card", () => {
 
 });
 
-describe("A landscape card", () => {
+describe('A landscape card', () => {
     it('should be rendered with field', () => {
         const card = {
-            "shape": "landscape",
+            'shape': 'landscape',
             content: [
                 {
-                    "type": "field",
-                    "header": "Type de carte",
-                    "content": "MJ"
-                 }
+                    'type': 'field',
+                    'header': 'Type de carte',
+                    'content': 'MJ'
+                }
             ]
         };
         const rendered = printCard(card);
@@ -97,7 +97,7 @@ describe("A landscape card", () => {
     });
 });
 
-describe("A single Component card", () => {
+describe('A single Component card', () => {
 
     it('could be empty', () => {
         const card = {};
@@ -112,8 +112,8 @@ describe("A single Component card", () => {
         const card = {
             content: [
                 {
-                    "type": "title",
-                    "content": "Titre de la carte."
+                    'type': 'title',
+                    'content': 'Titre de la carte.'
                 }
             ]
         };
@@ -129,12 +129,12 @@ describe("A single Component card", () => {
         const card = {
             content: [
                 {
-                    "type": "long-text",
-                    "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam dui magna, tristique ac volutpat sed, sollicitudin molestie magna. Cras sed purus at metus viverra venenatis a et dolor. Pellentesque egestas nisi in mollis aliquam. Sed scelerisque fermentum tincidunt. Nulla interdum venenatis sapien, sit amet condimentum lectus. Phasellus malesuada semper quam, ut pulvinar dolor iaculis vitae. Praesent eu lorem quis nisl lobortis venenatis non id massa. Curabitur non ex sodales, mollis tellus in, dapibus purus. Maecenas eget odio commodo, posuere sapien eget, congue arcu. Donec id facilisis lectus. Proin vitae ipsum libero. Quisque vitae tellus dui. Nulla tincidunt est ac quam faucibus, a lobortis elit venenatis. Sed quis neque sit amet leo finibus cursus. Aenean gravida consectetur erat, sit amet lobortis magna volutpat iaculis."
+                    'type': 'long-text',
+                    'content': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam dui magna, tristique ac volutpat sed, sollicitudin molestie magna. Cras sed purus at metus viverra venenatis a et dolor. Pellentesque egestas nisi in mollis aliquam. Sed scelerisque fermentum tincidunt. Nulla interdum venenatis sapien, sit amet condimentum lectus. Phasellus malesuada semper quam, ut pulvinar dolor iaculis vitae. Praesent eu lorem quis nisl lobortis venenatis non id massa. Curabitur non ex sodales, mollis tellus in, dapibus purus. Maecenas eget odio commodo, posuere sapien eget, congue arcu. Donec id facilisis lectus. Proin vitae ipsum libero. Quisque vitae tellus dui. Nulla tincidunt est ac quam faucibus, a lobortis elit venenatis. Sed quis neque sit amet leo finibus cursus. Aenean gravida consectetur erat, sit amet lobortis magna volutpat iaculis.'
                 }
             ]
         };
-         const component = reactrenderer.create(
+        const component = reactrenderer.create(
             <Card card={card} />
         );
 
@@ -144,17 +144,17 @@ describe("A single Component card", () => {
     it('should render with title and long text', () => {
         const card = {
             content: [
-                 {
-                    "type": "title",
-                    "content": "Titre de la carte."
+                {
+                    'type': 'title',
+                    'content': 'Titre de la carte.'
                 },
                 {
-                    "type": "long-text",
-                    "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam dui magna, tristique ac volutpat sed, sollicitudin molestie magna. Cras sed purus at metus viverra venenatis a et dolor. Pellentesque egestas nisi in mollis aliquam. Sed scelerisque fermentum tincidunt. Nulla interdum venenatis sapien, sit amet condimentum lectus. Phasellus malesuada semper quam, ut pulvinar dolor iaculis vitae. Praesent eu lorem quis nisl lobortis venenatis non id massa. Curabitur non ex sodales, mollis tellus in, dapibus purus. Maecenas eget odio commodo, posuere sapien eget, congue arcu. Donec id facilisis lectus. Proin vitae ipsum libero. Quisque vitae tellus dui. Nulla tincidunt est ac quam faucibus, a lobortis elit venenatis. Sed quis neque sit amet leo finibus cursus. Aenean gravida consectetur erat, sit amet lobortis magna volutpat iaculis."
+                    'type': 'long-text',
+                    'content': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam dui magna, tristique ac volutpat sed, sollicitudin molestie magna. Cras sed purus at metus viverra venenatis a et dolor. Pellentesque egestas nisi in mollis aliquam. Sed scelerisque fermentum tincidunt. Nulla interdum venenatis sapien, sit amet condimentum lectus. Phasellus malesuada semper quam, ut pulvinar dolor iaculis vitae. Praesent eu lorem quis nisl lobortis venenatis non id massa. Curabitur non ex sodales, mollis tellus in, dapibus purus. Maecenas eget odio commodo, posuere sapien eget, congue arcu. Donec id facilisis lectus. Proin vitae ipsum libero. Quisque vitae tellus dui. Nulla tincidunt est ac quam faucibus, a lobortis elit venenatis. Sed quis neque sit amet leo finibus cursus. Aenean gravida consectetur erat, sit amet lobortis magna volutpat iaculis.'
                 }
             ]
         };
-         const component = reactrenderer.create(
+        const component = reactrenderer.create(
             <Card card={card} />
         );
 
@@ -165,10 +165,10 @@ describe("A single Component card", () => {
         const card = {
             content: [
                 {
-                    "type": "field",
-                    "header": "Type de carte",
-                    "content": "MJ"
-                 }
+                    'type': 'field',
+                    'header': 'Type de carte',
+                    'content': 'MJ'
+                }
             ]
         };
         const component = reactrenderer.create(
@@ -180,13 +180,13 @@ describe("A single Component card", () => {
     
     it('could be landscaped', () => {
         const card = {
-            "shape": "landscape",
-            "content": [
+            'shape': 'landscape',
+            'content': [
                 {
-                    "type": "field",
-                    "header": "Type de carte",
-                    "content": "MJ"
-                 }
+                    'type': 'field',
+                    'header': 'Type de carte',
+                    'content': 'MJ'
+                }
             ]
         };
         const component = reactrenderer.create(
@@ -200,13 +200,13 @@ describe("A single Component card", () => {
 function printCard(card) {
     const renderRoot = document.createElement('div');
     ReactDOM.render(
-          <Card card={card} />,
-          renderRoot
+        <Card card={card} />,
+        renderRoot
     );
 
     return beautify.html(renderRoot.innerHTML);
 }
 
 function expectedFile(filename){
-        return fs.readFileSync('./src/codex/expects/'+ filename, 'utf-8').trim();
+    return fs.readFileSync('./src/codex/expects/'+ filename, 'utf-8').trim();
 }

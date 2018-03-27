@@ -1,7 +1,9 @@
 'use strict';
 
 import React, {Component} from 'react';
-import {CardItemContainerEditor} from "./items/CardItemContainerEditor";
+import PropTypes from 'prop-types';
+
+import {CardItemContainerEditor} from './items/CardItemContainerEditor';
 
 export class CardEditor extends Component{
     constructor(props) {
@@ -43,3 +45,8 @@ export class CardEditor extends Component{
         this.props.onUpdate(card);
     }
 }
+
+CardEditor.propTypes = {
+    card: PropTypes.object.isRequired,
+    onUpdate: PropTypes.func.isRequired
+};

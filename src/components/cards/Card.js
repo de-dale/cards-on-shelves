@@ -1,6 +1,7 @@
 'use strict';
 
 import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 import {CardItemContainer} from './items/CardItemContainer.js';
@@ -11,7 +12,7 @@ export class Card extends Component {
     constructor(props) {
         super(props);
         this.card = props.card;
-        this.cardItems = props.card.content || [];
+        this.container = this.card.content || [];
     }
 
     render() {
@@ -21,8 +22,14 @@ export class Card extends Component {
         );
         return (
             <div className={shapeClasses}>
-                <CardItemContainer cardItems={this.cardItems}/>
+                <CardItemContainer container={this.container}/>
             </div>
         );
     }
 }
+
+Card.propTypes = {
+    card: PropTypes.shape({
+        content: PropTypes.array.isRequired
+    }).isRequired
+};

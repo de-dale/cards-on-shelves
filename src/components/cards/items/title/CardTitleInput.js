@@ -1,8 +1,9 @@
 'use strict';
 
 import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 
-export class CardTitleInput extends Component{
+export class CardTitleInput extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -16,22 +17,29 @@ export class CardTitleInput extends Component{
         const item = this.state.item;
         return (
             <div className="card-input-title">
-                <input type="text" value={item.content} onChange={ this.handleTitleChange } />
+                <input type="text" value={item.content} onChange={this.handleTitleChange}/>
             </div>
         );
     }
-    
+
     handleTitleChange(event) {
-        let item = this.state.item;
+        const item = this.state.item;
         item.content = event.target.value;
 
-        this.updateItem(item)
+        this.updateItem(item);
     }
 
-    updateItem(item){
+    updateItem(item) {
         this.setState({
             item: item
         });
         this.onUpdate(item);
     }
 }
+
+CardTitleInput.propTypes = {
+    item: PropTypes.shape({
+        content: PropTypes.string.isRequired
+    }).isRequired,
+    onUpdate: PropTypes.func.isRequired
+};

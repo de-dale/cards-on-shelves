@@ -1,6 +1,7 @@
 'use strict';
 
 import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 
 export class CardImporter extends Component{
     constructor(props) {
@@ -20,7 +21,7 @@ export class CardImporter extends Component{
             }
         };
         reader.onerror = function () {
-            console.error('Error reading file');
+            throw new Error('Cannot import file');
         };
         return reader;
     }
@@ -36,6 +37,10 @@ export class CardImporter extends Component{
     }
 
     importFile(file) {
-        this.fileImporter.readAsText(file, "UTF-8");
+        this.fileImporter.readAsText(file, 'UTF-8');
     }
 }
+
+CardImporter.propTypes = {
+    onImport: PropTypes.func.isRequired
+};

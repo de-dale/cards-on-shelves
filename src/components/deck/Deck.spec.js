@@ -8,9 +8,9 @@ import beautify from 'js-beautify';
 
 import { Deck } from './Deck.js';
 
-describe("A Deck", () => {
+describe('A Deck', () => {
     it('could be empty', () => {
-        const name = "Deck";
+        const name = 'Deck';
         const cards = [];
         const rendered = printDeck(name, cards);
         expect(rendered)
@@ -18,22 +18,22 @@ describe("A Deck", () => {
     });
 
     it('could be filled', () => {
-        const name = "Deck";
+        const name = 'Deck';
         const cards = [{
-            "content": [
+            'content': [
                 {
-                    "type": "title",
-                    "content": "Titre de la carte."
+                    'type': 'title',
+                    'content': 'Titre de la carte.'
                 }
             ]
         },{
-            "shape": "landscape",
-            "content": [
+            'shape': 'landscape',
+            'content': [
                 {
-                    "type": "field",
-                    "header": "Type de carte",
-                    "content": "MJ"
-                 }
+                    'type': 'field',
+                    'header': 'Type de carte',
+                    'content': 'MJ'
+                }
             ]
         },{
             
@@ -55,5 +55,5 @@ function printDeck(name, cards) {
 }
 
 function expectedFile(filename){
-        return fs.readFileSync('./src/deck/expects/'+ filename, 'utf-8').trim();
+    return fs.readFileSync('./src/deck/expects/'+ filename, 'utf-8').trim();
 }
