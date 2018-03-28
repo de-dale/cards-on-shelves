@@ -18,9 +18,16 @@ export class CodexExporter extends Component{
     }
     
     exportCards() {
-        const codex = this.codex;
-        const blob = new Blob([JSON.stringify(codex.cards)], {type: 'text/plain;charset=utf-8'});
-        FileSaver.saveAs(blob, codex.name + '.json');
+        const blob = new Blob([this.getExportContent()], {type: 'text/json;charset=utf-8'});
+        FileSaver.saveAs(blob, this.getExportName());
+    }
+
+    getExportContent() {
+        return JSON.stringify(this.codex.cards);
+    }
+
+    getExportName() {
+        return this.codex.name + '.json';
     }
 }
 
