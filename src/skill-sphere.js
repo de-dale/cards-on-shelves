@@ -2,6 +2,7 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
+import PropTypes from 'prop-types';
 
 import {Card} from './components/cards/Card.js';
 
@@ -17,7 +18,6 @@ const skillSphereRoot = aDiv('skill-sphere');
 document.body.appendChild(skillSphereRoot);
 
 function SkillSphere(props) {
-
     const cards = props.cards.map((card, index) =>
         <Card key={index} card={card}/>
     );
@@ -29,18 +29,17 @@ function SkillSphere(props) {
     );
 }
 
-let cards = [];
-const skillSphereUrl = '';
-fetch(skillSphereUrl)
-    .then(function (response) {
+SkillSphere.propTypes = {
+    cards: PropTypes.array.isRequired
+};
+
+fetch('https://raw.githubusercontent.com/de-dale/skills-sphere/spheres.all/main/all.spheres')
+    .then(function(response) {
         return response.json();
     })
-    .then(function (data) {
-        cards = data;
+    .then(function(data) {
+        ReactDOM.render(
+            <SkillSphere cards={data}/>,
+            skillSphereRoot
+        );
     });
-
-ReactDOM.render(
-    <SkillSphere cards={cards}/>,
-    skillSphereRoot
-);
-

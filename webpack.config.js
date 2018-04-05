@@ -16,7 +16,6 @@ module.exports = {
         port: 9000
     },
     plugins: [
-        /* https://stackoverflow.com/questions/39798095/multiple-html-files-using-webpack/ */
         new CleanWebpackPlugin(['dist']),
         new HtmlWebpackPlugin({
             title: 'De-Dale - Shelves',
