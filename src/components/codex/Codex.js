@@ -14,7 +14,8 @@ export class Codex extends Component {
             codex: {
                 name: props.name,
                 cards: props.cards || []
-            }
+            },
+            editMode: props.editMode
         };
         this.updateCodex = this.updateCodex.bind(this);
         this.updateCards = this.updateCards.bind(this);
@@ -32,6 +33,7 @@ export class Codex extends Component {
 
     render() {
         const codex = this.state.codex;
+        const editMode = this.state.editMode;
         const cards = codex.cards;
         return (
             <div className='codex'>
@@ -43,12 +45,13 @@ export class Codex extends Component {
                         cards: codex.cards
                     };
                 }}/>
-                <CardContainer cards={cards} onUpdateContainer={this.updateCards}/>
+                <CardContainer cards={cards} onUpdateContainer={this.updateCards} editMode={editMode}/>
             </div>);
     }
 }
 
 Codex.propTypes = {
     name: PropTypes.string.isRequired,
-    cards: PropTypes.array
+    cards: PropTypes.array,
+    editMode: PropTypes.string,
 };

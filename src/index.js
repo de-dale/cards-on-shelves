@@ -20,4 +20,3 @@ ReactDOM.render(
     <Codex name="Codex De-Dale"/>,
     codexRoot
 );
-
