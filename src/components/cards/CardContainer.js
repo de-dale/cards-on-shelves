@@ -2,12 +2,10 @@
 
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-
-import {Card} from './Card.js';
-import {CardEditor} from './CardEditor.js';
 import {CardImporter} from './CardImporter.js';
 
 import styles from './cardContainer.css';
+import {EditableCard} from './EditableCard';
 
 export class CardContainer extends Component {
     constructor(props) {
@@ -55,15 +53,15 @@ export class CardContainer extends Component {
         const cards = this.state.cards;
         const editMode = this.state.editMode;
         const items = cards.map((card, index) =>
-            <CardContainerItem key={index} card={card} addCard={this.addCard} removeCard={this.removeCard} editMode={editMode}/>
+            <EditableCard key={index} card={card} addCard={this.addCard} removeCard={this.removeCard} editMode={editMode}/>
         );
         return (
             <div className={styles['card-container']}>
                 {editMode !== 'readonly' &&
-                    <div className={styles['card-container-toolbar']}>
-                        <button type="button" onClick={this.createCard}>+</button>
-                        <CardImporter onImport={this.addCards}/>
-                    </div>
+                <div className={styles['card-container-toolbar']}>
+                    <button type="button" onClick={this.createCard}>+</button>
+                    <CardImporter onImport={this.addCards}/>
+                </div>
                 }
                 <div className={styles['card-container-items']}>
                     {items}
@@ -76,48 +74,4 @@ CardContainer.propTypes = {
     cards: PropTypes.array.isRequired,
     onUpdateContainer: PropTypes.func.isRequired,
     editMode: PropTypes.string
-};
-
-class CardContainerItem extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            card: props.card,
-            editMode: props.editMode
-        };
-        this.addCard = props.addCard;
-        this.removeCard = props.removeCard;
-        this.onUpdateCard = this.onUpdateCard.bind(this);
-    }
-
-    onUpdateCard(card) {
-        this.setState({card: card});
-    }
-
-    render() {
-        const card = this.state.card;
-        const editMode = this.state.editMode;
-        return (
-            <div className="card-container-item">
-                <div className="card-container-item-name">{card.name}</div>
-                {editMode !== 'readonly' &&
-                    <div className="card-container-item-toolbar">
-                        <button type="button" onClick={() => this.addCard(card)}>Dupliquer</button>
-                        <button type="button" onClick={() => this.removeCard(card)}>Supprimer</button>
-                    </div>
-                }
-                <Card card={card}/>
-                {editMode !== 'readonly' &&
-                    <CardEditor card={card} onUpdate={this.onUpdateCard}/>
-                }
-            </div>
-        );
-    }
-}
-
-CardContainerItem.propTypes = {
-    card: PropTypes.object.isRequired,
-    editMode: PropTypes.string,
-    addCard: PropTypes.func.isRequired,
-    removeCard: PropTypes.func.isRequired
 };
