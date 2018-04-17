@@ -4,36 +4,38 @@ import React, {Component} from 'react';
 import FileSaver from 'file-saver';
 import PropTypes from 'prop-types';
 
-export class CodexExporter extends Component{
+export class CodexExporter extends Component {
     constructor(props) {
         super(props);
-        this.codex = props.codex;
+        this.onLoadCodex = props.onLoadCodex;
         this.exportCards = this.exportCards.bind(this);
     }
 
     render() {
         return (
-            <button type="button" onClick={ this.exportCards }>Sauver</button>
+            <button type="button" onClick={this.exportCards}>Sauver</button>
         );
     }
-    
+
     exportCards() {
-        const blob = new Blob([this.getExportContent()], {type: 'text/json;charset=utf-8'});
-        FileSaver.saveAs(blob, this.getExportName());
+        const codex = this.loadCodex();
+        const blob = new Blob([this.toExportContent(codex)], {type: 'text/json;charset=utf-8'});
+        FileSaver.saveAs(blob, this.toExportName());
     }
 
-    getExportContent() {
-        return JSON.stringify(this.codex.cards);
+    loadCodex() {
+        return this.onLoadCodex();
     }
 
-    getExportName() {
-        return this.codex.name + '.json';
+    toExportContent(codex) {
+        return JSON.stringify(codex.cards);
+    }
+
+    toExportName(codex) {
+        return codex.name + '.json';
     }
 }
 
 CodexExporter.propTypes = {
-    codex: PropTypes.shape({
-        name: PropTypes.string.isRequired,
-        cards: PropTypes.array.isRequired
-    }).isRequired
+    onLoadCodex: PropTypes.func.isRequired
 };

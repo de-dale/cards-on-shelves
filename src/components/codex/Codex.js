@@ -4,8 +4,7 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 
 import {CardContainer} from '../cards/CardContainer.js';
-import {CodexExporter} from './CodexExporter.js';
-import {DeckButton} from '../deck/DeckButton.js';
+import {CodexToolbar} from './CodexToolbar';
 
 export class Codex extends Component {
     constructor(props) {
@@ -36,15 +35,10 @@ export class Codex extends Component {
         return (
             <div className='codex'>
                 <h1>{codex.name}</h1>
-                <CodexExporter codex={codex}/>
-                <DeckButton label="Imprimer Codex" onLoadDeck={() => {
-                    return {
-                        name: codex.name,
-                        cards: codex.cards
-                    };
-                }}/>
+                <CodexToolbar onLoadCodex={() => codex}/>
                 <CardContainer cards={cards} onUpdateContainer={this.updateCards}/>
-            </div>);
+            </div>
+        );
     }
 }
 
