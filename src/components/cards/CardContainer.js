@@ -12,7 +12,6 @@ export class CardContainer extends Component {
         super(props);
         this.state = {
             cards: props.cards,
-            editMode: props.editMode
         };
         this.createCard = this.createCard.bind(this);
         this.removeCard = this.removeCard.bind(this);
@@ -51,18 +50,15 @@ export class CardContainer extends Component {
 
     render() {
         const cards = this.state.cards;
-        const editMode = this.state.editMode;
         const items = cards.map((card, index) =>
-            <EditableCard key={index} card={card} addCard={this.addCard} removeCard={this.removeCard} editMode={editMode}/>
+            <EditableCard key={index} card={card} addCard={this.addCard} removeCard={this.removeCard}/>
         );
         return (
             <div className={styles['card-container']}>
-                {editMode !== 'readonly' &&
                 <div className={styles['card-container-toolbar']}>
                     <button type="button" onClick={this.createCard}>+</button>
                     <CardImporter onImport={this.addCards}/>
                 </div>
-                }
                 <div className={styles['card-container-items']}>
                     {items}
                 </div>
@@ -72,6 +68,5 @@ export class CardContainer extends Component {
 
 CardContainer.propTypes = {
     cards: PropTypes.array.isRequired,
-    onUpdateContainer: PropTypes.func.isRequired,
-    editMode: PropTypes.string
+    onUpdateContainer: PropTypes.func.isRequired
 };
