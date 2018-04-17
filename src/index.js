@@ -16,7 +16,20 @@ export function aDiv(id) {
 const codexRoot = aDiv('shelves-root');
 document.body.appendChild(codexRoot);
 
-ReactDOM.render(
-    <Codex name="Codex De-Dale"/>,
-    codexRoot
-);
+loadCodex(codexRoot, 'Sphérier', 'https://raw.githubusercontent.com/de-dale/skills-sphere/spheres.all/main/all.spheres');
+
+function loadCodex(dom, name, url) {
+    fetch(url)
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+            ReactDOM.render(
+                <Codex
+                    name={name}
+                    cards={data}
+                />,
+                dom
+            );
+        });
+}

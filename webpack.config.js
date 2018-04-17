@@ -6,8 +6,7 @@ const webpack = require('webpack');
 
 module.exports = {
     entry: {
-        app: './src/index.js',
-        skillsSphere: './src/skill-sphere.js'
+        app: './src/index.js'
     },
     devtool: 'inline-source-map',
     devServer: {
@@ -21,11 +20,6 @@ module.exports = {
             title: 'De-Dale - Shelves',
             template: 'src/index.html',
             chunks: ['app']
-        }),
-        new HtmlWebpackPlugin({
-            filename: 'skills-sphere.html',
-            template: 'src/index.html',
-            chunks: ['skillsSphere']
         }),
         new webpack.NamedModulesPlugin(),
         new webpack.HotModuleReplacementPlugin()
