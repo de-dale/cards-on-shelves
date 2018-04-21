@@ -1,11 +1,11 @@
 'use strict';
 
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import {CardImporter} from './CardImporter.js';
+import { CardImporter } from './CardImporter.js';
 
 import styles from './cardContainer.css';
-import {EditableCard} from './EditableCard';
+import { EditableCard } from './EditableCard';
 
 export class CardContainer extends Component {
     constructor(props) {
@@ -21,14 +21,14 @@ export class CardContainer extends Component {
     }
 
     updateContainer(cards) {
-        this.setState({cards: cards});
+        this.setState({ cards: cards });
         this.onUpdateContainer(cards);
     }
 
     createCard() {
         const aNewCard = {
-            'name': '',
-            'content': []
+            name: '',
+            content: [],
         };
         this.addCard(aNewCard);
     }
@@ -38,7 +38,7 @@ export class CardContainer extends Component {
     }
 
     addCards(cards) {
-        this.updateContainer(this.state.cards.concat(...cards));
+        this.updateContainer([...this.state.cards, ...cards]);
     }
 
     removeCard(card) {
@@ -50,23 +50,29 @@ export class CardContainer extends Component {
 
     render() {
         const cards = this.state.cards;
-        const items = cards.map((card, index) =>
-            <EditableCard key={index} card={card} addCard={this.addCard} removeCard={this.removeCard}/>
-        );
+        const items = cards.map((card, index) => (
+            <EditableCard
+                key={index}
+                card={card}
+                addCard={this.addCard}
+                removeCard={this.removeCard}
+            />
+        ));
         return (
             <div className={styles['card-container']}>
                 <div className={styles['card-container-toolbar']}>
-                    <button type="button" onClick={this.createCard}>+</button>
-                    <CardImporter onImport={this.addCards}/>
+                    <button type="button" onClick={this.createCard}>
+                        +
+                    </button>
+                    <CardImporter onImport={this.addCards} />
                 </div>
-                <div className={styles['card-container-items']}>
-                    {items}
-                </div>
-            </div>);
+                <div className={styles['card-container-items']}>{items}</div>
+            </div>
+        );
     }
 }
 
 CardContainer.propTypes = {
     cards: PropTypes.array.isRequired,
-    onUpdateContainer: PropTypes.func.isRequired
+    onUpdateContainer: PropTypes.func.isRequired,
 };
