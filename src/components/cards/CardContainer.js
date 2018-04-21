@@ -26,7 +26,7 @@ export class CardContainer extends Component {
     createCard() {
         const aNewCard = {
             name: '',
-            content: [],
+            content: []
         };
         this.addCard(aNewCard);
     }
@@ -59,12 +59,12 @@ export class CardContainer extends Component {
         return (
             <div className={styles['card-container']}>
                 <div className={styles['card-container-toolbar']}>
-                    <button type="button" onClick={this.createCard}>
-            +
-                    </button>
+                    <button type="button" onClick={this.createCard}>+</button>
                     <CardImporter onImport={this.addCards} />
                 </div>
-                <div className={styles['card-container-items']}>{items}</div>
+                <div className={styles['card-container-items']}>
+                  {items}
+                </div>
             </div>
         );
     }
