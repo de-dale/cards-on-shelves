@@ -1,5 +1,3 @@
-'use strict';
-
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
@@ -23,13 +21,9 @@ export class Card extends Component {
 }
 
 Card.propTypes = {
-    card: PropTypes.object,
+    card: PropTypes.object
     //TODO Qu'est-ce qui devait être obligatoire comme props ici ?
     // card: PropTypes.shape({
     //     content: PropTypes.array.isRequired
     // }).isRequired
-};
-    card: PropTypes.shape({
-        content: PropTypes.array.isRequired
-    }).isRequired
 };
