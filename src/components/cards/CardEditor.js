@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import { CardItemContainerEditor } from './items/CardItemContainerEditor';
+import {CardItemContainerEditor} from './items/CardItemContainerEditor';
 
 export class CardEditor extends Component {
     constructor(props) {
