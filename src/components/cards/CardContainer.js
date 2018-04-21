@@ -63,10 +63,9 @@ export class CardContainer extends Component {
                     <CardImporter onImport={this.addCards} />
                 </div>
                 <div className={styles['card-container-items']}>
-                  {items}
+                   {items}
                 </div>
-            </div>
-        );
+            </div>);
     }
 }
 
