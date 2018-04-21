@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {CardImporter} from './CardImporter.js';
 
@@ -60,7 +60,7 @@ export class CardContainer extends Component {
             <div className={styles['card-container']}>
                 <div className={styles['card-container-toolbar']}>
                     <button type="button" onClick={this.createCard}>+</button>
-                    <CardImporter onImport={this.addCards} />
+                    <CardImporter onImport={this.addCards}/>
                 </div>
                 <div className={styles['card-container-items']}>
                    {items}
