@@ -1,5 +1,3 @@
-'use strict';
-
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 
@@ -28,7 +26,7 @@ export class CardImporter extends Component{
 
     render() {
         return (
-            <input type="file" onChange={(e) => this.handleChange(e.target.files)}/>
+            <input type="file" onChange={({target: {files}}) => this.handleChange(files)}/>
         );
     }
 

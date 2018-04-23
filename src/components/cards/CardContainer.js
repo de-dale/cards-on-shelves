@@ -1,5 +1,3 @@
-'use strict';
-
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {CardImporter} from './CardImporter.js';
@@ -27,8 +25,8 @@ export class CardContainer extends Component {
 
     createCard() {
         const aNewCard = {
-            'name': '',
-            'content': []
+            name: '',
+            content: []
         };
         this.addCard(aNewCard);
     }
@@ -38,7 +36,7 @@ export class CardContainer extends Component {
     }
 
     addCards(cards) {
-        this.updateContainer(this.state.cards.concat(...cards));
+        this.updateContainer([...this.state.cards, ...cards]);
     }
 
     removeCard(card) {
@@ -50,9 +48,14 @@ export class CardContainer extends Component {
 
     render() {
         const cards = this.state.cards;
-        const items = cards.map((card, index) =>
-            <EditableCard key={index} card={card} addCard={this.addCard} removeCard={this.removeCard}/>
-        );
+        const items = cards.map((card, index) => (
+            <EditableCard
+                key={index}
+                card={card}
+                addCard={this.addCard}
+                removeCard={this.removeCard}
+            />
+        ));
         return (
             <div className={styles['card-container']}>
                 <div className={styles['card-container-toolbar']}>
