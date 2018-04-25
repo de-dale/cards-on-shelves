@@ -8,7 +8,6 @@ import styles from './card.css';
 
 export class Card extends Component {
     render() {
-        //TODO je ne comprends pas très bien l'utilisation du bind ici
         const shapeClasses = classNames.bind(styles)('card-shape', {
             landscape: 'landscape' === this.props.card.shape,
         });
@@ -22,8 +21,4 @@ export class Card extends Component {
 
 Card.propTypes = {
     card: PropTypes.object
-    //TODO Qu'est-ce qui devait être obligatoire comme props ici ?
-    // card: PropTypes.shape({
-    //     content: PropTypes.array.isRequired
-    // }).isRequired
 };
