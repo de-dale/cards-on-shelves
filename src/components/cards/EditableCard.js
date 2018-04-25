@@ -11,8 +11,6 @@ export class EditableCard extends Component {
             card: props.card,
             editMode: props.editMode
         };
-        this.addCard = props.addCard;
-        this.removeCard = props.removeCard;
         this.onUpdateCard = this.onUpdateCard.bind(this);
         this.toggleEditMode = this.toggleEditMode.bind(this);
     }
@@ -38,8 +36,8 @@ export class EditableCard extends Component {
                             ? 'Lecture seule'
                             : 'Éditer'}
                     </button>
-                    <button type="button" onClick={() => this.addCard(card)}>Dupliquer</button>
-                    <button type='button' onClick={() => this.removeCard(card)}>Supprimer</button>
+                    <button type="button" onClick={() => this.props.addCard(card)}>Dupliquer</button>
+                    <button type='button' onClick={() => this.props.removeCard(card)}>Supprimer</button>
                 </div>
 
                 <Card card={card}/>

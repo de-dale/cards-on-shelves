@@ -9,7 +9,6 @@ export class CardFieldInput extends Component{
         };
         this.handleHeaderChange = this.handleHeaderChange.bind(this);
         this.handleValueChange = this.handleValueChange.bind(this);
-        this.onUpdate = props.onUpdate;
     }
 
     render() {
@@ -40,7 +39,7 @@ export class CardFieldInput extends Component{
         this.setState({
             item: item
         });
-        this.onUpdate(item);
+        this.props.onUpdate(item);
     }
 }
 

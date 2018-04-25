@@ -7,13 +7,10 @@ import './deck.css';
 export class Deck extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-            cards: props.cards || []
-        };
     }
 
     render() {
-        const cards = this.state.cards.map((item, index) =>
+        const cards = this.props.cards.map((item, index) =>
             <Card key={index} card={item}/>
         );
         return (

@@ -5,15 +5,12 @@ import {CardItemContainerEditor} from './items/CardItemContainerEditor';
 export class CardEditor extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-            card: props.card
-        };
         this.handleCardChange = this.handleCardChange.bind(this);
         this.updateCardContent = this.updateCardContent.bind(this);
     }
 
     render() {
-        const card = this.state.card;
+        const card = this.props.card;
         const cardItems = card.content || [];
 
         return (
@@ -27,7 +24,6 @@ export class CardEditor extends Component {
                 <CardItemContainerEditor
                     container={cardItems}
                     onUpdate={this.updateCardContent}
-                    onRemove={this.removeItem}
                 />
             </form>
         );
@@ -43,6 +39,7 @@ export class CardEditor extends Component {
     updateCardContent(content) {
         const card = this.props.card;
         card.content = content;
+
         this.props.onUpdate(card);
     }
 }

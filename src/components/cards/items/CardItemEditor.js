@@ -7,20 +7,15 @@ import {CardItemTypeSelector} from './CardItemTypeSelector';
 export class CardItemEditor extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-            item: props.item
-        };
-        this.onUpdate = props.onUpdate;
-        this.onRemove = props.onRemove;
     }
 
     render() {
-        let item = this.state.item;
+        const item = this.props.item;
         return (
             <div className="card-item-editor">
-                <CardItemTypeSelector item={item} onUpdate={this.onUpdate}/>
-                <CardItemInput item={item} onUpdate={this.onUpdate}/>
-                <button type="button" onClick={this.onRemove}>-</button>
+                <CardItemTypeSelector item={item} onUpdate={this.props.onUpdate}/>
+                <CardItemInput item={item} onUpdate={this.props.onUpdate}/>
+                <button type="button" onClick={() => this.props.onRemove}>-</button>
             </div>
         );
     }

@@ -5,7 +5,6 @@ import PropTypes from 'prop-types';
 export class CodexExporter extends Component {
     constructor(props) {
         super(props);
-        this.onLoadCodex = props.onLoadCodex;
         this.exportCards = this.exportCards.bind(this);
     }
 
@@ -22,7 +21,7 @@ export class CodexExporter extends Component {
     }
 
     loadCodex() {
-        return this.onLoadCodex();
+        return this.props.onLoadCodex();
     }
 
     toExportContent(codex) {
