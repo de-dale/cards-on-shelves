@@ -1,5 +1,3 @@
-'use strict';
-
 import React, {Component} from 'react';
 import FileSaver from 'file-saver';
 import PropTypes from 'prop-types';

@@ -1,5 +1,3 @@
-'use strict';
-
 import {CardTitle} from './title/CardTitle';
 import {CardTitleInput} from './title/CardTitleInput';
 import {CardField} from './field/CardField';
