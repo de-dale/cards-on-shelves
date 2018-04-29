@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 
-export class CardTextInput extends Component{
+class CardTextInput extends Component{
     constructor(props) {
         super(props);
         this.state = {
@@ -19,7 +19,7 @@ export class CardTextInput extends Component{
             </div>
         );
     }
-    
+
     handleTextChange(event) {
         let item = this.state.item;
         item.content = event.target.value;
@@ -41,3 +41,5 @@ CardTextInput.propTypes = {
     }).isRequired,
     onUpdate: PropTypes.func.isRequired
 };
+
+export default CardTextInput;

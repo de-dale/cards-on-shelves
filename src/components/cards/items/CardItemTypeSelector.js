@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import {CardItemTypes} from './CardItemTypes';
 
-export class CardItemTypeSelector extends Component {
+class CardItemTypeSelector extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -49,3 +49,5 @@ CardItemTypeSelector.propTypes = {
     }).isRequired,
     onUpdate: PropTypes.func.isRequired
 };
+
+export default CardItemTypeSelector;

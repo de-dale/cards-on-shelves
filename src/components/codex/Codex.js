@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 
-import {CardContainer} from '../cards/CardContainer.js';
-import {CodexToolbar} from './CodexToolbar';
+import CardContainer from '../cards/CardContainer.js';
+import CodexToolbar from './CodexToolbar';
 
-export class Codex extends Component {
+class Codex extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -18,7 +18,7 @@ export class Codex extends Component {
     }
 
     updateCodex(codex) {
-        this.setState({codex: codex});
+        this.setState({codex});
     }
 
     updateCards(cards) {
@@ -44,3 +44,5 @@ Codex.propTypes = {
     name: PropTypes.string.isRequired,
     cards: PropTypes.array
 };
+
+export default Codex;

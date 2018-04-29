@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 
-import {CardEditor} from './CardEditor';
-import {Card} from './Card';
+import CardEditor from './CardEditor';
+import Card from './Card';
 
-export class EditableCard extends Component {
+class EditableCard extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -60,3 +60,5 @@ EditableCard.propTypes = {
     addCard: PropTypes.func.isRequired,
     removeCard: PropTypes.func.isRequired
 };
+
+export default EditableCard;

@@ -1,9 +1,9 @@
-import {CardTitle} from './title/CardTitle';
-import {CardTitleInput} from './title/CardTitleInput';
-import {CardField} from './field/CardField';
-import {CardFieldInput} from './field/CardFieldInput';
-import {CardText} from './text/CardText';
-import {CardTextInput} from './text/CardTextInput';
+import CardTitle from './title/CardTitle';
+import CardTitleInput from './title/CardTitleInput';
+import CardField from './field/CardField';
+import CardFieldInput from './field/CardFieldInput';
+import CardText from './text/CardText';
+import CardTextInput from './text/CardTextInput';
 
 const _CardItemTypes = {
 

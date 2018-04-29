@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import { Card } from './Card.js';
+import Card from './Card.js';
 import fs from 'fs';
 import beautify from 'js-beautify';
 import reactrenderer from 'react-test-renderer';
@@ -115,7 +115,7 @@ describe('A single Component card', () => {
                 }
             ]
         };
-        
+
         const component = reactrenderer.create(
             <Card card={card} />
         );
@@ -175,7 +175,7 @@ describe('A single Component card', () => {
 
         expect(component.toJSON()).toMatchSnapshot();
     });
-    
+
     it('could be landscaped', () => {
         const card = {
             'shape': 'landscape',

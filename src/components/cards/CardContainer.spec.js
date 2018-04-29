@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 import fs from 'fs';
 import beautify from 'js-beautify';
 
-import { CardContainer } from './CardContainer.js';
+import CardContainer from './CardContainer.js';
 
 describe('A card container', () => {
     it('could be empty', () => {
@@ -42,7 +42,7 @@ describe('A card container', () => {
         expect(rendered)
             .toBe(expectedFile('cardContainer_filled.html'));
     });
-    
+
     it('should have a new card', () => {
         let name = 'Deck';
         let cards = [];

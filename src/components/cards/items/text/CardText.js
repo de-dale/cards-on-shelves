@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import styles from './card-text.css';
 
-export class CardText extends Component {
+class CardText extends Component {
     constructor(props) {
         super(props);
         this.item = props.item;
@@ -20,3 +20,5 @@ CardText.propTypes = {
         content: PropTypes.string.isRequired
     }).isRequired
 };
+
+export default CardText;

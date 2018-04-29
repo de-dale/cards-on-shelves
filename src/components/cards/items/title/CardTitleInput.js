@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 
-export class CardTitleInput extends Component {
+class CardTitleInput extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -41,3 +41,5 @@ CardTitleInput.propTypes = {
     }).isRequired,
     onUpdate: PropTypes.func.isRequired
 };
+
+export default CardTitleInput;

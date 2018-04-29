@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 
-import {CardItemEditor} from './CardItemEditor';
+import CardItemEditor from './CardItemEditor';
 
-export class CardItemContainerEditor extends Component {
+class CardItemContainerEditor extends Component {
     constructor(props) {
         super(props);
 
@@ -58,3 +58,5 @@ CardItemContainerEditor.propTypes = {
     container: PropTypes.array.isRequired,
     onUpdate: PropTypes.func.isRequired
 };
+
+export default CardItemContainerEditor;

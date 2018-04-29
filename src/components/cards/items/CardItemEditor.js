@@ -2,9 +2,9 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 
 import {CardItemTypes} from './CardItemTypes';
-import {CardItemTypeSelector} from './CardItemTypeSelector';
+import CardItemTypeSelector from './CardItemTypeSelector';
 
-export class CardItemEditor extends Component {
+class CardItemEditor extends Component {
     constructor(props) {
         super(props);
     }
@@ -44,3 +44,5 @@ CardItemInput.propTypes = {
     }).isRequired,
     onUpdate: PropTypes.func.isRequired
 };
+
+export default CardItemEditor;

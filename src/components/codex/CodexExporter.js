@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import FileSaver from 'file-saver';
 import PropTypes from 'prop-types';
 
-export class CodexExporter extends Component {
+class CodexExporter extends Component {
     constructor(props) {
         super(props);
         this.exportCards = this.exportCards.bind(this);
@@ -36,3 +36,5 @@ export class CodexExporter extends Component {
 CodexExporter.propTypes = {
     onLoadCodex: PropTypes.func.isRequired
 };
+
+export default CodexExporter;
