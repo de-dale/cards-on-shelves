@@ -5,12 +5,13 @@ import classNames from 'classnames';
 import CardItemContainer from './items/CardItemContainer.js';
 
 import styles from './card.css';
+import './card-themes.css';
 
 class Card extends Component {
     render() {
         const shapeClasses = classNames.bind(styles)('card-shape', {
             landscape: 'landscape' === this.props.card.shape,
-        });
+        }, this.props.card.theme);
         return (
             <div className={shapeClasses}>
                 <CardItemContainer container={this.props.card.content} />

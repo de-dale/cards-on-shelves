@@ -26,6 +26,7 @@ class CardContainer extends Component {
     createCard() {
         const aNewCard = {
             name: '',
+            theme: '',
             content: []
         };
         this.addCard(aNewCard);
