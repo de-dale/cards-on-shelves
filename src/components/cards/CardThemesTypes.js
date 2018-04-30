@@ -4,6 +4,15 @@ const _CardThemesTypes = {
         name: '',
         label: '-'
     },
+    action: {
+        name: 'action',
+        label: 'Action'
+    },
+    ability: {
+        name: 'ability',
+        label: 'Aptitude'
+    },
+
     white: {
         name: 'white',
         label: 'Blanc'
