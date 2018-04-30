@@ -5,7 +5,7 @@ import {CardItemTypes} from './CardItemTypes';
 
 import styles from './card-item-container.css';
 
-export class CardItemContainer extends Component {
+class CardItemContainer extends Component {
 
     constructor(props) {
         super(props);
@@ -41,3 +41,5 @@ const DefaultCardItem = () => {
 CardItem.propTypes = {
     item: PropTypes.object.isRequired
 };
+
+export default CardItemContainer;

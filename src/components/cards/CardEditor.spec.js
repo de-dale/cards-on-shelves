@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 import fs from 'fs';
 import beautify from 'js-beautify';
 
-import { CardEditor } from './CardEditor.js';
+import CardEditor from './CardEditor.js';
 
 describe('Card Edition', () => {
     it('should edit a card from scratch', () => {
@@ -19,7 +19,7 @@ describe('Card Edition', () => {
 
     it('should edit card title', () => {
         const card = {
-            'name': 'Ma Carte', 
+            'name': 'Ma Carte',
             'content': [
                 {
                     'type': 'title',
@@ -34,7 +34,7 @@ describe('Card Edition', () => {
 
     it('should edit card field', () => {
         const card = {
-            'name': 'Ma Carte', 
+            'name': 'Ma Carte',
             'content': [
                 {
                     'type': 'field',
@@ -47,10 +47,10 @@ describe('Card Edition', () => {
         expect(rendered)
             .toBe(expectedFile('edit_card_with_a_field.html'));
     });
-    
+
     it('should edit card text', () => {
         const card = {
-            'name': 'Ma Carte', 
+            'name': 'Ma Carte',
             'content': [
                 {
                     'type': 'text',

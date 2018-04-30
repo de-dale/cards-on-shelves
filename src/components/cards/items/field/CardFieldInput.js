@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 
-export class CardFieldInput extends Component{
+class CardFieldInput extends Component{
     constructor(props) {
         super(props);
         this.state = {
@@ -51,3 +51,5 @@ CardFieldInput.propTypes = {
     }).isRequired,
     onUpdate: PropTypes.func.isRequired
 };
+
+export default CardFieldInput;

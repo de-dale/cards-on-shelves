@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import {CardImporter} from './CardImporter.js';
+import CardImporter from './CardImporter.js';
 
 import styles from './cardContainer.css';
-import {EditableCard} from './EditableCard';
+import EditableCard from './EditableCard';
 
-export class CardContainer extends Component {
+class CardContainer extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -19,7 +19,7 @@ export class CardContainer extends Component {
     }
 
     updateContainer(cards) {
-        this.setState({cards: cards});
+        this.setState({cards});
         this.onUpdateContainer(cards);
     }
 
@@ -73,3 +73,5 @@ CardContainer.propTypes = {
     cards: PropTypes.array.isRequired,
     onUpdateContainer: PropTypes.func.isRequired
 };
+
+export default CardContainer;

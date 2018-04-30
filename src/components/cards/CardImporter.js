@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 
-export class CardImporter extends Component{
+class CardImporter extends Component{
     constructor(props) {
         super(props);
         this.handleChange = this.handleChange.bind(this);
@@ -42,3 +42,5 @@ export class CardImporter extends Component{
 CardImporter.propTypes = {
     onImport: PropTypes.func.isRequired
 };
+
+export default CardImporter;

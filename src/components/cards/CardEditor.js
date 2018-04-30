@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import {CardItemContainerEditor} from './items/CardItemContainerEditor';
+import CardItemContainerEditor from './items/CardItemContainerEditor';
 
-export class CardEditor extends Component {
+class CardEditor extends Component {
     constructor(props) {
         super(props);
         this.handleCardChange = this.handleCardChange.bind(this);
@@ -48,3 +48,5 @@ CardEditor.propTypes = {
     card: PropTypes.object.isRequired,
     onUpdate: PropTypes.func.isRequired
 };
+
+export default CardEditor;

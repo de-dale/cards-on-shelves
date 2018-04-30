@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 
-export class PopupButton extends Component {
+class PopupButton extends Component {
     constructor(props) {
         super(props);
         this.openPopup = this.openPopup.bind(this);
@@ -78,3 +78,5 @@ PopupButton.propTypes = {
     label: PropTypes.string.isRequired,
     children: PropTypes.element
 };
+
+export default PopupButton;

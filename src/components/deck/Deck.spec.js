@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 import fs from 'fs';
 import beautify from 'js-beautify';
 
-import { Deck } from './Deck.js';
+import Deck from './Deck.js';
 
 describe('A Deck', () => {
     it('could be empty', () => {
@@ -34,7 +34,7 @@ describe('A Deck', () => {
                 }
             ]
         },{
-            
+
         }];
         const rendered = printDeck(name, cards);
         expect(rendered)

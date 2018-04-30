@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import styles from './card-title.css';
 
-export class CardTitle extends Component {
+class CardTitle extends Component {
 
     constructor(props) {
         super(props);
@@ -26,3 +26,5 @@ CardTitle.propTypes = {
         content: PropTypes.string.isRequired
     }).isRequired
 };
+
+export default CardTitle;

@@ -1,13 +1,10 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 
-import {Card} from '../cards/Card.js';
+import Card from '../cards/Card.js';
 import './deck.css';
 
-export class Deck extends Component {
-    constructor(props) {
-        super(props);
-    }
+class Deck extends Component {
 
     render() {
         const cards = this.props.cards.map((item, index) =>
@@ -23,3 +20,5 @@ export class Deck extends Component {
 Deck.propTypes = {
     cards: PropTypes.array.isRequired
 };
+
+export default Deck;

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import styles from './card-field.css';
 
-export class CardField extends Component {
+class CardField extends Component {
     constructor(props) {
         super(props);
         this.item = props.item;
@@ -27,3 +27,5 @@ CardField.propTypes = {
         content: PropTypes.string.isRequired
     }).isRequired
 };
+
+export default CardField;
