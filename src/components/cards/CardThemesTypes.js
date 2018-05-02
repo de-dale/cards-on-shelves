@@ -1,4 +1,4 @@
-const _CardThemesTypes = {
+const CardThemesTypes = {
 
     default: {
         name: '',
@@ -68,11 +68,4 @@ const _CardThemesTypes = {
 
 };
 
-Object.defineProperty(_CardThemesTypes, 'values', {
-    writable: false,
-    value: (mapEach) => Object.entries(_CardThemesTypes).map(([name, value]) => {
-        return mapEach(name, value);
-    })
-});
-
-export const CardThemesTypes = Object.freeze(_CardThemesTypes);
+export default CardThemesTypes;
