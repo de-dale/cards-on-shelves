@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import CardItemContainerEditor from './items/CardItemContainerEditor';
+import CardThemeSelector from './CardThemeSelector';
 
 class CardEditor extends Component {
     constructor(props) {
@@ -20,6 +21,10 @@ class CardEditor extends Component {
                     type="text"
                     value={card.name}
                     onChange={this.handleCardChange}
+                />
+                <CardThemeSelector
+                    card={card}
+                    onUpdate={this.handleCardChange}
                 />
                 <CardItemContainerEditor
                     container={cardItems}
