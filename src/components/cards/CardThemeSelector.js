@@ -4,9 +4,6 @@ import PropTypes from 'prop-types';
 import {CardThemesTypes} from './CardThemesTypes.js';
 
 class CardThemeSelector extends Component {
-    constructor(props) {
-        super(props);
-    }
 
     render() {
         const typesOptions = CardThemesTypes.values((key, value) => {
