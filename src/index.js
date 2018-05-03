@@ -22,12 +22,16 @@ function loadCodex(dom, name, url) {
             return response.json();
         })
         .then(function (data) {
-            ReactDOM.render(
-                <Codex
-                    name={name}
-                    cards={data}
-                />,
-                dom
-            );
+            displayCodex(dom, name, data);
         });
+}
+
+function displayCodex(dom, name, data) {
+    ReactDOM.render(
+        <Codex
+            name={name}
+            cards={data}
+        />,
+        dom
+    );
 }

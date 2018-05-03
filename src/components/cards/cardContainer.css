@@ -10,6 +10,7 @@
 .card-container-toolbar {
 
 }
-.card-container-items {
-
+.card-container-items  > * {
+    margin: 0.08em;
+    display: inline-block;
 }
