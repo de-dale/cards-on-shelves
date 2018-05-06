@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import CardItemContainerEditor from './items/CardItemContainerEditor';
-import CardThemeSelector from './CardThemeSelector';
+import CardItemContainerEditor from './../items/CardItemContainerEditor';
+import CardThemeSelector from './../theme/CardThemeSelector';
 
 class CardEditor extends Component {
     constructor(props) {
