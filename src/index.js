@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import Codex from './components/codex/Codex.js';
+import Codex from './codex/Codex.js';
 
 import './css/screen.css';
 
