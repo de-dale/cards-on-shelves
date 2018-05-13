@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 
 import CardEditor from './CardEditor';
-import Card from './Card';
+import Card from './../Card';
 
 class EditableCard extends Component {
     constructor(props) {

@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 
-import CardContainer from '../cards/CardContainer.js';
+import CardListContainer from './../cards/list/CardList';
 import CodexToolbar from './CodexToolbar';
 
 class Codex extends Component {
@@ -34,7 +34,7 @@ class Codex extends Component {
             <div className='codex'>
                 <h1>{codex.name}</h1>
                 <CodexToolbar onLoadCodex={() => codex}/>
-                <CardContainer cards={cards} onUpdateContainer={this.updateCards}/>
+                <CardListContainer cards={cards} onUpdateContainer={this.updateCards}/>
             </div>
         );
     }
