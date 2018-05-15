@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 
-import CardEditor from './CardEditor';
+import CardEditorContainer from './CardEditorContainer';
 import Card from './../Card';
 
 class EditableCard extends Component {
@@ -43,7 +43,7 @@ class EditableCard extends Component {
                 <Card card={card}/>
 
                 {this.isEditable() &&
-                <CardEditor card={card} onUpdate={this.onUpdateCard}/>
+                <CardEditorContainer card={card} onUpdate={this.onUpdateCard}/>
                 }
             </div>
         );

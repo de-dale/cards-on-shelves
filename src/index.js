@@ -1,5 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+import store from './store';
 
 import Codex from './codex/Codex.js';
 
@@ -28,10 +30,12 @@ function loadCodex(dom, name, url) {
 
 function displayCodex(dom, name, data) {
     ReactDOM.render(
-        <Codex
-            name={name}
-            cards={data}
-        />,
+        <Provider store = {store}>
+            <Codex
+                name={name}
+                cards={data}
+            />
+        </Provider>,
         dom
     );
 }
