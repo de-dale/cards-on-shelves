@@ -11,7 +11,9 @@ class CardEditorContainer extends Component {
 }
 
 function mapStateToProps(state) {
-    return state;
+    return {
+        title: state.cardEditor.title
+    };
 }
 
 function mapDispatchToProps(dispatch) {

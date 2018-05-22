@@ -8,6 +8,11 @@ class CardEditor extends Component {
         super(props);
         this.handleCardChange = this.handleCardChange.bind(this);
         this.updateCardContent = this.updateCardContent.bind(this);
+        this.onTitleChange = this.onTitleChange.bind(this);
+    }
+
+    onTitleChange ({target: {value}}) {
+        this.props.changeTitle(value);
     }
 
     render() {
@@ -19,8 +24,8 @@ class CardEditor extends Component {
                 <input
                     name="name"
                     type="text"
-                    value={card.name}
-                    onChange={this.handleCardChange}
+                    value={this.props.title}
+                    onChange={this.onTitleChange}
                 />
                 <CardThemeSelector
                     card={card}
@@ -50,6 +55,8 @@ class CardEditor extends Component {
 }
 
 CardEditor.propTypes = {
+    changeTitle: PropTypes.func,
+    title: PropTypes.string,
     card: PropTypes.object.isRequired,
     onUpdate: PropTypes.func.isRequired
 };
