@@ -1,48 +1,32 @@
-import React, {Component} from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
+import Card from '../cards/Card';
 
-import CardListContainer from './../cards/list/CardList';
-import CodexToolbar from './CodexToolbar';
+const Codex = ({codex, addCard}) => (
+    <div className='codex'>
+        <h1>{codex.name}</h1>
+        {/*<CodexToolbar onLoadCodex={() => codex}/>*/}
+        <button type='button' onClick={() => addCard(aNewCard())}>+</button>
+        {/*<CardListContainer cards={cards} onUpdateContainer={this.updateCards}/>*/}
+        {codex.cards.map((card, index) =>
+            <Card key={index} card={card}/>
+        )}
+    </div>
+);
 
-class Codex extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            codex: {
-                name: props.name,
-                cards: props.cards || []
-            }
-        };
-        this.updateCodex = this.updateCodex.bind(this);
-        this.updateCards = this.updateCards.bind(this);
-    }
-
-    updateCodex(codex) {
-        this.setState({codex});
-    }
-
-    updateCards(cards) {
-        let codex = this.state.codex;
-        codex.cards = cards;
-        this.updateCodex(codex);
-    }
-
-    render() {
-        const codex = this.state.codex;
-        const cards = codex.cards;
-        return (
-            <div className='codex'>
-                <h1>{codex.name}</h1>
-                <CodexToolbar onLoadCodex={() => codex}/>
-                <CardListContainer cards={cards} onUpdateContainer={this.updateCards}/>
-            </div>
-        );
-    }
-}
+const aNewCard = () => ({
+    name: 'NEW',
+    theme: '',
+    shape: '',
+    content: []
+});
 
 Codex.propTypes = {
-    name: PropTypes.string.isRequired,
-    cards: PropTypes.array
+    codex: PropTypes.shape({
+        name: PropTypes.string.isRequired,
+        cards: PropTypes.array.isRequired
+    }).isRequired,
+    addCard: PropTypes.func.isRequired
 };
 
 export default Codex;
