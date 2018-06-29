@@ -1,11 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Card from '../cards/Card';
+import CodexToolbar from './toolbar';
 
 const Codex = ({codex, addCard}) => (
     <div className='codex'>
         <h1>{codex.name}</h1>
-        {/*<CodexToolbar onLoadCodex={() => codex}/>*/}
+        <CodexToolbar codex={codex}/>
         <button type='button' onClick={() => addCard(aNewCard())}>+</button>
         {/*<CardListContainer cards={cards} onUpdateContainer={this.updateCards}/>*/}
         {codex.cards.map((card, index) =>
