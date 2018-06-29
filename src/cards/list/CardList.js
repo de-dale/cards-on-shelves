@@ -1,78 +1,31 @@
-import React, {Component} from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import CardImporter from './CardImporter.js';
 
-import styles from './cardListContainer.css';
-import EditableCard from './../creation/EditableCard';
+import styles from './cardList.css';
+import EditableCard from '../creation/EditableCard';
 
-class CardListContainer extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            cards: props.cards,
-        };
-        this.createCard = this.createCard.bind(this);
-        this.removeCard = this.removeCard.bind(this);
-        this.addCard = this.addCard.bind(this);
-        this.addCards = this.addCards.bind(this);
-        this.onUpdateContainer = props.onUpdateContainer;
-    }
-
-    updateContainer(cards) {
-        this.setState({cards});
-        this.onUpdateContainer(cards);
-    }
-
-    createCard() {
-        const aNewCard = {
-            name: '',
-            theme: '',
-            content: []
-        };
-        this.addCard(aNewCard);
-    }
-
-    addCard(card) {
-        this.addCards([card]);
-    }
-
-    addCards(cards) {
-        this.updateContainer([...this.state.cards, ...cards]);
-    }
-
-    removeCard(card) {
-        let cards = this.state.cards;
-        let cardIndex = cards.indexOf(card);
-        cards.splice(cardIndex, 1);
-        this.updateContainer(cards);
-    }
-
-    render() {
-        const cards = this.state.cards;
-        const items = cards.map((card, index) => (
-            <EditableCard
-                key={index}
-                card={card}
-                addCard={this.addCard}
-                removeCard={this.removeCard}
-            />
-        ));
-        return (
-            <div className={styles['card-container']}>
-                <div className={styles['card-container-toolbar']}>
-                    <button type="button" onClick={this.createCard}>+</button>
-                    <CardImporter onImport={this.addCards}/>
-                </div>
-                <div className={styles['card-container-items']}>
-                    {items}
-                </div>
-            </div>);
-    }
-}
-
-CardListContainer.propTypes = {
-    cards: PropTypes.array.isRequired,
-    onUpdateContainer: PropTypes.func.isRequired
+const CardList = ({cards, createCard, importCards}) => {
+    return (
+        <div className={styles['card-list']}>
+            <div className={styles['card-list-toolbar']}>
+                <button type="button" onClick={() => createCard()}>+</button>
+                <input type="file" onChange={({target: {files}}) => importCards(files)}/>
+            </div>
+            <div className={styles['card-list-items']}>
+                {cards.map((card, index) => (
+                    <EditableCard
+                        key={index}
+                        card={card}
+                        // addCard={this.addCard}
+                        // removeCard={this.removeCard}
+                    />
+                ))}
+            </div>
+        </div>);
 };
 
-export default CardListContainer;
+CardList.propTypes = {
+    cards: PropTypes.array.isRequired
+};
+
+export default CardList;

@@ -1,16 +1,16 @@
-.card-container {
+.card-list {
     display: flex;
     flex-wrap: wrap;
 }
 
-.card-container > * {
+.card-list > * {
     margin: 0.08em;
 }
 
-.card-container-toolbar {
+.card-list-toolbar {
 
 }
-.card-container-items  > * {
+.card-list-items  > * {
     margin: 0.08em;
     display: inline-block;
 }

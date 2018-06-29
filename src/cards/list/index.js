@@ -1,10 +1,10 @@
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import * as actions from '../actions';
-import CodexToolbar from './CodexToolbar';
+import * as actions from './actions';
+import CardList from './CardList';
 
 const mapStateToProps = state => ({
-    codex: state.codex
+    cards: state.cardList.cards
 });
 
 function mapDispatchToProps(dispatch) {
@@ -14,4 +14,4 @@ function mapDispatchToProps(dispatch) {
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(CodexToolbar);
+)(CardList);
