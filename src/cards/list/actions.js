@@ -1,4 +1,4 @@
-import {makeActionCreator} from "../../utils";
+import {makeActionCreator} from '../../utils';
 
 export const ADD_CARD = 'ADD_CARD';
 export const IMPORT_CARDS = 'IMPORT_CARDS';
