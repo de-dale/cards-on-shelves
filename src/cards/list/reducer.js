@@ -1,5 +1,4 @@
-import {ADD_CARD, addCard, IMPORT_CARDS} from './actions';
-import { dispatch } from 'redux';
+import {ADD_CARD, IMPORT_CARDS} from './actions';
 
 export const initialState = {
     cards: []

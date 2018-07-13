@@ -29,11 +29,14 @@ function loadCodex(dom, name, url) {
 }
 
 function displayCodex(dom, name, data) {
+    const codex = {
+        name: name,
+        cards: data
+    };
     ReactDOM.render(
         <Provider store = {store}>
             <Codex
-                name={name}
-                cards={data}
+                codex={codex}
             />
         </Provider>,
         dom

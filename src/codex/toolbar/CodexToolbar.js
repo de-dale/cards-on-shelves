@@ -9,10 +9,13 @@ const CodexToolbar = ({codex, saveCodex}) => (
         <button type='button' onClick={() => saveCodex(codex)}>Sauver</button>
         <DeckButton label='Imprimer Codex' onLoadDeck={() => codex}/>
     </div>
-
 );
 
 CodexToolbar.propTypes = {
+    codex: PropTypes.shape({
+        name: PropTypes.string.isRequired,
+        cards: PropTypes.array.isRequired
+    }).isRequired,
     saveCodex: PropTypes.func.isRequired
 };
 

@@ -25,7 +25,9 @@ const CardList = ({cards, createCard, importCards}) => {
 };
 
 CardList.propTypes = {
-    cards: PropTypes.array.isRequired
+    cards: PropTypes.array.isRequired,
+    createCard: PropTypes.func,
+    importCards: PropTypes.func
 };
 
 export default CardList;
