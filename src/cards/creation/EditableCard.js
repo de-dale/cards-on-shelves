@@ -30,15 +30,15 @@ class EditableCard extends Component {
             <div className="card-container-item">
                 <div className="card-container-item-name">{card.name}</div>
 
-                <div className="card-container-item-toolbar">
-                    <button type="button" onClick={this.toggleEditMode}>
-                        {this.isEditable()
-                            ? 'Lecture seule'
-                            : 'Éditer'}
-                    </button>
-                    <button type="button" onClick={() => this.props.addCard(card)}>Dupliquer</button>
-                    <button type='button' onClick={() => this.props.removeCard(card)}>Supprimer</button>
-                </div>
+                {/*<div className="card-container-item-toolbar">*/}
+                {/*<button type="button" onClick={this.toggleEditMode}>*/}
+                {/*{this.isEditable()*/}
+                {/*? 'Lecture seule'*/}
+                {/*: 'Éditer'}*/}
+                {/*</button>*/}
+                {/*<button type="button" onClick={() => this.props.addCard(card)}>Dupliquer</button>*/}
+                {/*<button type='button' onClick={() => this.props.removeCard(card)}>Supprimer</button>*/}
+                {/*</div>*/}
 
                 <Card card={card}/>
 
@@ -56,9 +56,9 @@ class EditableCard extends Component {
 
 EditableCard.propTypes = {
     card: PropTypes.object.isRequired,
-    editMode: PropTypes.string,
-    addCard: PropTypes.func.isRequired,
-    removeCard: PropTypes.func.isRequired
+    editMode: PropTypes.string
+    // addCard: PropTypes.func.isRequired,
+    // onRemove: PropTypes.func.isRequired
 };
 
 export default EditableCard;

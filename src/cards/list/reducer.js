@@ -1,4 +1,4 @@
-import {ADD_CARD, IMPORT_CARDS} from './actions';
+import {ADD_CARD, REMOVE_CARD, IMPORT_CARDS} from './actions';
 
 export const initialState = {
     cards: []
@@ -13,6 +13,15 @@ export default function (state = initialState, action) {
                 ...state.cards, action.card
             ]
         };
+    case REMOVE_CARD: {
+        let cards = [...state.cards];
+        let cardIndex = cards.indexOf(action.card);
+        cards.splice(cardIndex, 1);
+        return {
+            ...state,
+            cards: cards
+        };
+    }
     case IMPORT_CARDS:
         // TODO: Should use Redux-Saga or another tool for handling async
         // const reader = new FileReader();
