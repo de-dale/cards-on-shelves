@@ -3,8 +3,6 @@ import {bindActionCreators} from 'redux';
 import * as actions from './actions';
 import CardToolbar from './CardToolbar';
 
-
-
 const mapStateToProps = state => ({
     card: state.toolbar.card
 });

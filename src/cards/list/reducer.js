@@ -1,18 +1,9 @@
 import {ADD_CARD, REMOVE_CARD, IMPORT_CARDS} from './actions';
 
-export const initialState = {
-    cards: []
-};
-
-export default function (state = initialState, action) {
+export default function (state = [], action) {
     switch (action.type) {
     case ADD_CARD:
-        return {
-            ...state,
-            cards: [
-                ...state.cards, action.card
-            ]
-        };
+        return [...state, action.card];
     case REMOVE_CARD: {
         let cards = [...state.cards];
         let cardIndex = cards.indexOf(action.card);
