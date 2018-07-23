@@ -4,7 +4,9 @@ export const ADD_CARD = 'ADD_CARD';
 export const REMOVE_CARD = 'REMOVE_CARD';
 export const IMPORT_CARDS = 'IMPORT_CARDS';
 
+let nextCardId = 0
 export const createCard = () => addCard({
+    id: nextCardId++,
     name: 'Nouvelle Carte',
     theme: '',
     shape: '',

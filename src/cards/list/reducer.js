@@ -4,15 +4,8 @@ export default function (state = [], action) {
     switch (action.type) {
     case ADD_CARD:
         return [...state, action.card];
-    case REMOVE_CARD: {
-        let cards = [...state.cards];
-        let cardIndex = cards.indexOf(action.card);
-        cards.splice(cardIndex, 1);
-        return {
-            ...state,
-            cards: cards
-        };
-    }
+    case REMOVE_CARD:
+        return state.filter(item => item.id !== action.card.id);
     case IMPORT_CARDS:
         // TODO: Should use Redux-Saga or another tool for handling async
         // const reader = new FileReader();

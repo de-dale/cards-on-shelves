@@ -9,13 +9,31 @@ describe('list reducer', () => {
     });
 
     it('should handle ADD_CARD', () => {
-        let action = {
+        const action = {
             type: actions.ADD_CARD,
             card: 'a card object'
         };
 
         expect(reducer(STATE, action)).toEqual([
-           'a card object'
+            'a card object'
+        ]);
+    });
+
+    it('should add three cards', () => {
+        const theState = [ {id : 1},
+            {id : 2},
+            {id : 3}];
+
+        const action = {
+            type: actions.REMOVE_CARD,
+            card: {
+                id: 2
+            }
+        };
+
+        expect(reducer(theState, action)).toEqual([
+            {id : 1},
+            {id : 3}
         ]);
     });
 });
