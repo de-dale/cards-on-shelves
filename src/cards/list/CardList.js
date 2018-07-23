@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import styles from './cardList.css';
 import EditableCard from '../creation/EditableCard';
-import CardToolbar from '../toolbar';
+import CardToolbar from '../toolbar/CardToolbar';
 
 const CardList = ({cards, createCard, importCards, removeCard}) => {
     return (

@@ -1,5 +1,5 @@
 export const log = (any, message, optionalParams) => {
-    console.log(message, any, optionalParams);
+    console.log(message, any, optionalParams); // eslint-disable-line no-console
     return any;
 };
 
