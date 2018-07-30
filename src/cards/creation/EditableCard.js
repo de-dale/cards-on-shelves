@@ -1,64 +1,25 @@
-import React, {Component} from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-
-import CardEditorContainer from './CardEditorContainer';
 import Card from './../Card';
 
-class EditableCard extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            card: props.card,
-            editMode: props.editMode
-        };
-        this.onUpdateCard = this.onUpdateCard.bind(this);
-        this.toggleEditMode = this.toggleEditMode.bind(this);
-    }
+const EditableCard = ({card, updateCard}) => {
+    return (
+        <div className="card-container-item">
+            <div
+                className="card-container-item-name"
+                contentEditable="true"
+                suppressContentEditableWarning={true}
+                onBlur={e => updateCard(card, 'name', e.target.textContent)}
+            >{card.name}</div>
+            <Card card={card}/>
+        </div>
+    );
+};
 
-    onUpdateCard(card) {
-        this.setState({card: card});
-    }
-
-    toggleEditMode() {
-        const updatedEditMode = this.isEditable() ? 'readonly': 'edit' ;
-        this.setState({editMode: updatedEditMode});
-    }
-
-    render() {
-        const card = this.state.card;
-        return (
-            <div className="card-container-item">
-                <div className="card-container-item-name">{card.name}</div>
-
-                {/*<div className="card-container-item-toolbar">*/}
-                {/*<button type="button" onClick={this.toggleEditMode}>*/}
-                {/*{this.isEditable()*/}
-                {/*? 'Lecture seule'*/}
-                {/*: 'Éditer'}*/}
-                {/*</button>*/}
-                {/*<button type="button" onClick={() => this.props.addCard(card)}>Dupliquer</button>*/}
-                {/*<button type='button' onClick={() => this.props.removeCard(card)}>Supprimer</button>*/}
-                {/*</div>*/}
-
-                <Card card={card}/>
-
-                {this.isEditable() &&
-                <CardEditorContainer card={card} onUpdate={this.onUpdateCard}/>
-                }
-            </div>
-        );
-    }
-
-    isEditable() {
-        return this.state.editMode === 'edit';
-    }
-}
 
 EditableCard.propTypes = {
     card: PropTypes.object.isRequired,
-    editMode: PropTypes.string
-    // addCard: PropTypes.func.isRequired,
-    // onRemove: PropTypes.func.isRequired
+    updateCard: PropTypes.func
 };
 
 export default EditableCard;

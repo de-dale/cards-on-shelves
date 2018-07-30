@@ -4,8 +4,8 @@ describe('reducers', () => {
     const STATE = {
         'cards': {
             'editor': {'title': ''},
-            'list': [],
-            'toolbar': {'card': {'editable': false}}},
+            'list': []
+        },
         'codex': {'cards': [], 'name': 'Nouveau Codex'}
     };
 

@@ -1,11 +1,19 @@
-import {ADD_CARD, REMOVE_CARD, IMPORT_CARDS} from './actions';
+import {ADD_CARD, REMOVE_CARD, IMPORT_CARDS, UPDATE_CARD} from './actions';
+import {log} from '../../utils';
 
 export default function (state = [], action) {
     switch (action.type) {
     case ADD_CARD:
         return [...state, action.card];
     case REMOVE_CARD:
-        return state.filter(item => item.id !== action.card.id);
+        return state.filter(card => card.id !== action.card.id);
+    case UPDATE_CARD: {
+        return log(state.map(card =>
+            (card.id === action.card.id)
+                ? {...card, [action.field]: action.value}
+                : card
+        ), 'STATE');
+    }
     case IMPORT_CARDS:
         // TODO: Should use Redux-Saga or another tool for handling async
         // const reader = new FileReader();

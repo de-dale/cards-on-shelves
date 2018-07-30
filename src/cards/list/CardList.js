@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import styles from './cardList.css';
-import EditableCard from '../creation/EditableCard';
+import EditableCard from '../creation';
 import CardToolbar from '../toolbar/CardToolbar';
 
 const CardList = ({cards, createCard, importCards, removeCard}) => {
