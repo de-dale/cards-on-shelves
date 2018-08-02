@@ -24,4 +24,38 @@ describe('reducers', () => {
         ];
         expect(reducers({}, action)).toEqual(STATE);
     });
+
+    it('should add a card item', () => {
+        const theState = {
+            cards: {
+                'list': [
+                    {id: 1, items: []},
+                    {id: 2},
+                    {id: 3}
+                ]
+            }
+        };
+
+        const action = {
+            type: 'ADD_CARD_ITEM',
+            card: {id: 1},
+            item: {id: 1, content: 'item content'}
+        };
+
+        expect(reducers(theState, action)).toEqual({
+            cards: {
+                editor: {title: ''},
+                list: [
+                    {
+                        id: 1,
+                        items: [
+                            {id: 1, content: 'item content'}
+                        ]
+                    },
+                    {id: 2},
+                    {id: 3}]
+            },
+            codex: {cards: [], name: 'Nouveau Codex'}
+        });
+    });
 });
