@@ -32,4 +32,36 @@ describe('cards items reducer', () => {
             {id: 3}]
         );
     });
+
+    it('should edit an item to a card', () => {
+        const theState = [
+            {
+                id: 1, items: [
+                    {id: 111, content: 'item content'}
+                ]
+            }
+        ];
+
+        const action = {
+            type: 'UPDATE_CARD_ITEM',
+            key: {
+                card: {id: 1},
+                item: {id: 111}
+            },
+            value: 'anything',
+            field: 'name'
+        };
+
+        expect(reducer(theState, action)).toEqual([
+            {
+                id: 1, items: [
+                    {
+                        id: 111,
+                        content: 'item content',
+                        name: 'anything'
+                    }
+                ]
+            }
+        ]);
+    });
 });
