@@ -5,7 +5,7 @@ import classNames from 'classnames';
 import CardItemContainer from './items/CardItemContainer.js';
 
 import styles from './card.css';
-import './../cards/theme/card-themes.css';
+import './theme/card-themes.css';
 
 class Card extends Component {
     render() {
