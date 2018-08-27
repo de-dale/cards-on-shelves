@@ -13,15 +13,11 @@ const CardList = ({cards, createCard, importCards, removeCard}) => {
             </div>
             <div className={styles['card-list-items']}>
                 {cards.map((card, index) => (
-                    <div key={index}>
-                        <EditableCard
-                            key={index}
-                            card={card}
-                            remove={() => removeCard(card)}
-                            // addCard={this.addCard}
-                            // onRemove={() => removeCard(card)}
-                        />
-                    </div>
+                    <EditableCard
+                        key={index}
+                        card={card}
+                        remove={() => removeCard(card)}
+                    />
                 ))}
             </div>
         </div>);
