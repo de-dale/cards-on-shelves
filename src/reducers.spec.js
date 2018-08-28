@@ -3,7 +3,6 @@ import reducers from './reducers';
 describe('reducers', () => {
     const STATE = {
         'cards': {
-            'editor': {'title': ''},
             'list': []
         },
         'codex': {'cards': [], 'name': 'Nouveau Codex'}
@@ -44,7 +43,6 @@ describe('reducers', () => {
 
         expect(reducers(theState, action)).toEqual({
             cards: {
-                editor: {title: ''},
                 list: [
                     {
                         id: 1,
