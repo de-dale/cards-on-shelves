@@ -5,14 +5,18 @@ export default function (state = [], action) {
     case ADD_CARD_ITEM:
         return state.map(card =>
             (card.id === action.card.id)
-                ? {...card, items: [...card.items, action.item]}
+                ? {
+                    ...card,
+                    content: [...(card.content || []), action.item]
+                }
                 : card
         );
     case UPDATE_CARD_ITEM:
         return state.map(card =>
             (card.id === action.key.card.id)
                 ? {
-                    ...card, items: card.items.map(item =>
+                    ...card,
+                    content: card.content.map(item =>
                         (item.id === action.key.item.id)
                             ? {...item, [action.field]: action.value}
                             : item

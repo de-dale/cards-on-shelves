@@ -11,7 +11,6 @@ export const createCard = () => addCard({
     name: 'Nouvelle Carte',
     theme: '',
     shape: '',
-    editable: false,
     content: []
 });
 

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Card from '../Card';
 import CardToolbar from '../toolbar/CardToolbar';
 
-const EditableCard = ({card, updateCard, remove}) => {
+const EditableCard = ({card, updateCard, remove, createItem}) => {
     return (
         <div className="card-container-item"
             tabIndex={-1}
@@ -15,6 +15,7 @@ const EditableCard = ({card, updateCard, remove}) => {
                 card={card}
                 duplicate={() => updateCard(card, 'name', 'Duplicate')}
                 remove={() => remove()}
+                addCardItem={()=> createItem(card)}
             />
             }
             <div
@@ -41,7 +42,8 @@ const doesEventBlurs = ({currentTarget, relatedTarget}) => {
 EditableCard.propTypes = {
     card: PropTypes.object.isRequired,
     updateCard: PropTypes.func,
-    remove: PropTypes.func
+    remove: PropTypes.func,
+    createItem: PropTypes.func
 };
 
 export default EditableCard;

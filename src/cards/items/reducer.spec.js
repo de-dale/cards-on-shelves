@@ -16,7 +16,7 @@ describe('cards items reducer', () => {
         ];
 
         const action = {
-            type: 'ADD_CARD_ITEM',
+            type: actions.ADD_CARD_ITEM,
             card: {id: 1},
             item: {id: 1, content: 'item content'}
         };
@@ -43,7 +43,7 @@ describe('cards items reducer', () => {
         ];
 
         const action = {
-            type: 'UPDATE_CARD_ITEM',
+            type: actions.UPDATE_CARD_ITEM,
             key: {
                 card: {id: 1},
                 item: {id: 111}
