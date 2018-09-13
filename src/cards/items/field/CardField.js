@@ -1,31 +1,37 @@
-import React, {Component} from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
 import styles from './card-field.css';
 
-class CardField extends Component {
-    constructor(props) {
-        super(props);
-        this.item = props.item;
-    }
-
-    render() {
-        const item = this.item;
-        return (
-            <div className={styles['card-field-container']}>
-                <div className={styles['card-field-header']}>{item.header}</div>
-                <div className={styles['card-field-separator']}/>
-                <div className={styles['card-field-value']}>{item.content}</div>
+export const CardField = ({item, updateItemField}) => {
+    return (
+        <div className={styles['card-field-container']}>
+            <div
+                className={styles['card-field-header']}
+                contentEditable={true}
+                suppressContentEditableWarning={true}
+                onBlur={e => updateItemField('header', e.target.textContent)}>
+                {item.header}
             </div>
-        );
-    }
-}
+            <div className={styles['card-field-separator']}/>
+            <div
+                className={styles['card-field-value']}
+                contentEditable={true}
+                suppressContentEditableWarning={true}
+                onBlur={e => updateItemField('content', e.target.textContent)}>
+                {item.content}
+            </div>
+        </div>
+    );
+};
+
 
 CardField.propTypes = {
     item: PropTypes.shape({
-        header: PropTypes.string.isRequired,
+        header: PropTypes.string,
         content: PropTypes.string.isRequired
-    }).isRequired
+    }).isRequired,
+    updateItemField: PropTypes.func
 };
 
 export default CardField;

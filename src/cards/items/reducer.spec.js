@@ -10,7 +10,7 @@ describe('cards items reducer', () => {
 
     it('should add an item to a card', () => {
         const theState = [
-            {id: 1, items: []},
+            {id: 1, content: []},
             {id: 2},
             {id: 3}
         ];
@@ -24,7 +24,7 @@ describe('cards items reducer', () => {
         expect(reducer(theState, action)).toEqual([
             {
                 id: 1,
-                items: [
+                content: [
                     {id: 1, content: 'item content'}
                 ]
             },
@@ -33,10 +33,45 @@ describe('cards items reducer', () => {
         );
     });
 
+    it('should remove one card item', () => {
+        const theState = [
+            {
+                id: 1,
+                content: [
+                    {id: 111, content: 'item content'}
+                ]
+            },
+            {
+                id: 2,
+                content: [
+                    {id: 222, content: 'another item content'}
+                ]
+            }];
+
+        const action = {
+            type: actions.REMOVE_CARD_ITEM,
+            card: {id: 1},
+            item: {id: 111}
+        };
+
+        expect(reducer(theState, action)).toEqual([
+            {
+                id: 1,
+                content: []
+            },
+            {
+                id: 2,
+                content: [
+                    {id: 222, content: 'another item content'}
+                ]
+            }
+        ]);
+    });
+
     it('should edit an item to a card', () => {
         const theState = [
             {
-                id: 1, items: [
+                id: 1, content: [
                     {id: 111, content: 'item content'}
                 ]
             }
@@ -44,17 +79,15 @@ describe('cards items reducer', () => {
 
         const action = {
             type: actions.UPDATE_CARD_ITEM,
-            key: {
-                card: {id: 1},
-                item: {id: 111}
-            },
+            card: {id: 1},
+            item: {id: 111},
             value: 'anything',
             field: 'name'
         };
 
         expect(reducer(theState, action)).toEqual([
             {
-                id: 1, items: [
+                id: 1, content: [
                     {
                         id: 111,
                         content: 'item content',

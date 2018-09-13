@@ -1,5 +1,6 @@
 .card-text {
     composes: card-item from '../card-item-container.css';
+    min-height: 1.2em;
 
     flex-grow: 1;
     text-align: justify;

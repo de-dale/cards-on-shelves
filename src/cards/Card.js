@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-import CardItemContainer from './items/CardItemContainer.js';
+import CardItemList from './items/CardItemList.js';
 
 import styles from './card.css';
 import './theme/card-themes.css';
@@ -10,7 +10,7 @@ import './theme/card-themes.css';
 const Card = ({card}) => {
     return (
         <div className={shapeClasses(card)}>
-            <CardItemContainer container={card.content} />
+            <CardItemList card={card} />
         </div>
     );
 };
