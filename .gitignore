@@ -9,11 +9,13 @@ dist/*
 .*~
 .editorconfig
 .idea/
+*.iml
 
 # Others
 *.lock
 *-lock.json
 *.log
+coverage/*
 
 # Credentials and secrets
 *.credentials

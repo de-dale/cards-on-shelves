@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import CardItemTypes from './CardItemTypes';
 
-const CardItemTypeSelector = ({item, updateItemField}) => {
+const CardItemTypeSelector = ({ item, updateItemField }) => {
     const typesOptions = CardItemTypes.values((key, value) => {
         return (<option key={key} value={key}>{value.label}</option>);
     });

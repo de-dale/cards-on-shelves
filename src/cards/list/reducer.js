@@ -1,20 +1,20 @@
-import {ADD_CARD, REMOVE_CARD, IMPORT_CARDS, UPDATE_CARD} from './actions';
+import { ADD_CARD, REMOVE_CARD, IMPORT_CARDS, UPDATE_CARD } from './actions';
 import items from '../items/reducer';
 
 export default function (state = [], action) {
     switch (action.type) {
-    case ADD_CARD:
-        return [...state, action.card];
-    case REMOVE_CARD:
-        return state.filter(card => card.id !== action.card.id);
-    case UPDATE_CARD: {
-        return state.map(card =>
-            (card.id === action.card.id)
-                ? {...card, [action.field]: action.value}
-                : card
-        );
-    }
-    case IMPORT_CARDS:
+        case ADD_CARD:
+            return [...state, action.card];
+        case REMOVE_CARD:
+            return state.filter(card => card.id !== action.card.id);
+        case UPDATE_CARD: {
+            return state.map(card =>
+                (card.id === action.card.id)
+                    ? { ...card, [action.field]: action.value }
+                    : card
+            );
+        }
+        case IMPORT_CARDS:
         // TODO: Should use Redux-Saga or another tool for handling async
         // const reader = new FileReader();
         // reader.onload = function (event) {
@@ -30,8 +30,8 @@ export default function (state = [], action) {
         //     throw new Error('Cannot import file');
         // };
         // Array.from(action.files).forEach(file => reader.readAsText(file, 'UTF-8'));
-        return state;
-    default:
-        return items(state, action);
+            return state;
+        default:
+            return items(state, action);
     }
 }

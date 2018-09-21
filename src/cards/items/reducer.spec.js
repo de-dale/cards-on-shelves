@@ -10,26 +10,26 @@ describe('cards items reducer', () => {
 
     it('should add an item to a card', () => {
         const theState = [
-            {id: 1, content: []},
-            {id: 2},
-            {id: 3}
+            { id: 1, content: [] },
+            { id: 2 },
+            { id: 3 }
         ];
 
         const action = {
             type: actions.ADD_CARD_ITEM,
-            card: {id: 1},
-            item: {id: 1, content: 'item content'}
+            card: { id: 1 },
+            item: { id: 1, content: 'item content' }
         };
 
         expect(reducer(theState, action)).toEqual([
             {
                 id: 1,
                 content: [
-                    {id: 1, content: 'item content'}
+                    { id: 1, content: 'item content' }
                 ]
             },
-            {id: 2},
-            {id: 3}]
+            { id: 2 },
+            { id: 3 }]
         );
     });
 
@@ -38,20 +38,20 @@ describe('cards items reducer', () => {
             {
                 id: 1,
                 content: [
-                    {id: 111, content: 'item content'}
+                    { id: 111, content: 'item content' }
                 ]
             },
             {
                 id: 2,
                 content: [
-                    {id: 222, content: 'another item content'}
+                    { id: 222, content: 'another item content' }
                 ]
             }];
 
         const action = {
             type: actions.REMOVE_CARD_ITEM,
-            card: {id: 1},
-            item: {id: 111}
+            card: { id: 1 },
+            item: { id: 111 }
         };
 
         expect(reducer(theState, action)).toEqual([
@@ -62,7 +62,7 @@ describe('cards items reducer', () => {
             {
                 id: 2,
                 content: [
-                    {id: 222, content: 'another item content'}
+                    { id: 222, content: 'another item content' }
                 ]
             }
         ]);
@@ -72,15 +72,15 @@ describe('cards items reducer', () => {
         const theState = [
             {
                 id: 1, content: [
-                    {id: 111, content: 'item content'}
+                    { id: 111, content: 'item content' }
                 ]
             }
         ];
 
         const action = {
             type: actions.UPDATE_CARD_ITEM,
-            card: {id: 1},
-            item: {id: 111},
+            card: { id: 1 },
+            item: { id: 111 },
             value: 'anything',
             field: 'name'
         };

@@ -1,4 +1,4 @@
-import {makeActionCreator} from '../utils';
+import { makeActionCreator } from '../utils';
 
 export const SAVE_CODEX = 'SAVE_CODEX';
 

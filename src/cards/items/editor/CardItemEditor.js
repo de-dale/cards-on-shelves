@@ -5,7 +5,7 @@ import CardItemTypeSelector from '../types/CardItemTypeSelector';
 
 import styles from './style.css';
 
-export const CardItemEditor = ({card, item, updateItemField, removeCardItem}) => {
+export const CardItemEditor = ({ card, item, updateItemField, removeCardItem }) => {
     return (
         <div className={styles['card-item-editor']}>
             <CardItemTypeSelector card={card} item={item} updateItemField={updateItemField}/>

@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import CardItemEditor from './editor/CardItemEditor';
 import CardItemTypes from './types/CardItemTypes';
 
-export const CardItem = ({card, item, updateCardItem, removeCardItem}) => {
+export const CardItem = ({ card, item, updateCardItem, removeCardItem }) => {
     const ItemHandler = CardItemTypes[item.type] && CardItemTypes[item.type].view || DefaultCardItem;
     return (
         <div className={'card-item-foo'}
@@ -31,7 +31,7 @@ const whenBlurs = (fn) => {
     };
 };
 
-const doesEventBlurs = ({currentTarget, relatedTarget}) => {
+const doesEventBlurs = ({ currentTarget, relatedTarget }) => {
     return !currentTarget.contains(relatedTarget);
 };
 

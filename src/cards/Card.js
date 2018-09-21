@@ -7,7 +7,7 @@ import CardItemList from './items/CardItemList.js';
 import styles from './card.css';
 import './theme/card-themes.css';
 
-const Card = ({card}) => {
+const Card = ({ card }) => {
     return (
         <div className={shapeClasses(card)}>
             <CardItemList card={card} />
@@ -20,12 +20,12 @@ function shapeClasses (card){
     return classNames.bind(styles)(
         'card-shape',
         card.theme,
-        {landscape: 'landscape' === card.shape}
+        { landscape: 'landscape' === card.shape }
     );
 }
 
 Card.defaultProps = {
-    card: {content: []}
+    card: { content: [] }
 };
 
 Card.propTypes = {

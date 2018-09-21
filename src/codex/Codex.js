@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import CodexToolbar from './toolbar';
 import CardList from '../cards/list';
 
-const Codex = ({codex}) => (
+const Codex = ({ codex }) => (
     <div className='codex'>
         <h1>{codex.name}</h1>
         <CodexToolbar codex={codex}/>

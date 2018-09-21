@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const CardToolbar = ({duplicate, remove, addCardItem}) => {
+const CardToolbar = ({ duplicate, remove, addCardItem }) => {
     return (
         <div className="card-container-item-toolbar">
             <button type="button" onClick={() => duplicate()}>Dupliquer</button>

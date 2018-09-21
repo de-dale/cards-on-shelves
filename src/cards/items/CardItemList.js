@@ -5,7 +5,7 @@ import CardItem from '.';
 
 import styles from './card-item-container.css';
 
-const CardItemList = ({card}) => {
+const CardItemList = ({ card }) => {
     return (
         <div className={styles.card}>
             {card.content.map((item, index) =>

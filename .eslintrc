@@ -1,7 +1,8 @@
 {
   "parser": "babel-eslint",
   "plugins": [
-    "react", "jest"
+    "react",
+    "jest"
   ],
   "env": {
     "browser": true,
@@ -11,7 +12,10 @@
   "rules": {
     "indent": [
       "error",
-      4
+      4,
+      {
+        "SwitchCase": 1
+      }
     ],
     "linebreak-style": [
       "error",
@@ -22,6 +26,10 @@
       "single"
     ],
     "semi": [
+      "error",
+      "always"
+    ],
+    "object-curly-spacing": [
       "error",
       "always"
     ]

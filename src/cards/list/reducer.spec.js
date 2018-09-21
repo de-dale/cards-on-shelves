@@ -20,9 +20,9 @@ describe('list reducer', () => {
     });
 
     it('should remove one card', () => {
-        const theState = [ {id : 1},
-            {id : 2},
-            {id : 3}];
+        const theState = [ { id : 1 },
+            { id : 2 },
+            { id : 3 }];
 
         const action = {
             type: actions.REMOVE_CARD,
@@ -32,15 +32,15 @@ describe('list reducer', () => {
         };
 
         expect(reducer(theState, action)).toEqual([
-            {id : 1},
-            {id : 3}
+            { id : 1 },
+            { id : 3 }
         ]);
     });
 
     it('should edit card name', () => {
-        const theState = [ {id : 1},
-            {id : 2},
-            {id : 3}];
+        const theState = [ { id : 1 },
+            { id : 2 },
+            { id : 3 }];
 
         const action = {
             type: actions.UPDATE_CARD,
@@ -52,9 +52,9 @@ describe('list reducer', () => {
         };
 
         expect(reducer(theState, action)).toEqual([
-            {id : 1},
-            {id : 2, name:'anything'},
-            {id : 3}
+            { id : 1 },
+            { id : 2, name:'anything' },
+            { id : 3 }
         ]);
     });
 });

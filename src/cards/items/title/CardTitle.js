@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import styles from './card-title.css';
 
-export const CardTitle = ({item, updateItemField}) => {
+export const CardTitle = ({ item, updateItemField }) => {
     return (
         <div
             className={styles['card-title']}

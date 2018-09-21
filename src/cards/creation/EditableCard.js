@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Card from '../Card';
 import CardToolbar from '../toolbar/CardToolbar';
 
-const EditableCard = ({card, updateCard, remove, createItem}) => {
+const EditableCard = ({ card, updateCard, remove, createItem }) => {
     return (
         <div className="card-container-item"
             tabIndex={-1}
@@ -35,7 +35,7 @@ const whenBlurs = (fn) => {
     };
 };
 
-const doesEventBlurs = ({currentTarget, relatedTarget}) => {
+const doesEventBlurs = ({ currentTarget, relatedTarget }) => {
     return !currentTarget.contains(relatedTarget);
 };
 
