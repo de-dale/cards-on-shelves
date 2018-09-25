@@ -1,7 +1,7 @@
 import { SAVE_CODEX } from './actions';
 import FileSaver from 'file-saver';
 
-export const initialState = {
+const initialState = {
     name: 'Nouveau Codex',
     cards: []
 };

@@ -7,7 +7,7 @@ import EditableCard from './EditableCard';
 const mapStateToProps = state => state;
 
 function mapDispatchToProps(dispatch) {
-    return bindActionCreators(Object.assign({}, actions, itemsActions), dispatch);
+    return bindActionCreators({ ...actions, ...itemsActions }, dispatch);
 }
 
 export default connect(
