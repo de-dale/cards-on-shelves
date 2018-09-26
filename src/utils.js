@@ -12,3 +12,14 @@ export function makeActionCreator(type, ...argNames) {
         return action;
     };
 }
+
+export function when(first, second) {
+    return {
+        haveDifferent: (field) => first[ field ] !== second[ field ],
+        haveSame: (field) => first[ field ] === second[ field ]
+    };
+}
+
+export function update(obj, field, value) {
+    return { ...obj, [ field ]: value };
+}
