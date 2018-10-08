@@ -33,11 +33,11 @@ body * {
 	height: 25.6em;
 }
 
-.landscape .card>:first-child {
+.landscape .card-items>:first-child {
 	margin-right: 0.30em;
 }
 
-.landscape .card>:last-child {
+.landscape .card-items>:last-child {
 	margin-left: 0.30em;
 }
 

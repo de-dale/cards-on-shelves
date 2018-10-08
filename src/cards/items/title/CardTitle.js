@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import styles from './card-title.css';
+import styles from './styles.css';
 
 export const CardTitle = ({ item, updateItemField }) => {
     return (

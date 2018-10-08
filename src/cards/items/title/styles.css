@@ -1,5 +1,5 @@
 .card-title {
-    composes: card-item from '../card-item-container.css';
+    composes: card-item-content from '../styles.css';
 
     margin-left: 0;
     margin-right: 0;

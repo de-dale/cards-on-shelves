@@ -5,7 +5,7 @@ import CardToolbar from '../toolbar/CardToolbar';
 
 const EditableCard = ({ card, updateCard, remove, createItem }) => {
     return (
-        <div className="card-container-item"
+        <div className="editable-card"
             tabIndex={-1}
             onFocus={() => updateCard(card, 'editing', true)}
             onBlur={whenBlurs(() => updateCard(card, 'editing', false))}>
@@ -19,7 +19,7 @@ const EditableCard = ({ card, updateCard, remove, createItem }) => {
             />
             }
             <div
-                className="card-container-item-name"
+                className="card-name"
                 contentEditable="true"
                 suppressContentEditableWarning={true}
                 onBlur={e => updateCard(card, 'name', e.target.textContent)}

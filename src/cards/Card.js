@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-import CardItemList from './items/CardItemList.js';
+import CardItemList from './items/CardItemList';
 
-import styles from './card.css';
+import styles from './styles.css';
 import './theme/card-themes.css';
 
 const Card = ({ card }) => {

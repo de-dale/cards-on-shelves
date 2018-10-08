@@ -1,13 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import CardItemEditor from './editor/CardItemEditor';
+import CardItemToolbar from './toolbar/CardItemToolbar';
 import CardItemTypes from './types/CardItemTypes';
+
+import styles from './styles.css';
 
 export const CardItem = ({ card, item, updateCardItem, removeCardItem }) => {
     const ItemHandler = CardItemTypes[item.type] && CardItemTypes[item.type].view || DefaultCardItem;
     return (
-        <div className={'card-item-foo'}
+        <div className={styles['card-item']}
             tabIndex={-1}
             onFocus={() => updateCardItem(card, item, 'editing', true)}
             onBlur={whenBlurs(() => updateCardItem(card, item, 'editing', false))}>
@@ -15,7 +17,7 @@ export const CardItem = ({ card, item, updateCardItem, removeCardItem }) => {
                 item={item}
                 updateItemField={(field, value) => updateCardItem(card, item, field, value)}/>
             {item.editing &&
-            <CardItemEditor
+            <CardItemToolbar
                 card={card}
                 item={item}
                 updateItemField={(field, value) => updateCardItem(card, item, field, value)}

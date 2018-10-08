@@ -1,5 +1,5 @@
 .card-text {
-    composes: card-item from '../card-item-container.css';
+    composes: card-item-content from '../styles.css';
     min-height: 1.2em;
 
     flex-grow: 1;

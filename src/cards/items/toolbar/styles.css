@@ -1,0 +1,10 @@
+.card-item-toolbar {
+    position: sticky;
+    margin-top: -1.6em;
+    margin-left: 17.4em;
+    display: flex;
+    align-items: center
+}
+.card-item-toolbar  > * {
+    flex-shrink: 0
+}

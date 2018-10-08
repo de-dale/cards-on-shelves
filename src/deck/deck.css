@@ -23,11 +23,11 @@
 	height: 25.6em;
 }
 
-.deck .landscape .card>:first-child {
+.deck .landscape .card-items>:first-child {
 	margin-right: 0.30em;
 }
 
-.deck .landscape .card>:last-child {
+.deck .landscape .card-items>:last-child {
 	margin-left: 0.30em;
 }
 

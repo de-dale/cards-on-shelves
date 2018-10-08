@@ -3,11 +3,11 @@ import PropTypes from 'prop-types';
 
 import CardItem from '.';
 
-import styles from './card-item-container.css';
+import styles from './styles.css';
 
 const CardItemList = ({ card }) => {
     return (
-        <div className={styles.card}>
+        <div className={styles['card-items']}>
             {card.content.map((item, index) =>
                 <CardItem className={styles['card-item']} key={index} card={card} item={item}/>
             )}

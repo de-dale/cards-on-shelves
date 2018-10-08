@@ -5,7 +5,7 @@
   "description": "Module de cartes pour le De-D'Ale",
   "repository": {
     "type": "git",
-    "url": "git@github.com:vidal-community/ngx-sesame.git"
+    "url": "git@github.com:de-dale/cards-on-shelves.git"
   },
   "scripts": {
     "build": "webpack --mode production",
