@@ -2,19 +2,28 @@ import reducer from './reducer';
 import * as actions from './actions';
 
 describe('list reducer', () => {
-    const EMPTY_STATE = [];
-    const FILLED_STATE = [ aCard(1), aCard(2), aCard(3) ];
+    const EMPTY_STATE = {
+        nextCardId: 1,
+        cards: []
+    };
+    const FILLED_STATE = {
+        nextCardId: 1,
+        cards: [ aCard(1), aCard(2), aCard(3) ]
+    };
 
     it('should return the initial state', () => {
         expect(reducer(EMPTY_STATE, {})).toEqual(EMPTY_STATE);
     });
 
     it('should add a card', () => {
-        const action = actions.addCard(aCard(2));
+        const action = actions.addCard(aCard(5));
 
-        expect(reducer(EMPTY_STATE, action)).toEqual([
-            { id: 2, content: [] }
-        ]);
+        expect(reducer(EMPTY_STATE, action)).toEqual({
+            nextCardId: 6,
+            cards: [
+                { id: 5, content: [] }
+            ]
+        });
     });
 
     it('should increment id when absent', () => {
@@ -26,29 +35,42 @@ describe('list reducer', () => {
         state = reducer(state, action);
         state = reducer(state, secondAction);
 
-        expect(state).toEqual([
-            { id: 1, name: 'Nouvelle Carte', shape: '', theme: '', content: [] },
-            { id: 2, name: 'Nouvelle Carte', shape: '', theme: '', content: [] }
-        ]);
+        expect(state).toEqual(
+            {
+                nextCardId: 3,
+                cards:
+                    [
+                        { id: 1, name: 'Nouvelle Carte', shape: '', theme: '', content: [] },
+                        { id: 2, name: 'Nouvelle Carte', shape: '', theme: '', content: [] }
+                    ]
+            });
     });
 
     it('should remove a card', () => {
         const action = actions.removeCard(aCard(2));
 
-        expect(reducer(FILLED_STATE, action)).toEqual([
-            { id: 1, content: [] },
-            { id: 3, content: [] }
-        ]);
+        expect(reducer(FILLED_STATE, action)).toEqual(
+            {
+                nextCardId: 1,
+                cards: [
+                    { id: 1, content: [] },
+                    { id: 3, content: [] }
+                ]
+            });
     });
 
     it('should edit card name', () => {
         const action = actions.updateCard(aCard(2), 'name', 'anything');
 
-        expect(reducer(FILLED_STATE, action)).toEqual([
-            { id: 1, content: [] },
-            { id: 2, content: [], name: 'anything' },
-            { id: 3, content: [] }
-        ]);
+        expect(reducer(FILLED_STATE, action)).toEqual(
+            {
+                nextCardId: 1,
+                cards: [
+                    { id: 1, content: [] },
+                    { id: 2, content: [], name: 'anything' },
+                    { id: 3, content: [] }
+                ]
+            });
     });
 });
 
