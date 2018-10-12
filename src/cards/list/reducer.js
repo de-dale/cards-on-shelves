@@ -50,23 +50,23 @@ export default function (state = initialState, action) {
     }
 }
 
-function getCardId(state, action) {
-    return Math.max(state.nextCardId, action.card.id || -1);
+function getCardId(cards, action) {
+    return Math.max(cards.nextCardId, action.card.id || -1);
 }
 
-function addCard(state, card, nextCardId) {
+function addCard(cards, card, nextCardId) {
     return [
-        ...state,
+        ...cards,
         { ...card, id: nextCardId }
     ];
 }
 
-function removeCard(state, expected) {
-    return state.filter(item => when(item, expected).haveDifferent('id'));
+function removeCard(cards, expected) {
+    return cards.filter(item => when(item, expected).haveDifferent('id'));
 }
 
-function updateCard(state, expectedCard, field, value) {
-    return state.map(card =>
+function updateCard(cards, expectedCard, field, value) {
+    return cards.map(card =>
         (when(card, expectedCard).haveSame('id'))
             ? update(card, field, value)
             : card

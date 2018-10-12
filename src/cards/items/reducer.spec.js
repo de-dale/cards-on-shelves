@@ -2,13 +2,19 @@ import reducer from './reducer';
 import * as actions from './actions';
 
 describe('cards items reducer', () => {
+
     const CARD = aCard(1);
-    const STATE = [
-        CARD
-    ];
+    const STATE = {
+        cards: [
+            CARD
+        ]
+    };
 
     it('should return the initial state', () => {
-        expect(reducer(undefined, {})).toEqual([]);
+        expect(reducer(undefined, {})).toEqual({
+            cards: [],
+            nextCardItemId: 1
+        });
     });
 
     it('should add an item', () => {
@@ -17,14 +23,16 @@ describe('cards items reducer', () => {
             anItem(1, 'item content')
         );
 
-        expect(reducer(STATE, action)).toEqual([
-            {
-                id: 1,
-                content: [
-                    { id: 1, content: 'item content' }
-                ]
-            } ]
-        );
+        expect(reducer(STATE, action)).toEqual({
+            nextCardItemId: 2,
+            cards: [
+                {
+                    id: 1,
+                    content: [
+                        { id: 1, content: 'item content' }
+                    ]
+                } ]
+        });
     });
 
     it('should add an item to right card', () => {
@@ -33,16 +41,18 @@ describe('cards items reducer', () => {
             anItem(1, 'item content')
         );
 
-        expect(reducer([ ...STATE, aCard(2), aCard(3) ], action)).toEqual([
-            { id: 1, content: [] },
-            {
-                id: 2,
-                content: [
-                    { id: 1, content: 'item content' }
-                ]
-            },
-            { id: 3, content: [] }, ]
-        );
+        expect(reducer({ ...STATE, cards: [ ...STATE.cards, aCard(2), aCard(3) ] }, action)).toEqual({
+            nextCardItemId: 2,
+            cards: [
+                { id: 1, content: [] },
+                {
+                    id: 2,
+                    content: [
+                        { id: 1, content: 'item content' }
+                    ]
+                },
+                { id: 3, content: [] }, ]
+        });
     });
 
     it('should increment id when absent', () => {
@@ -54,57 +64,65 @@ describe('cards items reducer', () => {
         state = reducer(state, action);
         state = reducer(state, secondAction);
 
-        expect(state).toEqual([
-            {
-                id: 1,
-                content: [
-                    { id: 1, type: 'title', content: '' },
-                    { id: 2, type: 'title', content: '' }
-                ]
-            } ]
-        );
+        expect(state).toEqual({
+            nextCardItemId: 3,
+            cards: [
+                {
+                    id: 1,
+                    content: [
+                        { id: 1, type: 'title', content: '' },
+                        { id: 2, type: 'title', content: '' }
+                    ]
+                } ]
+        });
     });
 
     it('should remove one card item', () => {
-        const state = [
-            aCard(1, [ anItem(111, 'content'), anItem(112, 'some other content') ]),
-            aCard(2, [ anItem(222, 'another item content') ]),
-        ];
+        const state = {
+            cards: [
+                aCard(1, [ anItem(111, 'content'), anItem(112, 'some other content') ]),
+                aCard(2, [ anItem(222, 'another item content') ]),
+            ]
+        };
 
         const action = actions.removeCardItem(CARD, anItem(111));
 
-        expect(reducer(state, action)).toEqual([
-            {
-                id: 1,
-                content: [
-                    { id: 112, content: 'some other content' }
-                ]
-            },
-            {
-                id: 2,
-                content: [
-                    { id: 222, content: 'another item content' }
-                ]
-            }
-        ]);
+        expect(reducer(state, action)).toEqual({
+            cards: [
+                {
+                    id: 1,
+                    content: [
+                        { id: 112, content: 'some other content' }
+                    ]
+                },
+                {
+                    id: 2,
+                    content: [
+                        { id: 222, content: 'another item content' }
+                    ]
+                }
+            ]
+        });
     });
 
     it('should edit an item to a card', () => {
-        const state = [ aCard(1, [ anItem(111, 'item content') ]) ];
+        const state = { cards: [ aCard(1, [ anItem(111, 'item content') ]) ] };
 
         const action = actions.updateCardItem(CARD, anItem(111), 'name', 'anything');
 
-        expect(reducer(state, action)).toEqual([
-            {
-                id: 1, content: [
-                    {
-                        id: 111,
-                        content: 'item content',
-                        name: 'anything'
-                    }
-                ]
-            }
-        ]);
+        expect(reducer(state, action)).toEqual({
+            cards: [
+                {
+                    id: 1, content: [
+                        {
+                            id: 111,
+                            content: 'item content',
+                            name: 'anything'
+                        }
+                    ]
+                }
+            ]
+        });
     });
 });
 

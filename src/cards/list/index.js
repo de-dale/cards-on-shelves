@@ -4,7 +4,7 @@ import * as actions from './actions';
 import CardList from './CardList';
 
 const mapStateToProps = state => ({
-    cards: state.cards.list
+    cards: state.cards.list.cards
 });
 
 function mapDispatchToProps(dispatch) {
