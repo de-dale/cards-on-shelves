@@ -1,5 +1,5 @@
 import { ADD_CARD_ITEM, REMOVE_CARD_ITEM, UPDATE_CARD_ITEM } from './actions';
-import { update, when } from '../../utils';
+import { removeByItemId, update, updateArrayByItemId } from '../../utils';
 
 const initialState = {
     nextCardItemId: 1,
@@ -32,23 +32,20 @@ export default function (state = initialState, action) {
 }
 
 function updateCard(cards = [], card, updateCardContent) {
-    return cards.map(actualCard =>
-        (when(actualCard, card).haveSame('id'))
-            ? { ...actualCard, content: updateCardContent(actualCard.content) }
-            : doNothing(actualCard)
-    );
-}
-
-function doNothing(obj) {
-    return obj;
+    return updateArrayByItemId(cards, card, (actual) => {
+        return {
+            ...actual,
+            content: updateCardContent(actual.content)
+        };
+    });
 }
 
 function getCardItemId(action, state) {
     return Math.max(state.nextCardItemId || initialState.nextCardItemId, action.item.id || -1);
 }
 
-function addCardItem(cards, card, item, nextCardItemId) {
-    return updateCard(cards, card, (items) => addItem(items, item, nextCardItemId));
+function addCardItem(cards, card, item, cardItemId) {
+    return updateCard(cards, card, (items) => addItem(items, item, cardItemId));
 }
 
 function addItem(cardContent, item, cardItemId) {
@@ -62,11 +59,7 @@ function addItem(cardContent, item, cardItemId) {
 }
 
 function removeCardItem(cards, card, item) {
-    return updateCard(cards, card, (items) => removeItem(items, item));
-}
-
-function removeItem(cardContent, item) {
-    return cardContent.filter(actual => when(actual, item).haveDifferent('id'));
+    return updateCard(cards, card, (items) => removeByItemId(items, item));
 }
 
 function updateCardItem(cards, card, item, field, value) {
@@ -74,8 +67,5 @@ function updateCardItem(cards, card, item, field, value) {
 }
 
 function updateItem(cardContent, item, field, value) {
-    return cardContent.map(actual => (when(actual, item).haveSame('id'))
-        ? update(actual, field, value)
-        : doNothing(actual)
-    );
+    return updateArrayByItemId(cardContent, item, (actual) => update(actual, field, value));
 }

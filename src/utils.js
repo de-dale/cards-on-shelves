@@ -23,3 +23,31 @@ export function when(first, second) {
 export function update(obj, field, value) {
     return { ...obj, [ field ]: value };
 }
+
+export function updateArrayItem(array = [], matcher, updateItem) {
+    return array.map(actual =>
+        matcher(actual)
+            ? updateItem(actual)
+            : doNothing(actual)
+    );
+}
+
+export function updateArrayByItemId(array = [], item, updateItem) {
+    return updateArrayItem(array, matchesByItemId(item), updateItem);
+}
+
+function remove(array, matcher) {
+    return array.filter(matcher);
+}
+
+export function removeByItemId(array, item) {
+    return remove(array, actual => when(actual, item).haveDifferent('id'));
+}
+
+function matchesByItemId(item) {
+    return actual => (when(actual, item).haveSame('id'));
+}
+
+function doNothing(obj) {
+    return obj;
+}

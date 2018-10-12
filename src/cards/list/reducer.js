@@ -1,6 +1,6 @@
 import { ADD_CARD, IMPORT_CARDS, REMOVE_CARD, UPDATE_CARD } from './actions';
 import items from '../items/reducer';
-import { update, when } from '../../utils';
+import { removeByItemId, update, updateArrayByItemId } from '../../utils';
 
 const initialState = {
     nextCardId: 1,
@@ -62,14 +62,10 @@ function addCard(cards, card, nextCardId) {
 }
 
 function removeCard(cards, expected) {
-    return cards.filter(item => when(item, expected).haveDifferent('id'));
+    return removeByItemId(cards, expected);
 }
 
 function updateCard(cards, expectedCard, field, value) {
-    return cards.map(card =>
-        (when(card, expectedCard).haveSame('id'))
-            ? update(card, field, value)
-            : card
-    );
+    return updateArrayByItemId(cards, expectedCard, card => update(card, field, value));
 }
 
