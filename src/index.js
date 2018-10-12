@@ -6,6 +6,7 @@ import store from './store';
 import Codex from './codex/Codex.js';
 
 import './css/screen.css';
+import { addCard } from './cards/list/actions';
 
 export function aDiv(id) {
     const element = document.createElement('div');
@@ -24,6 +25,7 @@ function loadCodex(dom, name, url) {
             return response.json();
         })
         .then(function (data) {
+            data.forEach(card => store.dispatch(addCard(card)));
             displayCodex(dom, name, data);
         });
 }
