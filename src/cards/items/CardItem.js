@@ -3,17 +3,17 @@ import PropTypes from 'prop-types';
 
 import CardItemToolbar from './toolbar/CardItemToolbar';
 import CardItemTypes from './types/CardItemTypes';
-
-import styles from './styles.css';
+import classNames from 'classnames';
 
 export const CardItem = ({ card, item, updateCardItem, removeCardItem }) => {
-    const ItemHandler = CardItemTypes[item.type] && CardItemTypes[item.type].view || DefaultCardItem;
+    const ItemHandler = CardItemTypes[ item.type ] || DefaultCardItemHandler;
+    const itemContainerClasses = classNames('card-item', ItemHandler.style);
     return (
-        <div className={styles['card-item']}
+        <div className={itemContainerClasses}
             tabIndex={-1}
             onFocus={() => updateCardItem(card, item, 'editing', true)}
             onBlur={whenBlurs(() => updateCardItem(card, item, 'editing', false))}>
-            <ItemHandler
+            <ItemHandler.view
                 item={item}
                 updateItemField={(field, value) => updateCardItem(card, item, field, value)}/>
             {item.editing &&
@@ -39,6 +39,12 @@ const doesEventBlurs = ({ currentTarget, relatedTarget }) => {
 
 const DefaultCardItem = () => {
     return 'Empty';
+};
+
+const DefaultCardItemHandler = {
+    label: 'Default',
+    style: '',
+    view: DefaultCardItem
 };
 
 CardItem.propTypes = {

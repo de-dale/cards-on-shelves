@@ -6,14 +6,17 @@ const _CardItemTypes = {
 
     title: {
         label: 'Titre',
+        style: 'card-title',
         view: CardTitle
     },
     text: {
         label: 'Texte long',
+        style: 'card-text',
         view: CardText
     },
     field: {
         label: 'Clé/Valeur',
+        style: 'card-field-container',
         view: CardField
     }
 };
