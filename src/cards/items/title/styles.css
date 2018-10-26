@@ -1,9 +1,8 @@
 .card-title {
-    composes: card-item from '../card-item-container.css';
+    composes: card-item-content from '../styles.css';
 
     margin-left: 0;
     margin-right: 0;
-    z-index: 10;
 
     min-height: 1.2em;
     max-height: 1.2em;

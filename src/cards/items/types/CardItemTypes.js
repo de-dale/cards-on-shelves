@@ -1,25 +1,22 @@
-import CardTitle from './title/CardTitle';
-import CardTitleInput from './title/CardTitleInput';
-import CardField from './field/CardField';
-import CardFieldInput from './field/CardFieldInput';
-import CardText from './text/CardText';
-import CardTextInput from './text/CardTextInput';
+import CardTitle from '../title/CardTitle';
+import CardField from '../field/CardField';
+import CardText from '../text/CardText';
 
 const _CardItemTypes = {
 
     title: {
         label: 'Titre',
-        input: CardTitleInput,
+        style: 'card-title',
         view: CardTitle
     },
     text: {
         label: 'Texte long',
-        input: CardTextInput,
+        style: 'card-text',
         view: CardText
     },
     field: {
         label: 'Clé/Valeur',
-        input: CardFieldInput,
+        style: 'card-field-container',
         view: CardField
     }
 };
@@ -32,3 +29,4 @@ Object.defineProperty(_CardItemTypes, 'values', {
 });
 
 export const CardItemTypes = Object.freeze(_CardItemTypes);
+export default CardItemTypes;

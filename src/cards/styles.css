@@ -1,9 +1,7 @@
 .card-shape {
     background-color: black;
-    border-color: black;
     border-radius: 0.5em;
-    border-style: solid;
-    border-width: 0.08em;
+    border: 0.08em solid black;
     box-sizing: border-box;
     padding: 0.3em;
     width: 18.4em;

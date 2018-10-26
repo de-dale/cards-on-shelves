@@ -1,9 +1,9 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import CardThemesTypes from './CardThemesTypes.js';
 
-class CardThemeSelector extends Component {
+class   CardThemeSelector extends Component {
 
     render() {
         return (

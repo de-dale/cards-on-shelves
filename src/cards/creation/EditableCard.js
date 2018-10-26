@@ -1,64 +1,49 @@
-import React, {Component} from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
+import Card from '../Card';
+import CardToolbar from '../toolbar/CardToolbar';
 
-import CardEditor from './CardEditor';
-import Card from './../Card';
+const EditableCard = ({ card, updateCard, remove, createItem }) => {
+    return (
+        <div className="editable-card"
+            tabIndex={-1}
+            onFocus={() => updateCard(card, 'editing', true)}
+            onBlur={whenBlurs(() => updateCard(card, 'editing', false))}>
+            {card.editing &&
+            <CardToolbar
+                tabIndex={-1}
+                card={card}
+                duplicate={() => updateCard(card, 'name', 'Duplicate')}
+                remove={() => remove()}
+                addCardItem={()=> createItem(card)}
+            />
+            }
+            <div
+                className="card-name"
+                contentEditable="true"
+                suppressContentEditableWarning={true}
+                onBlur={e => updateCard(card, 'name', e.target.textContent)}
+            >{card.name}</div>
+            <Card card={card}/>
+        </div>
+    );
+};
 
-class EditableCard extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            card: props.card,
-            editMode: props.editMode
-        };
-        this.onUpdateCard = this.onUpdateCard.bind(this);
-        this.toggleEditMode = this.toggleEditMode.bind(this);
-    }
+const whenBlurs = (fn) => {
+    return (e) => {
+        if (doesEventBlurs(e)) fn();
+    };
+};
 
-    onUpdateCard(card) {
-        this.setState({card: card});
-    }
-
-    toggleEditMode() {
-        const updatedEditMode = this.isEditable() ? 'readonly': 'edit' ;
-        this.setState({editMode: updatedEditMode});
-    }
-
-    render() {
-        const card = this.state.card;
-        return (
-            <div className="card-container-item">
-                <div className="card-container-item-name">{card.name}</div>
-
-                <div className="card-container-item-toolbar">
-                    <button type="button" onClick={this.toggleEditMode}>
-                        {this.isEditable()
-                            ? 'Lecture seule'
-                            : 'Éditer'}
-                    </button>
-                    <button type="button" onClick={() => this.props.addCard(card)}>Dupliquer</button>
-                    <button type='button' onClick={() => this.props.removeCard(card)}>Supprimer</button>
-                </div>
-
-                <Card card={card}/>
-
-                {this.isEditable() &&
-                <CardEditor card={card} onUpdate={this.onUpdateCard}/>
-                }
-            </div>
-        );
-    }
-
-    isEditable() {
-        return this.state.editMode === 'edit';
-    }
-}
+const doesEventBlurs = ({ currentTarget, relatedTarget }) => {
+    return !currentTarget.contains(relatedTarget);
+};
 
 EditableCard.propTypes = {
     card: PropTypes.object.isRequired,
-    editMode: PropTypes.string,
-    addCard: PropTypes.func.isRequired,
-    removeCard: PropTypes.func.isRequired
+    updateCard: PropTypes.func,
+    remove: PropTypes.func,
+    createItem: PropTypes.func
 };
 
 export default EditableCard;

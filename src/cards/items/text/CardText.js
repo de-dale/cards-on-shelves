@@ -1,24 +1,25 @@
-import React, {Component} from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
-import styles from './card-text.css';
+import styles from './styles.css';
 
-class CardText extends Component {
-    constructor(props) {
-        super(props);
-        this.item = props.item;
-    }
-
-    render() {
-        const item = this.item;
-        return (<div className={styles['card-text']}>{item.content}</div>);
-    }
-}
+export const CardText = ({ item, updateItemField }) => {
+    return (
+        <div
+            className={styles['card-text']}
+            contentEditable={true}
+            suppressContentEditableWarning={true}
+            onBlur={e => updateItemField('content', e.target.textContent)}>
+            {item.content}
+        </div>
+    );
+};
 
 CardText.propTypes = {
     item: PropTypes.shape({
         content: PropTypes.string.isRequired
-    }).isRequired
+    }).isRequired,
+    updateItemField: PropTypes.func
 };
 
 export default CardText;

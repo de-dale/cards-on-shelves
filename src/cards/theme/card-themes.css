@@ -9,7 +9,7 @@
     background-color: rgba(255, 255, 255, 1);
 }
 
-.white .card {
+.white .card-items {
     background-color: rgba(255, 255, 255, 1);
 }
 
@@ -22,7 +22,7 @@
     border-color: rgba(255, 255, 255, 1);
 }
 
-.green .card {
+.green .card-items {
     background-color: rgba(0, 128, 0, 1);
 }
 
@@ -35,7 +35,7 @@
     border-color: rgba(102, 230, 102, 1);
 }
 
-.green-light .card {
+.green-light .card-items {
     background-color: rgba(64, 192, 64, 1);
     background-color: rgba(64, 128, 64, 1);
 }
@@ -49,7 +49,7 @@
     border-color: rgba(166, 255, 166, 1);
 }
 
-.green-lizard .card {
+.green-lizard .card-items {
     background-color: rgba(64, 128, 0, 1);
 }
 
@@ -62,7 +62,7 @@
     border-color: rgba(166, 230, 102, 1);
 }
 
-.blue .card {
+.blue .card-items {
     background-color: rgba(0, 0, 128, 1);
     /*color: rgba(230, 230, 230, 1);*/
 }
@@ -76,7 +76,7 @@
     border-color: rgba(102, 102, 230, 1);
 }
 
-.blue-light .card {
+.blue-light .card-items {
     background-color: rgba(64, 64, 192, 1);
 }
 
@@ -89,7 +89,7 @@
     border-color: rgba(166, 166, 255, 1);
 }
 
-.red .card {
+.red .card-items {
     background-color: rgba(128, 0, 0, 1);
     /*color: rgba(230, 230, 230, 1);*/
 }
@@ -103,7 +103,7 @@
     border-color: rgba(205, 102, 102, 1);
 }
 
-.red-light .card {
+.red-light .card-items {
     background-color: rgba(192, 64, 64, 1);
 }
 
@@ -116,7 +116,7 @@
     border-color: rgba(230, 192, 192, 1);
 }
 
-.red-gray .card {
+.red-gray .card-items {
     background-color: rgba(128, 0, 0, 1);
 }
 
@@ -129,7 +129,7 @@
     border-color: rgba(205, 166, 166, 1);
 }
 
-.cyan .card {
+.cyan .card-items {
     background-color: rgba(0, 128, 128, 1);
 }
 
@@ -138,7 +138,7 @@
     border-color: rgba(166, 230, 230, 1);
 }
 
-.magenta .card {
+.magenta .card-items {
     background-color: rgba(128, 0, 128, 1);
 }
 
@@ -147,7 +147,7 @@
     border-color: rgba(205, 166, 205, 1);
 }
 
-.yellow .card {
+.yellow .card-items {
     background-color: rgba(128, 128, 0, 1);
 }
 
@@ -156,7 +156,7 @@
     border-color: rgba(230, 230, 166, 1);
 }
 
-.yellow-light .card {
+.yellow-light .card-items {
     /*background-color: rgba(192, 192, 0, 1);*/
     background-color: rgba(255, 255, 77, 1);
 }
@@ -168,7 +168,7 @@
 }
 
 
-.action .card {
+.action .card-items {
     background-color: rgba(128, 0, 0, 1);
 }
 
@@ -182,7 +182,7 @@
 }
 
 
-.ability .card {
+.ability .card-items {
     background-color: rgba(0, 128, 128, 1);
 }
 
