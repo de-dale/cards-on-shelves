@@ -4,10 +4,12 @@ import * as actions from './actions';
 describe('list reducer', () => {
     const EMPTY_STATE = {
         nextCardId: 1,
+        nextCardItemId: 1,
         cards: []
     };
     const FILLED_STATE = {
         nextCardId: 1,
+        nextCardItemId: 1,
         cards: [ aCard(1), aCard(2), aCard(3) ]
     };
 
@@ -20,6 +22,7 @@ describe('list reducer', () => {
 
         expect(reducer(EMPTY_STATE, action)).toEqual({
             nextCardId: 6,
+            nextCardItemId: 1,
             cards: [
                 { id: 5, content: [] }
             ]
@@ -38,6 +41,7 @@ describe('list reducer', () => {
         expect(state).toEqual(
             {
                 nextCardId: 3,
+                nextCardItemId: 1,
                 cards:
                     [
                         { id: 1, name: 'Nouvelle Carte', shape: '', theme: '', content: [] },
@@ -52,6 +56,7 @@ describe('list reducer', () => {
         expect(reducer(FILLED_STATE, action)).toEqual(
             {
                 nextCardId: 1,
+                nextCardItemId: 1,
                 cards: [
                     { id: 1, content: [] },
                     { id: 3, content: [] }
@@ -65,6 +70,7 @@ describe('list reducer', () => {
         expect(reducer(FILLED_STATE, action)).toEqual(
             {
                 nextCardId: 1,
+                nextCardItemId: 1,
                 cards: [
                     { id: 1, content: [] },
                     { id: 2, content: [], name: 'anything' },
@@ -72,6 +78,28 @@ describe('list reducer', () => {
                 ]
             });
     });
+
+    it('should add a card with items', () => {
+        const action = actions.addCard(aCard(5, [anItem('without id')]));
+
+        expect(reducer(EMPTY_STATE, action)).toEqual({
+            nextCardId: 6,
+            nextCardItemId: 2,
+            cards: [
+                {
+                    id: 5,
+                    content: [
+                        {
+                            id: 1,
+                            content: 'without id'
+                        }
+
+                    ]
+                }
+            ]
+        });
+    });
+
 });
 
 function aCard(id, items = []) {
@@ -80,5 +108,11 @@ function aCard(id, items = []) {
         content: [
             ...items
         ]
+    };
+}
+
+function anItem(content) {
+    return {
+        content: content
     };
 }

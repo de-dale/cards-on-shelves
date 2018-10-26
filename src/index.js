@@ -5,7 +5,7 @@ import store from './store';
 
 import Codex from './codex/Codex.js';
 
-import { addCard } from './cards/list/actions';
+import { addCard } from './cards/actions';
 
 const codexRoot = document.getElementById('shelves-root');
 loadCodex(codexRoot, 'Sphérier', 'https://raw.githubusercontent.com/de-dale/skills-sphere/spheres.all/main/all.spheres');

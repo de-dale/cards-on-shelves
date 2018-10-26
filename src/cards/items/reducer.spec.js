@@ -5,6 +5,7 @@ describe('cards items reducer', () => {
 
     const CARD = aCard(1);
     const STATE = {
+        nextCardItemId: 1,
         cards: [
             CARD
         ]

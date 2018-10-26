@@ -1,10 +1,10 @@
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import * as actions from './actions';
+import * as actions from '../actions';
 import CardList from './CardList';
 
 const mapStateToProps = state => ({
-    cards: state.cards.list.cards
+    cards: state.cards.cards
 });
 
 function mapDispatchToProps(dispatch) {

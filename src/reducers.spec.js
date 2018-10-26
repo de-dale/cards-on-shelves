@@ -2,10 +2,15 @@ import reducers from './reducers';
 
 describe('reducers', () => {
     const STATE = {
-        'cards': {
-            'list': []
+        cards: {
+            cards: [],
+            nextCardId: 1,
+            nextCardItemId: 1
         },
-        'codex': { 'cards': [], 'name': 'Nouveau Codex' }
+        codex: {
+            cards: [],
+            name: 'Nouveau Codex'
+        }
     };
 
     it('should return the initial state', () => {
@@ -15,11 +20,16 @@ describe('reducers', () => {
     it('should add a single card', () => {
         const action = {
             type: 'ADD_CARD',
-            card: 'a card object'
+            card: { textContent: 'a card object' }
         };
 
-        STATE.cards.list = [
-            'a card object'
+        STATE.cards.nextCardId = 2;
+        STATE.cards.cards = [
+            {
+                id: 1,
+                content: [],
+                textContent: 'a card object'
+            }
         ];
         expect(reducers({}, action)).toEqual(STATE);
     });
@@ -27,7 +37,8 @@ describe('reducers', () => {
     it('should add a card item', () => {
         const theState = {
             cards: {
-                'list': [
+                nextCardItemId: 1,
+                cards: [
                     { id: 1, content: [] },
                     { id: 2 },
                     { id: 3 }
@@ -43,7 +54,8 @@ describe('reducers', () => {
 
         expect(reducers(theState, action)).toEqual({
             cards: {
-                list: [
+                nextCardItemId: 2,
+                cards: [
                     {
                         id: 1,
                         content: [
@@ -51,7 +63,7 @@ describe('reducers', () => {
                         ]
                     },
                     { id: 2 },
-                    { id: 3 }]
+                    { id: 3 } ]
             },
             codex: { cards: [], name: 'Nouveau Codex' }
         });

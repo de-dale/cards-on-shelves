@@ -9,12 +9,7 @@ const initialState = {
 export default function (state = initialState, action) {
     switch (action.type) {
         case ADD_CARD_ITEM: {
-            const nextCardItemId = getCardItemId(action, state);
-            return {
-                ...state,
-                nextCardItemId: nextCardItemId + 1,
-                cards: addCardItem(state.cards, action.card, action.item, nextCardItemId)
-            };
+            return addItemToCard(state, action.card, action.item);
         }
         case REMOVE_CARD_ITEM:
             return {
@@ -31,6 +26,23 @@ export default function (state = initialState, action) {
     }
 }
 
+function getCardItemId(state, item) {
+    return Math.max(state.nextCardItemId || initialState.nextCardItemId, item && item.id || -1);
+}
+
+export function addItemToCard(state, card, item) {
+    const nextCardItemId = getCardItemId(state, item);
+    return {
+        ...state,
+        nextCardItemId: nextCardItemId + 1,
+        cards: addCardItem(state.cards, card, item, nextCardItemId)
+    };
+}
+
+function addCardItem(cards, card, item, cardItemId) {
+    return updateCard(cards, card, (items) => addItem(items, item, cardItemId));
+}
+
 function updateCard(cards = [], card, updateCardContent) {
     return updateArrayByItemId(cards, card, (actual) => {
         return {
@@ -40,21 +52,17 @@ function updateCard(cards = [], card, updateCardContent) {
     });
 }
 
-function getCardItemId(action, state) {
-    return Math.max(state.nextCardItemId || initialState.nextCardItemId, action.item.id || -1);
-}
-
-function addCardItem(cards, card, item, cardItemId) {
-    return updateCard(cards, card, (items) => addItem(items, item, cardItemId));
+function toItemWithId(item, cardItemId) {
+    return {
+        ...item,
+        id: cardItemId
+    };
 }
 
 function addItem(cardContent, item, cardItemId) {
     return [
         ...cardContent,
-        {
-            ...item,
-            id: cardItemId
-        }
+        toItemWithId(item, cardItemId)
     ];
 }
 

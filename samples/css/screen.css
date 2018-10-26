@@ -71,7 +71,6 @@ body {
 .card-item.emphasized {
 	margin-left: 0;
 	margin-right: 0;
-	z-index: 10;
 }
 
 .card-item.no-padding {
