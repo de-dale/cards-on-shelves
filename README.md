@@ -9,4 +9,6 @@
 ###################################################################################################
 ```
 
+[![Build Status](https://travis-ci.com/de-dale/cards-on-shelves.svg?branch=develop)](https://travis-ci.com/de-dale/cards-on-shelves)
+
 # Module d'affichage de cartes
