@@ -9,6 +9,8 @@
 ###################################################################################################
 ```
 
+[![Build Status](https://travis-ci.com/de-dale/cards-on-shelves.svg?branch=develop)](https://travis-ci.com/de-dale/cards-on-shelves)
+
 # Module d'affichage de cartes
 
 Ce module devrait permettre d'éditer et d'afficher des cartes au format "carte à jouer".

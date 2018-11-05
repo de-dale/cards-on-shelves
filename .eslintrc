@@ -1,0 +1,42 @@
+{
+  "parser": "babel-eslint",
+  "plugins": [
+    "react",
+    "jest"
+  ],
+  "env": {
+    "browser": true,
+    "node": true,
+    "jest/globals": true
+  },
+  "rules": {
+    "indent": [
+      "error",
+      4,
+      {
+        "SwitchCase": 1
+      }
+    ],
+    "linebreak-style": [
+      "error",
+      "unix"
+    ],
+    "quotes": [
+      "error",
+      "single"
+    ],
+    "semi": [
+      "error",
+      "always"
+    ],
+    "object-curly-spacing": [
+      "error",
+      "always"
+    ]
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:jest/recommended"
+  ]
+}

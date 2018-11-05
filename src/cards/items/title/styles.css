@@ -1,0 +1,12 @@
+.card-title {
+    composes: card-item-content from '../styles.css';
+
+    margin-left: 0;
+    margin-right: 0;
+
+    min-height: 1.2em;
+    max-height: 1.2em;
+
+    font-size: 1.1em;
+    font-weight: bold;
+}

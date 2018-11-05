@@ -1,47 +1,37 @@
-body {
-	margin: 0;
-	background-color: white;
+.deck {
 }
 
-body * {
-	visibility: hidden;
+.deck > * {
+    margin: 0.08em;
+    display: inline-block;
 }
 
-@page {
-	margin: 8mm;
+.deck .page-break {
+    break-after: page;
 }
 
-.card-container {
-	page-break-after: always;
-}
-
-.card-container * {
-	visibility: visible;
-}
-
-.card-shape {
+.deck .card-shape {
 	font-size: small;
-	page-break-inside: avoid;
 }
 
-.landscape {
+.deck .landscape {
 	writing-mode: vertical-rl;
 }
 
-.landscape.card-shape {
+.deck .landscape.card-shape {
 	width: 18.4em;
 	height: 25.6em;
 }
 
-.landscape .card-items>:first-child {
+.deck .landscape .card-items>:first-child {
 	margin-right: 0.30em;
 }
 
-.landscape .card-items>:last-child {
+.deck .landscape .card-items>:last-child {
 	margin-left: 0.30em;
 }
 
-.landscape .card-item {
+.deck .landscape .card-item {
 	margin-right: -0.15em;
 	margin-left: 0;
 	margin-top: 0.30em;
@@ -52,41 +42,41 @@ body * {
 	padding-bottom: 0.30em;
 }
 
-.landscape .card-item.emphasized {
+.deck .landscape .card-item.emphasized {
 	margin-top: 0;
 	margin-bottom: 0;
 }
 
-.landscape .card-item.no-padding {
+.deck .landscape .card-item.no-padding {
 	border-style: none;
 	border-color: rgba(0, 0, 0, 0);
 	padding: 0;
 }
 
-.landscape .card-item.short {
+.deck .landscape .card-item.short {
 	min-height: initial;
 	max-height: initial;
 	min-width: 1.2em;
 	max-width: 1.2em;
 }
 
-.landscape .card-item.no-padding.short {
+.deck .landscape .card-item.no-padding.short {
 	min-width: 1.8em;
 	max-width: 1.8em;
 }
 
-.landscape .card-header {
+.deck .landscape .card-header {
 	
 }
 
-.landscape .card-field {
+.deck .landscape .card-field {
 	padding-right: 0.15em;
 	padding-left: 0.15em;
 	padding-top: 0.30em;
 	padding-bottom: 0.30em;
 }
 
-.landscape .card-field+.card-field {
+.deck .landscape .card-field+.card-field {
 	margin-left: inherit;
 	margin-top: -0.15em;
 }
@@ -102,7 +92,7 @@ body * {
   position: relative;
   transform: rotate(90deg);
 }*/
-.landscape .card-image picture {
+.deck .landscape .card-image picture {
 	display: block;
 	position: relative;
 	transform: rotate(90deg);

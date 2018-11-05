@@ -1,23 +1,52 @@
-'use strict';
-
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+import store from './store';
 
-import {Codex} from './components/codex/Codex.js';
+import Codex from './codex/Codex.js';
 
-import './css/screen.css';
+import { addCard } from './cards/actions';
 
-export function aDiv(id) {
-    const element = document.createElement('div');
-    element.setAttribute("id", id);
-    return element;
+const codexRoot = document.getElementById('shelves-root');
+
+function getCodexUrl() {
+    let url = new URL(location.href);
+    let searchParams = new URLSearchParams(url.search);
+    let branch = searchParams.get('branch')
+        ? searchParams.get('branch')
+        : 'spheres.all';
+    let codexFile = searchParams.get('spheres')
+        ? searchParams.get('spheres')
+        : 'all.spheres';
+
+    return 'https://raw.githubusercontent.com/de-dale/spherier/' + branch + '/main/' + codexFile;
 }
 
-const codexRoot = aDiv('shelves-root');
-document.body.appendChild(codexRoot);
+let url = getCodexUrl();
+loadCodex(codexRoot, 'Sphérier', url);
 
-ReactDOM.render(
-    <Codex name="Codex De-Dale"/>,
-    codexRoot
-);
+function loadCodex(dom, name, url) {
+    fetch(url)
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+            data.forEach(card => store.dispatch(addCard(card)));
+            displayCodex(dom, name, data);
+        }).catch(() => {
+            displayCodex(dom, name, []);
+        });
+}
 
+function displayCodex(dom, name, data) {
+    const codex = {
+        name: name,
+        cards: data
+    };
+    ReactDOM.render(
+        <Provider store={store}>
+            <Codex codex={codex}/>
+        </Provider>,
+        dom
+    );
+}

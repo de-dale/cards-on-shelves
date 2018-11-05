@@ -1,0 +1,31 @@
+.card-field-container {
+    composes: card-item-content from '../styles.css';
+
+    min-height: 1.2em;
+    max-height: 1.2em;
+
+    display: flex;
+    justify-content: space-between;
+
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.card-field-container > * {
+    flex-grow: 1;
+}
+
+.card-field-header {
+    font-weight: bold;
+}
+
+.card-field-separator {
+    text-align: center;
+}
+
+.card-field-value {
+    font-family: sans-serif;
+    font-variant: small-caps;
+    text-transform: lowercase;
+    text-align: right;
+}

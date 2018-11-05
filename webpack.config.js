@@ -17,7 +17,9 @@ module.exports = {
     plugins: [
         new CleanWebpackPlugin(['dist']),
         new HtmlWebpackPlugin({
-            title: 'De-Dale - Shelves'
+            title: 'De-Dale - Shelves',
+            template: 'src/index.html',
+            chunks: ['app']
         }),
         new webpack.NamedModulesPlugin(),
         new webpack.HotModuleReplacementPlugin()
@@ -25,14 +27,13 @@ module.exports = {
     output: {
         filename: '[name].bundle.js',
         path: path.resolve(__dirname, 'dist'),
-        publicPath: '/'
     },
     module: {
         rules: [
             {
-                test: /\.js$/,
+                test: /\.(js|jsx)$/,
                 exclude: /node_modules/,
-                loader: "babel-loader"
+                loader: ['babel-loader', 'eslint-loader']
             },
             {
                 test: /\.css$/,
@@ -63,6 +64,9 @@ module.exports = {
                 ]
             }
         ]
+    },
+    resolve: {
+        extensions: ['.js', '.jsx', '.styl', '.json', '.md', 'jpeg']
     }
 };
 
