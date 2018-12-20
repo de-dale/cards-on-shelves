@@ -1,0 +1,26 @@
+{
+  "cards": {
+    "cards": [
+      {
+        "name": "Excédent de dégâts",
+        "theme": "ability",
+        "content": [
+        ]
+      },
+      {
+        "name": "Position du tigre",
+        "theme": "ability",
+        "content": []
+      },
+      {
+        "name": "Se déplacer",
+        "theme": "action",
+        "content": []
+      },
+      {
+        "name": "Choc",
+        "content": []
+      }
+    ]
+  }
+}
