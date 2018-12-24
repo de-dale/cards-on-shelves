@@ -5,9 +5,9 @@ import CardList from '../cards/list';
 
 const Codex = ({ codex }) => (
     <div className='codex'>
-        <h1>{codex.name}</h1>
-        <CodexToolbar codex={codex}/>
-        <CardList cards={codex.cards} />
+        <h1>{ codex.name }</h1>
+        <CodexToolbar codex={ codex }/>
+        <CardList cards={ codex.cards }/>
     </div>
 );
 

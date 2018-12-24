@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import store from './store';
+import createStore from './store';
 
-import Codex from './codex/Codex.js';
+import App from './app/App';
 
 import { addCard } from './cards/actions';
 
@@ -31,21 +31,27 @@ function loadCodex(dom, name, url) {
             return response.json();
         })
         .then(function (data) {
+            const store = createStore( {
+                codex: {
+                    name: name,
+                    cards: data
+                }/*, Could work if ids were defined 
+                cards: {
+                    cards: data
+                }*/
+            });
             data.forEach(card => store.dispatch(addCard(card)));
-            displayCodex(dom, name, data);
+            displayCodex(dom, store);
         }).catch(() => {
-            displayCodex(dom, name, []);
+            const store = createStore();
+            displayCodex(dom, store);
         });
 }
 
-function displayCodex(dom, name, data) {
-    const codex = {
-        name: name,
-        cards: data
-    };
+function displayCodex(dom, store) {
     ReactDOM.render(
-        <Provider store={store}>
-            <Codex codex={codex}/>
+        <Provider store={ store }>
+            <App/>
         </Provider>,
         dom
     );

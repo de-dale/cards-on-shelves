@@ -4,14 +4,14 @@ import FileSaver from 'file-saver';
 
 jest.mock('file-saver');
 
-describe('reducers', () => {
+describe('codex', () => {
 
     const INITIAL_STATE = {
         name: 'Nouveau Codex',
         cards: []
     };
 
-    it('should return the initial state', () => {
+    it('should not changes state when saved', () => {
         expect(reducer(undefined, {})).toEqual(INITIAL_STATE);
     });
 
@@ -27,7 +27,7 @@ describe('reducers', () => {
         expect(resultState).toEqual(INITIAL_STATE);
     });
 
-    it('should save a codex', () => {
+    it('should be saved a codex', () => {
         const codex = {
             name: 'Nom spécifique',
             cards: ['cards']
