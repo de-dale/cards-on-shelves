@@ -7,16 +7,13 @@ import CardItemList from './items/CardItemList';
 import styles from './styles.css';
 import './theme/card-themes.css';
 
-const Card = ({ card }) => {
-    return (
-        <div className={shapeClasses(card)}>
-            <CardItemList card={card} />
-        </div>
-    );
-};
+const Card = ({ card }) => (
+    <div className={ shapeClasses(card) }>
+        <CardItemList card={ card }/>
+    </div>
+);
 
-
-function shapeClasses (card){
+function shapeClasses(card) {
     return classNames.bind(styles)(
         'card-shape',
         card.theme,

@@ -1,79 +1,25 @@
 import { ADD_CARD_ITEM, REMOVE_CARD_ITEM, UPDATE_CARD_ITEM } from './actions';
-import { removeByItemId, update, updateArrayByItemId } from '../../utils';
+import { addEntity, removeEntity, updateEntity } from '../../entities';
 
 const initialState = {
-    nextCardItemId: 1,
-    cards: []
+    nextEntityId: 1,
+    entities: []
 };
 
 export default function (state = initialState, action) {
     switch (action.type) {
-        case ADD_CARD_ITEM: {
-            return addItemToCard(state, action.card, action.item);
-        }
+        case ADD_CARD_ITEM:
+            return addItem(state, action.item, action.card);
         case REMOVE_CARD_ITEM:
-            return {
-                ...state,
-                cards: removeCardItem(state.cards, action.card, action.item)
-            };
+            return removeEntity(state, action.item);
         case UPDATE_CARD_ITEM:
-            return {
-                ...state,
-                cards: updateCardItem(state.cards, action.card, action.item, action.field, action.value)
-            };
+            return updateEntity(state, action.item, action.field, action.value);
         default:
             return state;
     }
 }
 
-function getCardItemId(state, item) {
-    return Math.max(state.nextCardItemId || initialState.nextCardItemId, item && item.id || -1);
+function addItem(state, item, card) {
+    return addEntity(state, { ...item, card: card.id }, 'card');
 }
 
-export function addItemToCard(state, card, item) {
-    const nextCardItemId = getCardItemId(state, item);
-    return {
-        ...state,
-        nextCardItemId: nextCardItemId + 1,
-        cards: addCardItem(state.cards, card, item, nextCardItemId)
-    };
-}
-
-function addCardItem(cards, card, item, cardItemId) {
-    return updateCard(cards, card, (items) => addItem(items, item, cardItemId));
-}
-
-function updateCard(cards = [], card, updateCardContent) {
-    return updateArrayByItemId(cards, card, (actual) => {
-        return {
-            ...actual,
-            content: updateCardContent(actual.content)
-        };
-    });
-}
-
-function toItemWithId(item, cardItemId) {
-    return {
-        ...item,
-        id: cardItemId
-    };
-}
-
-function addItem(cardContent, item, cardItemId) {
-    return [
-        ...cardContent,
-        toItemWithId(item, cardItemId)
-    ];
-}
-
-function removeCardItem(cards, card, item) {
-    return updateCard(cards, card, (items) => removeByItemId(items, item));
-}
-
-function updateCardItem(cards, card, item, field, value) {
-    return updateCard(cards, card, (items) => updateItem(items, item, field, value));
-}
-
-function updateItem(cardContent, item, field, value) {
-    return updateArrayByItemId(cardContent, item, (actual) => update(actual, field, value));
-}

@@ -1,41 +1,114 @@
 import * as actions from './actions';
 import reducer from './reducer';
 import FileSaver from 'file-saver';
+import { addCodex } from './actions';
 
 jest.mock('file-saver');
+
 
 describe('codex', () => {
 
     const INITIAL_STATE = {
-        name: 'Nouveau Codex',
-        cards: []
+        nextEntityId: 1,
+        entities: [
+            {
+                id: 1,
+                name: 'Un Codex',
+                type: 'codex'
+            },
+            {
+                children: [ 3 ],
+                id: 2,
+                name: 'Un Codex',
+                type: 'codex'
+            },
+            {
+                id: 3,
+                name: 'Une carte',
+                type: 'card'
+            }
+        ]
     };
 
-    it('should not changes state when saved', () => {
-        expect(reducer(undefined, {})).toEqual(INITIAL_STATE);
+    const codex = {
+        id: 1
+    };
+
+    const codexWithCard = {
+        id: 2
+    };
+
+    const EMPTY_STATE = {
+        nextEntityId: 1,
+        entities: []
+    };
+
+    it('should add a codex', () => {
+        const action = addCodex({ name: 'Un Codex' });
+
+        expect(reducer(EMPTY_STATE, action)).toEqual({
+            nextEntityId: 2,
+            entities: [
+                {
+                    id: 1,
+                    type: 'codex',
+                    name: 'Un Codex'
+                }
+            ]
+        });
     });
 
-    it('should never change state', () => {
-        const codex = {
-            ...INITIAL_STATE,
-            cards: ['cards', 'whatever inside']
-        };
+    it('should never change state when saved', () => {
         const saveCodex = actions.saveCodex(codex);
 
-        const resultState = reducer(INITIAL_STATE, saveCodex);
-
-        expect(resultState).toEqual(INITIAL_STATE);
+        expect(reducer(INITIAL_STATE, saveCodex)).toEqual(INITIAL_STATE);
     });
 
-    it('should be saved a codex', () => {
-        const codex = {
-            name: 'Nom spécifique',
-            cards: ['cards']
-        };
+    it('should be saved as codex', () => {
         const saveCodex = actions.saveCodex(codex);
 
         reducer(INITIAL_STATE, saveCodex);
 
-        expect(FileSaver.saveAs).toHaveBeenCalledWith(expect.any(Blob), 'Nom spécifique.json');
+        expect(FileSaver.saveAs).toHaveBeenCalledWith(aBlobContaining({
+            id: 1,
+            name: 'Un Codex',
+            type: 'codex'
+        }), 'Un Codex.json');
     });
+
+    xit('should be saved as codex with cards', () => {
+        const saveCodex = actions.saveCodex(codexWithCard);
+
+        reducer(INITIAL_STATE, saveCodex);
+
+        expect(FileSaver.saveAs).toHaveBeenCalledWith(aBlobContaining(
+            {
+                content: [ 3 ],
+                id: 2,
+                name: 'Un Codex',
+                type: 'codex'
+            },
+            {
+                content: [],
+                id: 3,
+                name: 'Une carte',
+                type: 'card'
+            }
+        ), 'Un Codex.json');
+    });
+
+    it('should save all', () => {
+        const saveAll = actions.saveAll();
+
+        reducer(INITIAL_STATE, saveAll);
+
+        expect(FileSaver.saveAs).toHaveBeenCalledWith(aBlobContaining(INITIAL_STATE), 'export_all.json');
+    });
+
+    function aBlobContaining(content) {
+        return new Blob(
+            [ JSON.stringify(content) ],
+            { type: 'text/json;charset=utf-8' }
+        );
+    }
 });

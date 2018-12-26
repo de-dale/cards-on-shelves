@@ -1,30 +1,50 @@
-export const log = (any, message, optionalParams) => {
-    console.log(message, any, optionalParams); // eslint-disable-line no-console
-    return any;
+export {
+    log,
+    makeActionCreator,
+    when,
+    update,
+    updateArrayItem,
+    updateArrayItemById,
+    removeItemById,
+    findById,
+    isIdIn
 };
 
-export function makeActionCreator(type, ...argNames) {
+function log (any, message, optionalParams) {
+    console.log(message, any, optionalParams); // eslint-disable-line no-console
+    return any;
+}
+
+function makeActionCreator(type, ...argNames) {
     return function (...args) {
         const action = { type };
         argNames.forEach((arg, index) => {
-            action[argNames[index]] = args[index];
+            action[ argNames[ index ] ] = args[ index ];
         });
         return action;
     };
 }
 
-export function when(first, second) {
+function when(first, second) {
     return {
         haveDifferent: (field) => first[ field ] !== second[ field ],
         haveSame: (field) => first[ field ] === second[ field ]
     };
 }
 
-export function update(obj, field, value) {
+function update(obj, field, value) {
     return { ...obj, [ field ]: value };
 }
 
-export function updateArrayItem(array = [], matcher, updateItem) {
+export function addIn(obj, field, value) {
+    return {
+        ...obj,
+        [ field ]: [ ...(obj[ field ] || []), value ]
+    };
+
+}
+
+function updateArrayItem(array = [], matcher, updateItem) {
     return array.map(actual =>
         matcher(actual)
             ? updateItem(actual)
@@ -32,22 +52,30 @@ export function updateArrayItem(array = [], matcher, updateItem) {
     );
 }
 
-export function updateArrayByItemId(array = [], item, updateItem) {
-    return updateArrayItem(array, matchesByItemId(item), updateItem);
+function updateArrayItemById(array = [], item, updateItem) {
+    return updateArrayItem(array, hasItemId(item), updateItem);
 }
 
 function remove(array, matcher) {
     return array.filter(matcher);
 }
 
-export function removeByItemId(array, item) {
+function removeItemById(array, item) {
     return remove(array, actual => when(actual, item).haveDifferent('id'));
 }
 
-function matchesByItemId(item) {
-    return actual => (when(actual, item).haveSame('id'));
+function hasItemId(item) {
+    return actual => when(actual, item).haveSame('id');
+}
+
+function isIdIn(ids) {
+    return item => ids.includes(item.id);
 }
 
 function doNothing(obj) {
     return obj;
+}
+
+function findById(array, item) {
+    return array.find(hasItemId(item));
 }
