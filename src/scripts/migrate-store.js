@@ -25,7 +25,7 @@ function migrateCodex(codex, nextId, cards) {
         id: nextId(),
         name: codex.name,
         type: 'codex',
-        content: cards.map(card => card.id)
+        children: cards.map(card => card.id)
     }];
 }
 
@@ -38,11 +38,12 @@ function migrateCards(origin, nextId) {
 }
 
 function migrateCard(card, nextId, items) {
+    delete card.content;
     return [{
         ...card,
         id: nextId(),
         type: 'card',
-        content: items.map(item => item.id)
+        children: items.map(item => item.id)
     }];
 }
 

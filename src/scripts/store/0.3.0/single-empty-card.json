@@ -7,7 +7,7 @@
       "type": "card",
       "name": "Excédent de dégâts",
       "theme": "ability",
-      "content": []
+      "children": []
     }
   ]
 }

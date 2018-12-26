@@ -3,7 +3,7 @@
   "nextEntityId": 6,
   "entities": [
     {
-      "content": [
+      "children": [
         1,
         2,
         3,

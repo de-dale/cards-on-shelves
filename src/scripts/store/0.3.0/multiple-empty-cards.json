@@ -7,7 +7,7 @@
       "type": "card",
       "name": "Excédent de dégâts",
       "theme": "ability",
-      "content": [
+      "children": [
       ]
     },
     {
@@ -15,20 +15,20 @@
       "type": "card",
       "name": "Position du tigre",
       "theme": "ability",
-      "content": []
+      "children": []
     },
     {
       "id": 3,
       "type": "card",
       "name": "Se déplacer",
       "theme": "action",
-      "content": []
+      "children": []
     },
     {
       "id": 4,
       "type": "card",
       "name": "Choc",
-      "content": []
+      "children": []
     }
   ]
 }
