@@ -3,8 +3,8 @@ import { bindActionCreators } from 'redux';
 import * as actions from '../actions';
 import CodexToolbar from './CodexToolbar';
 
-const mapStateToProps = state => ({
-    codex: state.codex
+const mapStateToProps = (state, props) => ({
+    codex: props.codex
 });
 
 function mapDispatchToProps(dispatch) {

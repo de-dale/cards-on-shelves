@@ -1,27 +1,20 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
 import Deck from './Deck.js';
 import PopupButton from '../popup/PopupButton';
 
-class DeckButton extends Component {
-    constructor(props) {
-        super(props);
-        this.loadDeck = this.loadDeck.bind(this);
-    }
+const DeckButton = ({ label, onLoadDeck }) => {
+    const deck = onLoadDeck();
+    return (
+        <PopupButton label={ label } name={ deck.name }>
+            <Deck cards={ getCards(deck) }/>
+        </PopupButton>
+    );
+};
 
-    loadDeck(){
-        return this.props.onLoadDeck();
-    }
-
-    render() {
-        const deck = this.loadDeck();
-        return (
-            <PopupButton label={this.props.label} name={deck.name}>
-                <Deck cards={deck.cards}/>
-            </PopupButton>
-        );
-    }
+function getCards(deck) {
+    return deck.cards || [ { id: 5 } ];
 }
 
 DeckButton.propTypes = {

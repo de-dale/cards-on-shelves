@@ -1,4 +1,12 @@
-import { addIn, isIdIn, removeItemById, update, updateArrayItem, updateArrayItemById } from './utils';
+import {
+    addIn,
+    isItemIdIn,
+    removeArrayItem,
+    removeArrayItemById,
+    update,
+    updateArrayItem,
+    updateArrayItemById
+} from './utils';
 
 export {
     addEntity,
@@ -43,7 +51,7 @@ function updateParents(state, entity, ...parentNames) {
 function updateParentByIds(state, entity, ...parentIds) {
     return {
         ...state,
-        entities: updateArrayItem(state.entities, isIdIn(parentIds), addChild(entity))
+        entities: updateArrayItem(state.entities, isItemIdIn(...parentIds), addChild(entity))
     };
 }
 
@@ -62,7 +70,7 @@ function addChild(entity) {
 function removeEntity(state, entity) {
     const _state = {
         ...state,
-        entities: removeItemById(state.entities, entity)
+        entities: removeArrayItemById(state.entities, entity)
     };
     return removeEntityInParents(_state, entity);
 }
@@ -82,8 +90,10 @@ function isParentOf(entity) {
 
 function removeChild(entity) {
     return parent => {
-        parent.children.splice(parent.children.indexOf(entity.id), 1);
-        return parent;
+        return {
+            ...parent,
+            children: removeArrayItem(parent.children, entity.id)
+        };
     };
 }
 

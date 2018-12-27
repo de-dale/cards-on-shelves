@@ -6,6 +6,8 @@ import createStore from './store';
 import App from './app/App';
 
 import { addCard } from './cards/actions';
+import { log } from './utils';
+import migrate from './scripts/migrate-store';
 
 const codexRoot = document.getElementById('shelves-root');
 
@@ -31,16 +33,35 @@ function loadCodex(dom, name, url) {
             return response.json();
         })
         .then(function (data) {
-            const store = createStore( {
+            let state = {
                 codex: {
                     name: name,
                     cards: data
-                }/*, Could work if ids were defined 
+                }
+                /*, Could work if ids were defined 
                 cards: {
                     cards: data
                 }*/
-            });
+            };
+            // log(state, 'state');
+            let store = createStore(state);
             data.forEach(card => store.dispatch(addCard(card)));
+            // log(store.getState(), 'Legacy State');
+            // let migratedState = migrate(store.getState());
+            // log(migratedState, 'Migrated State');
+
+            let migratedState = migrate({
+                codex: {
+                    name: name,
+                },
+                cards: {
+                    cards: data
+                }
+            });
+            log(migratedState, 'Migrated State');
+            
+            store = createStore(migratedState);
+            
             displayCodex(dom, store);
         }).catch(() => {
             const store = createStore();

@@ -5,13 +5,17 @@ export {
     update,
     updateArrayItem,
     updateArrayItemById,
-    removeItemById,
+    removeArrayItem,
+    removeArrayItemById,
+    removeArrayItems,
+    find,
+    findByItemId,
     findById,
-    isIdIn
+    isItemIdIn
 };
 
-function log (any, message, optionalParams) {
-    console.log(message, any, optionalParams); // eslint-disable-line no-console
+function log(any, message, ...optionalParams) {
+    console.log(message, any, ...optionalParams); // eslint-disable-line no-console
     return any;
 }
 
@@ -27,7 +31,7 @@ function makeActionCreator(type, ...argNames) {
 
 function when(first, second) {
     return {
-        haveDifferent: (field) => first[ field ] !== second[ field ],
+        // haveDifferent: (field) => first[ field ] !== second[ field ],
         haveSame: (field) => first[ field ] === second[ field ]
     };
 }
@@ -41,7 +45,6 @@ export function addIn(obj, field, value) {
         ...obj,
         [ field ]: [ ...(obj[ field ] || []), value ]
     };
-
 }
 
 function updateArrayItem(array = [], matcher, updateItem) {
@@ -56,19 +59,27 @@ function updateArrayItemById(array = [], item, updateItem) {
     return updateArrayItem(array, hasItemId(item), updateItem);
 }
 
-function remove(array, matcher) {
-    return array.filter(matcher);
+function removeArrayItem(array, item) {
+    return array.filter(actual => actual !== item);
 }
 
-function removeItemById(array, item) {
-    return remove(array, actual => when(actual, item).haveDifferent('id'));
+function removeArrayItems(array, matcher) {
+    return array.filter(actual => !matcher(actual));
+}
+
+function removeArrayItemById(array, item) {
+    return removeArrayItems(array, actual => when(actual, item).haveSame('id'));
 }
 
 function hasItemId(item) {
-    return actual => when(actual, item).haveSame('id');
+    return hasId(item.id);
 }
 
-function isIdIn(ids) {
+function hasId(id) {
+    return actual => actual.id && actual.id === id;
+}
+
+function isItemIdIn(...ids) {
     return item => ids.includes(item.id);
 }
 
@@ -76,6 +87,16 @@ function doNothing(obj) {
     return obj;
 }
 
-function findById(array, item) {
+function findByItemId(array, item) {
     return array.find(hasItemId(item));
+}
+
+function findById(array, id) {
+    return array.find(hasId(id));
+}
+
+function find(array, ...matchers) {
+    return array.filter(
+        item => matchers.map(matcher => matcher(item)).reduce((left, right) => left && right)
+    );
 }

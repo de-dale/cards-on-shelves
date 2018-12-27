@@ -1,75 +1,36 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
+import PopupContent from './PopupContent';
 
 class PopupButton extends Component {
     constructor(props) {
         super(props);
         this.openPopup = this.openPopup.bind(this);
+        this.closePopup = this.closePopup.bind(this);
+        this.state = {
+            showPopup: false
+        };
     }
 
     render() {
         return (
-            <button onClick={this.openPopup}>
-                {this.props.label}
+            <button onClick={ this.openPopup }>
+                { this.props.label }
+                { this.state.showPopup && (
+                    <PopupContent onClose={ this.closePopup }>
+                        { this.props.children }
+                    </PopupContent>
+                ) }
             </button>
         );
     }
 
     openPopup() {
-        const popup = window.open('', '', 'width=800,height=800,left=200,top=200');
-        this.copyStyles(document, popup.document);
-
-        const popupDoc = popup.document;
-        const popupStyleSheet = popupDoc.createElement('style');
-        Array.from([
-            'body {margin: 0;background-color: white;}',
-            'body * {visibility: hidden;}',
-            '#popup-root * {visibility: visible;}',
-            '@page {margin: 8mm;}'
-        ])
-            .map((cssRule) => popupDoc.createTextNode(cssRule))
-            .forEach((cssRule) => popupStyleSheet.appendChild(cssRule));
-
-        popupDoc.head.appendChild(popupStyleSheet);
-
-
-        const popupRoot = popupDoc.createElement('div');
-        popupRoot.id = 'popup-root';
-        popupDoc.body.appendChild(popupRoot);
-
-        ReactDOM.render(this.props.children, popupRoot);
+        this.setState(state => ({ ...state, showPopup: true }));
     }
 
-    copyStyles(sourceDoc, targetDoc) {
-        Array.from(sourceDoc.styleSheets)
-            .map(styleSheet => this.copyStyle(styleSheet, targetDoc))
-            .forEach((styleSheet) => targetDoc.head.appendChild(styleSheet));
-    }
-
-    copyStyle(styleSheet, targetDoc) {
-        if (styleSheet.cssRules) {
-            return this.copyStyleElement(targetDoc, styleSheet);
-        } else if (styleSheet.href) {
-            return PopupButton.copyStyleLink(targetDoc, styleSheet);
-        }
-    }
-
-
-    copyStyleElement(targetDoc, styleSheet) {
-        const targetStyleSheet = targetDoc.createElement('style');
-        Array.from(styleSheet.cssRules)
-            .map((cssRule) => targetDoc.createTextNode(cssRule.cssText))
-            .forEach((cssRule) => targetStyleSheet.appendChild(cssRule));
-
-        return targetStyleSheet;
-    }
-
-    static copyStyleLink(targetDoc, styleSheet) {
-        const targetStyleLink = targetDoc.createElement('link');
-        targetStyleLink.rel = 'stylesheet';
-        targetStyleLink.href = styleSheet.href;
-        return targetStyleLink;
+    closePopup() {
+        this.setState(state => ({ ...state, showPopup: false }));
     }
 }
 

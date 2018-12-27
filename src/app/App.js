@@ -1,9 +1,9 @@
 import React from 'react';
-import Codex from '../codex';
+import CodexList from '../codex/list';
 
 const App = () => (
     <div className='cards-app'>
-        <Codex />
+        <CodexList />
     </div>
 );
 

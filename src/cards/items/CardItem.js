@@ -11,17 +11,17 @@ export const CardItem = ({ card, item, updateCardItem, removeCardItem }) => {
     return (
         <div className={itemContainerClasses}
             tabIndex={-1}
-            onFocus={() => updateCardItem(card, item, 'editing', true)}
-            onBlur={whenBlurs(() => updateCardItem(card, item, 'editing', false))}>
+            onFocus={() => updateCardItem(item, 'editing', true)}
+            onBlur={whenBlurs(() => updateCardItem(item, 'editing', false))}>
             <ItemHandler.view
                 item={item}
-                updateItemField={(field, value) => updateCardItem(card, item, field, value)}/>
+                updateItemField={(field, value) => updateCardItem(item, field, value)}/>
             {item.editing &&
             <CardItemToolbar
                 card={card}
                 item={item}
-                updateItemField={(field, value) => updateCardItem(card, item, field, value)}
-                removeCardItem={() => removeCardItem(card, item)}/>
+                updateItemField={(field, value) => updateCardItem(item, field, value)}
+                removeCardItem={() => removeCardItem(item)}/>
             }
         </div>
     );

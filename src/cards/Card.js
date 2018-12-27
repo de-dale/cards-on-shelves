@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-import CardItemList from './items/CardItemList';
+import CardItemList from './items/list';
 
 import styles from './styles.css';
 import './theme/card-themes.css';
@@ -22,7 +22,7 @@ function shapeClasses(card) {
 }
 
 Card.defaultProps = {
-    card: { content: [] }
+    card: { children: [] }
 };
 
 Card.propTypes = {

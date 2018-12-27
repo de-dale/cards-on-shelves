@@ -38,5 +38,25 @@ describe('makeActionCreator utils', () => {
         });
     });
 
+});
+
+describe('find utils', () => {
+
+    it('should find object in array', () => {
+        const array = [
+            { type: 'one', other: 'good' },
+            { type: 'two', other: 'good' },
+            { type: 'one', other: 'bad' }
+        ];
+
+        const items = utils.find(array,
+            item => item.type === 'one',
+            item => item.other === 'good');
+
+
+        expect(items).toEqual([
+            { type: 'one', other: 'good' }
+        ]);
+    });
 
 });
