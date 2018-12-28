@@ -34,6 +34,6 @@ function verifyFileMigration(fileName, origin, target) {
 }
 
 function readFileInVersion(fileName, version) {
-    const fileContent = fs.readFileSync('src/scripts/store/' + version + '/' + fileName);
+    const fileContent = fs.readFileSync(__dirname + '/' + version + '/' + fileName);
     return JSON.parse(fileContent);
 }
