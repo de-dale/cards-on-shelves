@@ -15,31 +15,31 @@ module.exports = {
         port: 9000
     },
     plugins: [
-        new CleanWebpackPlugin(['dist']),
+        new CleanWebpackPlugin([ 'dist' ]),
         new HtmlWebpackPlugin({
             title: 'De-Dale - Shelves',
             template: 'src/index.html',
-            chunks: ['app']
+            chunks: [ 'app' ]
         }),
         new webpack.NamedModulesPlugin(),
         new webpack.HotModuleReplacementPlugin()
     ],
     output: {
         filename: '[name].bundle.js',
-        path: path.resolve(__dirname, 'dist'),
+        path: path.resolve(__dirname, 'dist')
     },
     module: {
         rules: [
             {
                 test: /\.(js|jsx)$/,
                 exclude: /node_modules/,
-                loader: ['babel-loader', 'eslint-loader']
+                loader: [ 'babel-loader', 'eslint-loader' ]
             },
             {
                 test: /\.css$/,
                 use: [
                     {
-                        loader: 'style-loader',
+                        loader: 'style-loader'
                     },
                     {
                         loader: 'css-loader',
@@ -66,7 +66,13 @@ module.exports = {
         ]
     },
     resolve: {
-        extensions: ['.js', '.jsx', '.styl', '.json', '.md', 'jpeg']
+        extensions: [ '.js', '.jsx', '.styl', '.json', '.md', 'jpeg' ],
+        alias: {
+            entities: path.resolve(__dirname, 'src', 'app', 'core', 'entities'),
+            utils: path.resolve(__dirname, 'src', 'app', 'core', 'utils'),
+            store: path.resolve(__dirname, 'src', 'app', 'store'),
+            components: path.resolve(__dirname, 'src', 'app', 'components')
+        }
     }
 };
 

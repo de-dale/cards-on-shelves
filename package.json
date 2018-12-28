@@ -70,6 +70,12 @@
     "xml-loader": "^1.2.1"
   },
   "jest": {
+    "moduleNameMapper": {
+      "^components(.*)$": "<rootDir>/src/app/components",
+      "^utils(.*)$": "<rootDir>/src/app/core/utils$1",
+      "^entities(.*)$": "<rootDir>/src/app/core/entities$1",
+      "^store(.*)$": "<rootDir>/src/app/store$1"
+    },
     "testURL": "http://localhost",
     "transform": {
       "^.+\\.js$": "babel-jest",
