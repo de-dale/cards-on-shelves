@@ -1,0 +1,1557 @@
+{
+  "version": "0.3.0",
+  "nextEntityId": 229,
+  "entities": [
+    {
+      "children": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "id": 5,
+      "name": "Excédent de dégâts",
+      "theme": "ability",
+      "type": "card"
+    },
+    {
+      "content": "Excédent de dégâts",
+      "id": 1,
+      "type": "title"
+    },
+    {
+      "content": "Passive",
+      "header": "Capacité",
+      "id": 2,
+      "type": "field"
+    },
+    {
+      "content": "Lors d'une attaque, les succès excédentaires sont rajoutés aus dégâts.",
+      "id": 3,
+      "type": "text"
+    },
+    {
+      "content": "",
+      "header": "SR5",
+      "id": 4,
+      "type": "field"
+    },
+    {
+      "children": [
+        6,
+        7,
+        8,
+        9
+      ],
+      "id": 10,
+      "name": "Position du tigre",
+      "theme": "ability",
+      "type": "card"
+    },
+    {
+      "content": "Posture du tigre",
+      "id": 6,
+      "type": "title"
+    },
+    {
+      "content": "Posture",
+      "header": "Capacité",
+      "id": 7,
+      "type": "field"
+    },
+    {
+      "content": "TODO: Posture de puissance",
+      "id": 8,
+      "type": "text"
+    },
+    {
+      "content": "SR5 p.",
+      "header": "(Tests d'équipe)",
+      "id": 9,
+      "type": "field"
+    },
+    {
+      "children": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "id": 15,
+      "name": "Surnombre",
+      "theme": "ability",
+      "type": "card"
+    },
+    {
+      "content": "Surnombre",
+      "id": 11,
+      "type": "title"
+    },
+    {
+      "content": "Passive",
+      "header": "Capacité",
+      "id": 12,
+      "type": "field"
+    },
+    {
+      "content": "Permet de bénéficier d'un +1 à l'attaque, par allié adjacent à la cible de l'ataque.",
+      "id": 13,
+      "type": "text"
+    },
+    {
+      "content": "p.188 Attaque à plusieurs",
+      "header": "SR5",
+      "id": 14,
+      "type": "field"
+    },
+    {
+      "children": [
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "id": 21,
+      "name": "Posture de la mante",
+      "theme": "ability",
+      "type": "card"
+    },
+    {
+      "content": "Posture de la mante",
+      "id": 16,
+      "type": "title"
+    },
+    {
+      "content": "Posture",
+      "header": "Capacité",
+      "id": 17,
+      "type": "field"
+    },
+    {
+      "content": "Permet de bénéficier d'un bonus d'esquive pour un malus à l'attaque.",
+      "id": 18,
+      "type": "text"
+    },
+    {
+      "content": "+1 en Défense. -2 à tous les jets d'attaque",
+      "header": "Modificateurs",
+      "id": 19,
+      "type": "field"
+    },
+    {
+      "content": "p.188 Attaque à plusieurs",
+      "header": "SR5",
+      "id": 20,
+      "type": "field"
+    },
+    {
+      "children": [
+        22,
+        23,
+        24,
+        25
+      ],
+      "id": 26,
+      "name": "Posture du guépard",
+      "theme": "ability",
+      "type": "card"
+    },
+    {
+      "content": "Posture du guépard",
+      "id": 22,
+      "type": "title"
+    },
+    {
+      "content": "Posture",
+      "header": "Capacité",
+      "id": 23,
+      "type": "field"
+    },
+    {
+      "content": "Permet de bénéficier d'un déplacement accru d'une case.",
+      "id": 24,
+      "type": "text"
+    },
+    {
+      "content": "p.188 Attaque à plusieurs",
+      "header": "SR5",
+      "id": 25,
+      "type": "field"
+    },
+    {
+      "children": [
+        27,
+        28,
+        29,
+        30
+      ],
+      "id": 31,
+      "name": "Ambidextrie",
+      "theme": "ability",
+      "type": "card"
+    },
+    {
+      "content": "Ambidextrie",
+      "id": 27,
+      "type": "title"
+    },
+    {
+      "content": "Passive",
+      "header": "Capacité",
+      "id": 28,
+      "type": "field"
+    },
+    {
+      "content": "Permet d'ignorer le maluse à la main non-directrive, dans le cas d'une attaque à plusiuers armes.",
+      "id": 29,
+      "type": "text"
+    },
+    {
+      "content": "p.188 Attaque à plusieurs",
+      "header": "SR5",
+      "id": 30,
+      "type": "field"
+    },
+    {
+      "children": [
+        32,
+        33,
+        34,
+        35,
+        36
+      ],
+      "id": 37,
+      "name": "Relance d'initiative",
+      "theme": "ability",
+      "type": "card"
+    },
+    {
+      "content": "Relance d'initiative",
+      "id": 32,
+      "type": "title"
+    },
+    {
+      "content": "Passive",
+      "header": "Capacité",
+      "id": 33,
+      "type": "field"
+    },
+    {
+      "content": "Permet de relancer son initiative 1 fois par jour.",
+      "id": 34,
+      "type": "text"
+    },
+    {
+      "content": "1x/j",
+      "header": "Relance",
+      "id": 35,
+      "type": "field"
+    },
+    {
+      "content": "p.188 Attaque à plusieurs",
+      "header": "SR5",
+      "id": 36,
+      "type": "field"
+    },
+    {
+      "children": [
+        38,
+        39,
+        40,
+        41
+      ],
+      "id": 42,
+      "name": "Réaction accrue",
+      "theme": "ability",
+      "type": "card"
+    },
+    {
+      "content": "Réaction accrue",
+      "id": 38,
+      "type": "title"
+    },
+    {
+      "content": "Passive",
+      "header": "Capacité",
+      "id": 39,
+      "type": "field"
+    },
+    {
+      "content": "Réduit de 1 le coût d'une `Réaction`. Une réaction ne peut pas un coût inférieur à 1.",
+      "id": 40,
+      "type": "text"
+    },
+    {
+      "content": "p.188 Attaque à plusieurs",
+      "header": "SR5",
+      "id": 41,
+      "type": "field"
+    },
+    {
+      "children": [
+        43,
+        44,
+        45,
+        46
+      ],
+      "id": 47,
+      "name": "Méta-action",
+      "theme": "ability",
+      "type": "card"
+    },
+    {
+      "content": "Méta-action",
+      "id": 43,
+      "type": "title"
+    },
+    {
+      "content": "Passive",
+      "header": "Capacité",
+      "id": 44,
+      "type": "field"
+    },
+    {
+      "content": "Permet d'appliquer des effets supplémentaires sur ses actions.",
+      "id": 45,
+      "type": "text"
+    },
+    {
+      "content": "p.188 Attaque à plusieurs",
+      "header": "SR5",
+      "id": 46,
+      "type": "field"
+    },
+    {
+      "children": [
+        48,
+        49,
+        50,
+        51
+      ],
+      "id": 52,
+      "name": "Intuition",
+      "theme": "ability",
+      "type": "card"
+    },
+    {
+      "content": "Intuition",
+      "id": 48,
+      "type": "title"
+    },
+    {
+      "content": "Passive",
+      "header": "Capacité",
+      "id": 49,
+      "type": "field"
+    },
+    {
+      "content": "Donne un bonus d'esquive de +1.",
+      "id": 50,
+      "type": "text"
+    },
+    {
+      "content": "p.188 Attaque à plusieurs",
+      "header": "SR5",
+      "id": 51,
+      "type": "field"
+    },
+    {
+      "children": [
+        53,
+        54,
+        55,
+        56
+      ],
+      "id": 57,
+      "name": "Prémonition mineure",
+      "theme": "ability",
+      "type": "card"
+    },
+    {
+      "content": "Prémonition mineure",
+      "id": 53,
+      "type": "title"
+    },
+    {
+      "content": "Passive",
+      "header": "Capacité",
+      "id": 54,
+      "type": "field"
+    },
+    {
+      "content": "Donne +1d6 à l'initiative. Les dés d'initiative ne peuvent pas excéder 5d6.",
+      "id": 55,
+      "type": "text"
+    },
+    {
+      "content": "p.188 Attaque à plusieurs",
+      "header": "SR5",
+      "id": 56,
+      "type": "field"
+    },
+    {
+      "children": [
+        58,
+        59,
+        60,
+        61
+      ],
+      "id": 62,
+      "name": "Aide",
+      "theme": "action",
+      "type": "card"
+    },
+    {
+      "content": "Aide",
+      "id": 58,
+      "type": "title"
+    },
+    {
+      "content": "Simple",
+      "header": "Action",
+      "id": 59,
+      "type": "field"
+    },
+    {
+      "content": "TODO: Permet d'aider un allié",
+      "id": 60,
+      "type": "text"
+    },
+    {
+      "content": "SR5 p.",
+      "header": "(Tests d'équipe)",
+      "id": 61,
+      "type": "field"
+    },
+    {
+      "children": [
+        63,
+        64,
+        65,
+        66,
+        67
+      ],
+      "id": 68,
+      "name": "Coup puissant",
+      "theme": "action",
+      "type": "card"
+    },
+    {
+      "content": "Coup puissant",
+      "id": 63,
+      "type": "title"
+    },
+    {
+      "content": "Gratuite",
+      "header": "Action",
+      "id": 64,
+      "type": "field"
+    },
+    {
+      "content": "Drain//Maîtrise d'arme (2)",
+      "header": "Coût",
+      "id": 65,
+      "type": "field"
+    },
+    {
+      "content": "TODO: Au court d'une attaque, le personnage peut d",
+      "id": 66,
+      "type": "text"
+    },
+    {
+      "content": "SR5 p.",
+      "header": "(Tests d'équipe)",
+      "id": 67,
+      "type": "field"
+    },
+    {
+      "children": [
+        69,
+        70,
+        71,
+        72
+      ],
+      "id": 73,
+      "name": "Renversement",
+      "theme": "action",
+      "type": "card"
+    },
+    {
+      "content": "Renversement",
+      "id": 69,
+      "type": "title"
+    },
+    {
+      "content": "Simple",
+      "header": "Action",
+      "id": 70,
+      "type": "field"
+    },
+    {
+      "content": "",
+      "id": 71,
+      "type": "text"
+    },
+    {
+      "content": "D&D",
+      "header": "(Renversement)",
+      "id": 72,
+      "type": "field"
+    },
+    {
+      "children": [
+        74,
+        75,
+        76,
+        77
+      ],
+      "id": 78,
+      "name": "Choc",
+      "theme": "action",
+      "type": "card"
+    },
+    {
+      "content": "Choc",
+      "id": 74,
+      "type": "title"
+    },
+    {
+      "content": "Complexe (2)",
+      "header": "Action",
+      "id": 75,
+      "type": "field"
+    },
+    {
+      "content": "Comme lke renversement, mais affecte toutes les cases adjascentes au personnage",
+      "id": 76,
+      "type": "text"
+    },
+    {
+      "content": "D&D",
+      "header": "(Renversement)",
+      "id": 77,
+      "type": "field"
+    },
+    {
+      "children": [
+        79,
+        80,
+        81,
+        82
+      ],
+      "id": 83,
+      "name": "Attaques multiples",
+      "theme": "action",
+      "type": "card"
+    },
+    {
+      "content": "Attaques multiples",
+      "id": 79,
+      "type": "title"
+    },
+    {
+      "content": "Attaque",
+      "header": "Action",
+      "id": 80,
+      "type": "field"
+    },
+    {
+      "content": "Au court d'une attaque, le personnage peut choisir de porter un coup avec sa main directrive, et un second coup avec sa main non-directrice. Il répartit les dés lancés entre ses deux mains. Sa main non-directrice subit également un malus de 2 sur ce lancer.",
+      "id": 81,
+      "type": "text"
+    },
+    {
+      "content": "D&D",
+      "header": "(Renversement)",
+      "id": 82,
+      "type": "field"
+    },
+    {
+      "children": [
+        84,
+        85,
+        86,
+        87
+      ],
+      "id": 88,
+      "name": "Ajuster",
+      "theme": "action",
+      "type": "card"
+    },
+    {
+      "content": "Ajuster",
+      "id": 84,
+      "type": "title"
+    },
+    {
+      "content": "Simple",
+      "header": "Action",
+      "id": 85,
+      "type": "field"
+    },
+    {
+      "content": "",
+      "id": 86,
+      "type": "text"
+    },
+    {
+      "content": "SR5",
+      "header": "",
+      "id": 87,
+      "type": "field"
+    },
+    {
+      "children": [
+        89,
+        90,
+        91,
+        92
+      ],
+      "id": 93,
+      "name": "Feu nourri",
+      "theme": "action",
+      "type": "card"
+    },
+    {
+      "content": "Feu nourri",
+      "id": 89,
+      "type": "title"
+    },
+    {
+      "content": "Attaque",
+      "header": "Action",
+      "id": 90,
+      "type": "field"
+    },
+    {
+      "content": "",
+      "id": 91,
+      "type": "text"
+    },
+    {
+      "content": "SR5",
+      "header": "",
+      "id": 92,
+      "type": "field"
+    },
+    {
+      "children": [
+        94,
+        95,
+        96,
+        97
+      ],
+      "id": 98,
+      "name": "Prendre le lead",
+      "theme": "action",
+      "type": "card"
+    },
+    {
+      "content": "Prendre le lead",
+      "id": 94,
+      "type": "title"
+    },
+    {
+      "content": "Simple",
+      "header": "Action",
+      "id": 95,
+      "type": "field"
+    },
+    {
+      "content": "La cible accepte le personnage comme leader pour un tour de combat par succès excédentaire.",
+      "id": 96,
+      "type": "text"
+    },
+    {
+      "content": "Leadership (p.144)",
+      "header": "",
+      "id": 97,
+      "type": "field"
+    },
+    {
+      "children": [
+        99,
+        100,
+        101,
+        102
+      ],
+      "id": 103,
+      "name": "Inspirer",
+      "theme": "action",
+      "type": "card"
+    },
+    {
+      "content": "Inspirer",
+      "id": 99,
+      "type": "title"
+    },
+    {
+      "content": "Simple",
+      "header": "Action",
+      "id": 100,
+      "type": "field"
+    },
+    {
+      "content": "Les succès agissent comme un test d'équipe pour un subordonné.",
+      "id": 101,
+      "type": "text"
+    },
+    {
+      "content": "Leadership (p.144)",
+      "header": "",
+      "id": 102,
+      "type": "field"
+    },
+    {
+      "children": [
+        104,
+        105,
+        106,
+        107
+      ],
+      "id": 108,
+      "name": "Rallier",
+      "theme": "action",
+      "type": "card"
+    },
+    {
+      "content": "Rallier",
+      "id": 104,
+      "type": "title"
+    },
+    {
+      "content": "Simple",
+      "header": "Action",
+      "id": 105,
+      "type": "field"
+    },
+    {
+      "content": "Tous les subordonnés ajoutent 1 à leur score d'initiative pour chaque 2 succès.",
+      "id": 106,
+      "type": "text"
+    },
+    {
+      "content": "Leadership (p.144)",
+      "header": "",
+      "id": 107,
+      "type": "field"
+    },
+    {
+      "children": [
+        109,
+        110,
+        111,
+        112
+      ],
+      "id": 113,
+      "name": "Effrayer",
+      "theme": "action",
+      "type": "card"
+    },
+    {
+      "content": "Effrayer",
+      "id": 109,
+      "type": "title"
+    },
+    {
+      "content": "Simple",
+      "header": "Action",
+      "id": 110,
+      "type": "field"
+    },
+    {
+      "content": "Les succès agissent comme un malus contre un adversaire.",
+      "id": 111,
+      "type": "text"
+    },
+    {
+      "content": "??? Leadership (p.144)",
+      "header": "",
+      "id": 112,
+      "type": "field"
+    },
+    {
+      "children": [
+        114,
+        115,
+        116,
+        117
+      ],
+      "id": 118,
+      "name": "Attaque mentale",
+      "theme": "action",
+      "type": "card"
+    },
+    {
+      "content": "Attaque mentale",
+      "id": 114,
+      "type": "title"
+    },
+    {
+      "content": "Complexe (2)",
+      "header": "Action",
+      "id": 115,
+      "type": "field"
+    },
+    {
+      "content": "Voir attaque",
+      "id": 116,
+      "type": "text"
+    },
+    {
+      "content": "",
+      "header": "TODO",
+      "id": 117,
+      "type": "field"
+    },
+    {
+      "children": [
+        119,
+        120,
+        121,
+        122,
+        123,
+        124
+      ],
+      "id": 125,
+      "name": "Se déplacer",
+      "theme": "action",
+      "type": "card"
+    },
+    {
+      "content": "Se déplacer",
+      "id": 119,
+      "type": "title"
+    },
+    {
+      "content": "Gratuite",
+      "header": "Action",
+      "id": 120,
+      "type": "field"
+    },
+    {
+      "content": "Un personnage peut `marcher` autant de cases que le montant de sa `vitesse` sur un tour de combat",
+      "id": 121,
+      "type": "text"
+    },
+    {
+      "content": "Un personnage peut `courir` deux fois sa `vitesse` sur un tour de combat. Il subit alors les modificateurs suivants jusqu'au terme du combat.",
+      "id": 122,
+      "type": "text"
+    },
+    {
+      "content": "+2 en Défense. -2 à tous les autres jets",
+      "header": "Course",
+      "id": 123,
+      "type": "field"
+    },
+    {
+      "content": "SR5 - Déplacement (p.58)",
+      "header": "",
+      "id": 124,
+      "type": "field"
+    },
+    {
+      "children": [
+        126,
+        127,
+        128,
+        129,
+        130,
+        131,
+        132,
+        133,
+        134,
+        135,
+        136,
+        137
+      ],
+      "id": 138,
+      "name": "Starter Agilité",
+      "type": "card"
+    },
+    {
+      "content": "Agilité mineure",
+      "id": 126,
+      "type": "title"
+    },
+    {
+      "content": "Constellation",
+      "header": "Type",
+      "id": 127,
+      "type": "field"
+    },
+    {
+      "content": "Carte de base, gratuite, pour démarrer le sphérier dans la constellation \"Agilité\"",
+      "id": 128,
+      "type": "text"
+    },
+    {
+      "content": "Reaction: Esquive",
+      "header": "Node first",
+      "id": 129,
+      "type": "field"
+    },
+    {
+      "content": "+3 Compétences",
+      "header": "Node",
+      "id": 130,
+      "type": "field"
+    },
+    {
+      "content": "+3 Compétences",
+      "header": "Node",
+      "id": 131,
+      "type": "field"
+    },
+    {
+      "content": "+3 Compétences",
+      "header": "Node",
+      "id": 132,
+      "type": "field"
+    },
+    {
+      "content": "Gemme(Agilité)",
+      "header": "Node gem",
+      "id": 133,
+      "type": "field"
+    },
+    {
+      "content": "Accélération (*)",
+      "header": "Node feat",
+      "id": 134,
+      "type": "field"
+    },
+    {
+      "content": "Ambidextrie (I, -10, réduction de -2/Ambidextrie) (*)",
+      "header": "Node feat",
+      "id": 135,
+      "type": "field"
+    },
+    {
+      "content": "+3 Compétences",
+      "header": "Node",
+      "id": 136,
+      "type": "field"
+    },
+    {
+      "content": "Action: Piocher carte de cachette",
+      "header": "Node feat",
+      "id": 137,
+      "type": "field"
+    },
+    {
+      "children": [
+        139,
+        140,
+        141,
+        142,
+        143,
+        144
+      ],
+      "id": 145,
+      "name": "Compétences Agilité",
+      "type": "card"
+    },
+    {
+      "content": "Compétences mineures (Agilité)",
+      "id": 139,
+      "type": "title"
+    },
+    {
+      "content": "Liste de compétences",
+      "header": "Type",
+      "id": 140,
+      "type": "field"
+    },
+    {
+      "content": "Ensemble des compétences que l'on peut choisir sur une carte ayant un coups en Agilité.",
+      "id": 141,
+      "type": "text"
+    },
+    {
+      "content": "Furtivité",
+      "header": "Node ability",
+      "id": 142,
+      "type": "field"
+    },
+    {
+      "content": "Acrobatie",
+      "header": "Node ability",
+      "id": 143,
+      "type": "field"
+    },
+    {
+      "content": "Maniement d'une famille d'armes",
+      "header": "Node ability",
+      "id": 144,
+      "type": "field"
+    },
+    {
+      "children": [
+        146,
+        147,
+        148,
+        149,
+        150,
+        151,
+        152,
+        153,
+        154
+      ],
+      "id": 155,
+      "name": "Déplacement",
+      "type": "card"
+    },
+    {
+      "content": "Déplacement",
+      "id": 146,
+      "type": "title"
+    },
+    {
+      "content": "Constellation",
+      "header": "Type",
+      "id": 147,
+      "type": "field"
+    },
+    {
+      "content": "Augmentations des capacités de déplacement d'un personnage",
+      "id": 148,
+      "type": "text"
+    },
+    {
+      "content": "Sprint (*)",
+      "header": "Node feat first",
+      "id": 149,
+      "type": "field"
+    },
+    {
+      "content": "+3 Compétences",
+      "header": "Node",
+      "id": 150,
+      "type": "field"
+    },
+    {
+      "content": "Gemme(Agilité)",
+      "header": "Node gem",
+      "id": 151,
+      "type": "field"
+    },
+    {
+      "content": "Gemme(Agilité)",
+      "header": "Node gem",
+      "id": 152,
+      "type": "field"
+    },
+    {
+      "content": "Pas léger +1case",
+      "header": "Node feat",
+      "id": 153,
+      "type": "field"
+    },
+    {
+      "content": "Serpenter (Déplacement 1case + Attaque à -5)",
+      "header": "Node posture",
+      "id": 154,
+      "type": "field"
+    },
+    {
+      "children": [
+        156,
+        157,
+        158,
+        159,
+        160,
+        161,
+        162,
+        163,
+        164
+      ],
+      "id": 165,
+      "name": "Camouflé",
+      "type": "card"
+    },
+    {
+      "content": "Camouflé",
+      "id": 156,
+      "type": "title"
+    },
+    {
+      "content": "Constellation",
+      "header": "Type",
+      "id": 157,
+      "type": "field"
+    },
+    {
+      "content": "Développe des actions/compétences spéciales lors d'une partie de cahce-cache ",
+      "id": 158,
+      "type": "text"
+    },
+    {
+      "content": "Diversion (*)",
+      "header": "Node feat first",
+      "id": 159,
+      "type": "field"
+    },
+    {
+      "content": "+3 Compétences",
+      "header": "Node ",
+      "id": 160,
+      "type": "field"
+    },
+    {
+      "content": "Gemme(Agilité)",
+      "header": "Node gem",
+      "id": 161,
+      "type": "field"
+    },
+    {
+      "content": "Souplesse serpent (*)",
+      "header": "Node feat",
+      "id": 162,
+      "type": "field"
+    },
+    {
+      "content": "Camouflé (ombre, 5%)",
+      "header": "Node posture",
+      "id": 163,
+      "type": "field"
+    },
+    {
+      "content": "+3 Compétences",
+      "header": "Node ",
+      "id": 164,
+      "type": "field"
+    },
+    {
+      "children": [
+        166,
+        167,
+        168,
+        169,
+        170,
+        171,
+        172,
+        173,
+        174
+      ],
+      "id": 175,
+      "name": "Attaques multiples",
+      "type": "card"
+    },
+    {
+      "content": "Attaques multiples",
+      "id": 166,
+      "type": "title"
+    },
+    {
+      "content": "Constellation",
+      "header": "Type",
+      "id": 167,
+      "type": "field"
+    },
+    {
+      "content": "Développe des actions/compétences permettant d'attquer davantage, sur une passe d'initiative.",
+      "id": 168,
+      "type": "text"
+    },
+    {
+      "content": "Ambidextrie (I, -10, réduction de -2/Ambidextrie)(*)",
+      "header": "Node feat first",
+      "id": 169,
+      "type": "field"
+    },
+    {
+      "content": "+3 Compétences",
+      "header": "Node ",
+      "id": 170,
+      "type": "field"
+    },
+    {
+      "content": "Gemme(Agilité)",
+      "header": "Node gem",
+      "id": 171,
+      "type": "field"
+    },
+    {
+      "content": "Réaction: Attaque double lors d'une opportunité",
+      "header": "Node feat",
+      "id": 172,
+      "type": "field"
+    },
+    {
+      "content": "Milles entailles (*)",
+      "header": "Node feat",
+      "id": 173,
+      "type": "field"
+    },
+    {
+      "content": "Camouflé (ombre, 5%)",
+      "header": "Node posture",
+      "id": 174,
+      "type": "field"
+    },
+    {
+      "children": [
+        176,
+        177,
+        178,
+        179,
+        180,
+        181,
+        182,
+        183,
+        184,
+        185,
+        186
+      ],
+      "id": 187,
+      "name": "Starter Carrure",
+      "type": "card"
+    },
+    {
+      "content": "Carrure mineure",
+      "id": 176,
+      "type": "title"
+    },
+    {
+      "content": "Constellation",
+      "header": "Type",
+      "id": 177,
+      "type": "field"
+    },
+    {
+      "content": "Description",
+      "id": 178,
+      "type": "text"
+    },
+    {
+      "content": "+5 PV",
+      "header": "Node first",
+      "id": 179,
+      "type": "field"
+    },
+    {
+      "content": "+3 Compétences",
+      "header": "Node",
+      "id": 180,
+      "type": "field"
+    },
+    {
+      "content": "+3 Compétences",
+      "header": "Node",
+      "id": 181,
+      "type": "field"
+    },
+    {
+      "content": "+3 Compétences",
+      "header": "Node",
+      "id": 182,
+      "type": "field"
+    },
+    {
+      "content": "Gemme(Carrure)",
+      "header": "Node gem",
+      "id": 183,
+      "type": "field"
+    },
+    {
+      "content": "Port d'armures (I)",
+      "header": "Node feat",
+      "id": 184,
+      "type": "field"
+    },
+    {
+      "content": "Coup puissant (*)",
+      "header": "Node feat",
+      "id": 185,
+      "type": "field"
+    },
+    {
+      "content": "+1 PV / Gem",
+      "header": "Node",
+      "id": 186,
+      "type": "field"
+    },
+    {
+      "children": [
+        188,
+        189,
+        190,
+        191,
+        192,
+        193,
+        194
+      ],
+      "id": 195,
+      "name": "Compétences Carrures",
+      "type": "card"
+    },
+    {
+      "content": "Compétences mineures (Carrure)",
+      "id": 188,
+      "type": "title"
+    },
+    {
+      "content": "Liste de compétences",
+      "header": "Type",
+      "id": 189,
+      "type": "field"
+    },
+    {
+      "content": "Ensemble des compétences que l'on peut choisr sur uen carte ayant un coups en Carrure.",
+      "id": 190,
+      "type": "text"
+    },
+    {
+      "content": "Athlétisme",
+      "header": "Node ability",
+      "id": 191,
+      "type": "field"
+    },
+    {
+      "content": "Corps à corps",
+      "header": "Node ability",
+      "id": 192,
+      "type": "field"
+    },
+    {
+      "content": "Manoeuvres",
+      "header": "Node ability",
+      "id": 193,
+      "type": "field"
+    },
+    {
+      "content": "Posture",
+      "header": "Node ability",
+      "id": 194,
+      "type": "field"
+    },
+    {
+      "children": [
+        196,
+        197,
+        198,
+        199,
+        200,
+        201,
+        202,
+        203,
+        204
+      ],
+      "id": 205,
+      "name": "Attaque en puissance",
+      "type": "card"
+    },
+    {
+      "content": "Attaque en puissance",
+      "id": 196,
+      "type": "title"
+    },
+    {
+      "content": "Constellation",
+      "header": "Type",
+      "id": 197,
+      "type": "field"
+    },
+    {
+      "content": "Description",
+      "id": 198,
+      "type": "text"
+    },
+    {
+      "content": "Coup puissant (*)",
+      "header": "Node feat first",
+      "id": 199,
+      "type": "field"
+    },
+    {
+      "content": "+3 Compétences",
+      "header": "Node",
+      "id": 200,
+      "type": "field"
+    },
+    {
+      "content": "Gemme(Carrure)",
+      "header": "Node gem",
+      "id": 201,
+      "type": "field"
+    },
+    {
+      "content": "Gemme(Carrure)",
+      "header": "Node gem",
+      "id": 202,
+      "type": "field"
+    },
+    {
+      "content": "Action: Renversement",
+      "header": "Node feat",
+      "id": 203,
+      "type": "field"
+    },
+    {
+      "content": "Posture de puissance",
+      "header": "Node posture",
+      "id": 204,
+      "type": "field"
+    },
+    {
+      "children": [
+        206,
+        207,
+        208,
+        209,
+        210,
+        211,
+        212,
+        213,
+        214,
+        215
+      ],
+      "id": 216,
+      "name": "Maître d'armes",
+      "type": "card"
+    },
+    {
+      "content": "Maître d'armes",
+      "id": 206,
+      "type": "title"
+    },
+    {
+      "content": "Constellation",
+      "header": "Type",
+      "id": 207,
+      "type": "field"
+    },
+    {
+      "content": "Compétences de maîtres d'armes pour uen arme donnée",
+      "id": 208,
+      "type": "text"
+    },
+    {
+      "content": "Maîtrise (arme)",
+      "header": "Node feat first",
+      "id": 209,
+      "type": "field"
+    },
+    {
+      "content": "+3 Compétences",
+      "header": "Node ",
+      "id": 210,
+      "type": "field"
+    },
+    {
+      "content": "Gemme(Carrure)",
+      "header": "Node gem",
+      "id": 211,
+      "type": "field"
+    },
+    {
+      "content": "Gemme(Carrure)",
+      "header": "Node gem",
+      "id": 212,
+      "type": "field"
+    },
+    {
+      "content": "Coup maîtrisé (*)",
+      "header": "Node feat",
+      "id": 213,
+      "type": "field"
+    },
+    {
+      "content": "Surplus aux dégâts",
+      "header": "Node feat",
+      "id": 214,
+      "type": "field"
+    },
+    {
+      "content": "Synergie +1",
+      "header": "Node",
+      "id": 215,
+      "type": "field"
+    },
+    {
+      "children": [
+        217,
+        218,
+        219,
+        220,
+        221,
+        222,
+        223,
+        224,
+        225,
+        226,
+        227
+      ],
+      "id": 228,
+      "name": "Choc",
+      "type": "card"
+    },
+    {
+      "content": "Choc",
+      "id": 217,
+      "type": "title"
+    },
+    {
+      "content": "Constellation",
+      "header": "Type",
+      "id": 218,
+      "type": "field"
+    },
+    {
+      "content": "Spécialité du renversement permettant de renverser tous les adversaires à portée",
+      "id": 219,
+      "type": "text"
+    },
+    {
+      "content": "Renversement +2",
+      "header": "Node feat first",
+      "id": 220,
+      "type": "field"
+    },
+    {
+      "content": "+3 Compétences",
+      "header": "Node ",
+      "id": 221,
+      "type": "field"
+    },
+    {
+      "content": "Gemme(Carrure)",
+      "header": "Node gem",
+      "id": 222,
+      "type": "field"
+    },
+    {
+      "content": "Homme à terre (+4)",
+      "header": "Node feat",
+      "id": 223,
+      "type": "field"
+    },
+    {
+      "content": "Choc (tous) (*)",
+      "header": "Node feat",
+      "id": 224,
+      "type": "field"
+    },
+    {
+      "content": "Gemme(Carrure)",
+      "header": "Node gem",
+      "id": 225,
+      "type": "field"
+    },
+    {
+      "content": "+3 Compétences",
+      "header": "Node ",
+      "id": 226,
+      "type": "field"
+    },
+    {
+      "content": "+1 Réaction / tour contre un adversaire renversé",
+      "header": "Node",
+      "id": 227,
+      "type": "field"
+    }
+  ]
+}

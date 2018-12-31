@@ -1,11 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Provider } from 'react-redux';
-import store from './store';
 
-import Codex from './codex/Codex.js';
-
-import { addCard } from './cards/actions';
+import App from './app/App';
 
 const codexRoot = document.getElementById('shelves-root');
 
@@ -31,22 +27,23 @@ function loadCodex(dom, name, url) {
             return response.json();
         })
         .then(function (data) {
-            data.forEach(card => store.dispatch(addCard(card)));
-            displayCodex(dom, name, data);
-        }).catch(() => {
-            displayCodex(dom, name, []);
+            displayCodex(dom, {
+                codex: {
+                    name: name
+                },
+                cards: {
+                    cards: data
+                }
+            });
+        })
+        .catch(() => {
+            displayCodex(dom);
         });
 }
 
-function displayCodex(dom, name, data) {
-    const codex = {
-        name: name,
-        cards: data
-    };
+function displayCodex(dom, state) {
     ReactDOM.render(
-        <Provider store={store}>
-            <Codex codex={codex}/>
-        </Provider>,
+        <App preloadedState={ state }/>,
         dom
     );
 }

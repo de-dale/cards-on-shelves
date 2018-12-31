@@ -1,0 +1,30 @@
+{
+  "cards": {
+    "cards": [
+      {
+        "name": "Excédent de dégâts",
+        "theme": "ability",
+        "content": [
+          {
+            "type": "title",
+            "content": "Excédent de dégâts"
+          },
+          {
+            "type": "field",
+            "header": "Capacité",
+            "content": "Passive"
+          },
+          {
+            "type": "text",
+            "content": "Lors d'une attaque, les succès excédentaires sont rajoutés aus dégâts."
+          },
+          {
+            "type": "field",
+            "header": "SR5",
+            "content": ""
+          }
+        ]
+      }
+    ]
+  }
+}

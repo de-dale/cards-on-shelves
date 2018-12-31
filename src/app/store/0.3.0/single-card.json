@@ -1,0 +1,40 @@
+{
+  "version": "0.3.0",
+  "nextEntityId": 6,
+  "entities": [
+    {
+      "children": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "id": 5,
+      "name": "Excédent de dégâts",
+      "theme": "ability",
+      "type": "card"
+    },
+    {
+      "content": "Excédent de dégâts",
+      "id": 1,
+      "type": "title"
+    },
+    {
+      "content": "Passive",
+      "header": "Capacité",
+      "id": 2,
+      "type": "field"
+    },
+    {
+      "content": "Lors d'une attaque, les succès excédentaires sont rajoutés aus dégâts.",
+      "id": 3,
+      "type": "text"
+    },
+    {
+      "content": "",
+      "header": "SR5",
+      "id": 4,
+      "type": "field"
+    }
+  ]
+}
