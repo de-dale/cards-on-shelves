@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import CodexList from 'components/codex/list';
+import CodexList from 'components/codex/list/CodexList';
 import { find } from 'utils';
 
 const mapStateToProps = (state) => ({
