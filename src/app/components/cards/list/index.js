@@ -5,7 +5,7 @@ import CardList from './CardList';
 import { find, isItemIdIn } from 'utils';
 
 const mapStateToProps = (state, props) => ({
-    cards: findCardsById(state, ...props.ids)
+    cards: findCardsById(state, ...props.cards)
 });
 
 function findCardsById(state, ...ids) {

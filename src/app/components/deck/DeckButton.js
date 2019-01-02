@@ -1,21 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Deck from './Deck.js';
+import Deck from 'components/deck';
 import PopupButton from 'components/popup/PopupButton';
 
 const DeckButton = ({ label, onLoadDeck }) => {
     const deck = onLoadDeck();
     return (
         <PopupButton label={ label } name={ deck.name }>
-            <Deck cards={ getCards(deck) }/>
+            <Deck cards={ deck.children }/>
         </PopupButton>
     );
 };
-
-function getCards(deck) {
-    return deck.cards || [ { id: 5 } ];
-}
 
 DeckButton.propTypes = {
     label: PropTypes.string.isRequired,

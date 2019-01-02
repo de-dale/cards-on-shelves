@@ -7,7 +7,7 @@ const Codex = ({ codex }) => (
     <div className='codex'>
         <h1>{ codex.name }</h1>
         <CodexToolbar codex={ codex }/>
-        <CardList ids={ codex.children }/>
+        <CardList cards={ codex.children }/>
     </div>
 );
 
