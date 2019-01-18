@@ -1,0 +1,65 @@
+{
+  "id": "5be546175d23f22b8f7bd530",
+  "badges": {
+    "attachmentsByType": {
+      "trello": {
+        "board": 0,
+        "card": 0
+      }
+    },
+    "location": false,
+    "votes": 0,
+    "viewingMemberVoted": false,
+    "subscribed": false,
+    "fogbugz": "",
+    "checkItems": 0,
+    "checkItemsChecked": 0,
+    "comments": 0,
+    "attachments": 0,
+    "description": true,
+    "due": null,
+    "dueComplete": false
+  },
+  "checkItemStates": [],
+  "closed": false,
+  "dueComplete": false,
+  "dateLastActivity": "2018-12-31T12:16:42.635Z",
+  "desc": "# Par défaut\n\n> Capacité active | Combat |\n> **Coût** | `A°` (variable)\n\nPar défaut, un personnage ne peut pas effectuer d'action qu'il ne connaît pas. Les actions qui se passent de formation, se passent de lancer de dé. \n\nLorsqu'un personnage entreprend une actions facile, pour laquelle il est possible de se passer de formation, et qui nécessité réellement un jet de dé ; alors, la résolution de l'action s'effectue par le lancer de `1d6`.",
+  "descData": {
+    "emoji": {}
+  },
+  "due": null,
+  "email": null,
+  "idBoard": "59379a9f9e21145b1904c8b1",
+  "idChecklists": [],
+  "idList": "5bf332375d40bf05681cac47",
+  "idMembers": [],
+  "idMembersVoted": [],
+  "idShort": 64,
+  "idAttachmentCover": null,
+  "labels": [
+    {
+      "id": "59379a9fced82109fff1ead6",
+      "idBoard": "59379a9f9e21145b1904c8b1",
+      "name": "Vital",
+      "color": "red"
+    },
+    {
+      "id": "5bed2e3421173425ccbb7a6c",
+      "idBoard": "59379a9f9e21145b1904c8b1",
+      "name": "Action",
+      "color": "red"
+    }
+  ],
+  "idLabels": [
+    "59379a9fced82109fff1ead6",
+    "5bed2e3421173425ccbb7a6c"
+  ],
+  "manualCoverAttachment": false,
+  "name": "Par défaut",
+  "pos": 21888,
+  "shortLink": "Jk3jnogk",
+  "shortUrl": "https://trello.com/c/Jk3jnogk",
+  "subscribed": false,
+  "url": "https://trello.com/c/Jk3jnogk/64-par-d%C3%A9faut"
+}
