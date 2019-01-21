@@ -1,8 +1,21 @@
 /* eslint-disable no-console */
 
 export default function migrate(origin) {
-    let _id = 1;
+    if(origin === undefined) {
+        return {
+            version: '0.3.0',
+            nextEntityId: 1,
+            entities: [{
+                id: 0,
+                name: 'Codex Vide',
+                type: 'codex',
+                children: []
+            }]
 
+        };
+    }
+    
+    let _id = 1;
     function nextId() {
         return _id++;
     }

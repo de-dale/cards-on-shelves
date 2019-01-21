@@ -12,7 +12,7 @@ module.exports = {
     devServer: {
         contentBase: './dist',
         hot: true,
-        port: 9000
+        port: 9900
     },
     plugins: [
         new CleanWebpackPlugin([ 'dist' ]),
@@ -34,7 +34,7 @@ module.exports = {
                 test: /\.(js|jsx)$/,
                 exclude: /node_modules/,
                 loader: [ 'babel-loader', 'eslint-loader' ]
-            },
+            }, 
             {
                 test: /\.css$/,
                 use: [
@@ -61,6 +61,12 @@ module.exports = {
                 test: /\.(png|svg|jpg|gif)$/,
                 use: [
                     'file-loader'
+                ]
+            },
+            {
+                test: /\.(secrets)$/,
+                use: [
+                    'json-loader'
                 ]
             }
         ]

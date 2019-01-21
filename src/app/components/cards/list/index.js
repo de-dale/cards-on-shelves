@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import * as actions from '../actions';
+import * as actions from 'components/cards/actions';
 import CardList from './CardList';
 import { find, isItemIdIn } from 'utils';
 

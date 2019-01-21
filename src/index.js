@@ -1,3 +1,4 @@
+import '@babel/polyfill';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
@@ -19,6 +20,7 @@ function getCodexUrl() {
 }
 
 let url = getCodexUrl();
+url = '';
 loadCodex(codexRoot, 'Sphérier', url);
 
 function loadCodex(dom, name, url) {

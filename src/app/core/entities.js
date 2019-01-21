@@ -10,6 +10,7 @@ import {
 
 export {
     addEntity,
+    addEntities,
     removeEntity,
     updateEntity,
 };
@@ -18,6 +19,14 @@ function addEntity(state, entity, ...parentNames) {
     const _entity = createEntity(state, entity);
     const _state = updateParents(state, _entity, parentNames);
     return insertEntity(_state, _entity);
+}
+
+function addEntities(state, entities, ...parentNames) {
+    let _state = state;
+    entities.forEach(entity => {
+        _state = addEntity(_state, entity, parentNames);
+    });
+    return _state;
 }
 
 function createEntity(state, entity) {

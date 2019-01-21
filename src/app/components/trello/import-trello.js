@@ -1,23 +1,24 @@
-export default function importTrelloCard(trelloCard, nextId = _nextId(1)) {
+export default function importTrelloCard(trelloCard, parent, nextId = _nextId(1)) {
     return {
-        entities: importCards(trelloCard, nextId, [])
+        entities: importCards(trelloCard, parent, nextId)
     };
 }
 
 const _nextId = (id) => () => id++;
 
-function importCards(trelloCard, nextId) {
+function importCards(trelloCard, parent, nextId) {
     const items = importItems(trelloCard, nextId);
-    const newCard = importCard(trelloCard, nextId, items);
-    return newCard.concat(items);
+    const newCard = importCard(trelloCard, parent, nextId, items);
+    return items.concat(newCard);
 }
 
-function importCard(trelloCard, nextId, children) {
+function importCard(trelloCard, parent, nextId, children) {
     return [ {
         name: trelloCard.name,
         id: nextId(),
         type: 'card',
-        children: children.map(child => child.id)
+        children: children.map(child => child.id),
+        ...parent
     } ];
 }
 
