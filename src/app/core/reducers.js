@@ -1,9 +1,9 @@
 import codex from 'components/codex/reducer';
 import cards from 'components/cards/reducer';
 import items from 'components/items/reducer';
-import trello from 'components/trello/reducer';
+import importers from 'store/importers/reducer';
 
-export default highOrderReducers('0.3.0', [ codex, cards, items, trello ]);
+export default highOrderReducers('0.3.0', [ codex, cards, items, importers ]);
 
 function highOrderReducers(version, reducers) {
     const initialState = getFlatInitialsStates(version, reducers);

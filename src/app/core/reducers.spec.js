@@ -1,6 +1,7 @@
 import reducers from './reducers';
 
 describe('reducers', () => {
+    
     const DEFAULT_STATE = {
         version: '0.3.0',
         nextEntityId: 1,

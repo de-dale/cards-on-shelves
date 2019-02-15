@@ -1,14 +1,6 @@
 {
   "entities": [
     {
-      "children": [
-        1, 2
-      ],
-      "id": 3,
-      "name": "Par défaut",
-      "type": "card"
-    },
-    {
       "content": "Une quote",
       "id": 1,
       "type": "field"
@@ -17,6 +9,14 @@
       "content": "Une autre quote",
       "id": 2,
       "type": "field"
+    },
+    {
+      "children": [
+        1, 2
+      ],
+      "id": 3,
+      "name": "Par défaut",
+      "type": "card"
     }
   ]
 }

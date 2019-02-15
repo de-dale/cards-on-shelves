@@ -63,9 +63,11 @@
     "html-webpack-plugin": "^3.1.0",
     "jest": "^22.2.2",
     "jest-css-modules": "^1.1.0",
+    "jest-fetch-mock": "^2.1.0",
     "js-beautify": "^1.7.5",
     "prop-types": "latest",
     "react-test-renderer": "^16.2.0",
+    "redux-mock-store": "^1.5.3",
     "regenerator-runtime": "^0.11.1",
     "schema-utils": "^0.4.5",
     "style-loader": "^0.20.1",
@@ -75,12 +77,16 @@
     "xml-loader": "^1.2.1"
   },
   "jest": {
+    "automock": false,
     "moduleNameMapper": {
       "^components(.*)$": "<rootDir>/src/app/components$1",
       "^utils(.*)$": "<rootDir>/src/app/core/utils$1",
       "^entities(.*)$": "<rootDir>/src/app/core/entities$1",
       "^store(.*)$": "<rootDir>/src/app/store$1"
     },
+    "setupFiles": [
+      "./setupJest.js"
+    ],
     "testURL": "http://localhost",
     "transform": {
       "^.+\\.js$": "babel-jest",

@@ -1,16 +1,6 @@
 {
   "entities": [
     {
-      "children": [
-        1,
-        2,
-        3
-      ],
-      "id": 4,
-      "name": "Par défaut",
-      "type": "card"
-    },
-    {
       "content": "Par défaut",
       "id": 1,
       "type": "title"
@@ -24,6 +14,16 @@
       "content": "Lorsqu'un personnage entreprend une actions facile, pour laquelle il est possible de se passer de formation, et qui nécessité réellement un jet de dé ; alors, la résolution de l'action s'effectue par le lancer de `1d6`.",
       "id": 3,
       "type": "text"
+    },
+    {
+      "children": [
+        1,
+        2,
+        3
+      ],
+      "id": 4,
+      "name": "Par défaut",
+      "type": "card"
     }
   ]
 }

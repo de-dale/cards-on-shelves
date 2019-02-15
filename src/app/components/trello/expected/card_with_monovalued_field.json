@@ -1,17 +1,17 @@
 {
   "entities": [
     {
+      "content": "Une quote",
+      "id": 1,
+      "type": "field"
+    },
+    {
       "children": [
         1
       ],
       "id": 2,
       "name": "Par défaut",
       "type": "card"
-    },
-    {
-      "content": "Une quote",
-      "id": 1,
-      "type": "field"
     }
   ]
 }

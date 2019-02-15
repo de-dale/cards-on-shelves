@@ -1,18 +1,19 @@
 {
   "entities": [
     {
+      "content": "Contenu synthétique",
+      "header": "En-tête",
+      "id": 1,
+      "type": "field"
+    },
+    {
       "children": [
         1
       ],
       "id": 2,
       "name": "Par défaut",
       "type": "card"
-    },
-    {
-      "content": "Contenu synthétique",
-      "header": "En-tête",
-      "id": 1,
-      "type": "field"
     }
+
   ]
 }

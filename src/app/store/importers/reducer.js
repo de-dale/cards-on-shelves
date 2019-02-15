@@ -1,4 +1,4 @@
-import { IMPORT_WITH_MAPPER } from './actions';
+import { GENERIC_IMPORT } from './actions';
 import { addEntities } from 'entities';
 
 const initialState = {
@@ -8,7 +8,7 @@ const initialState = {
 
 export default function (state = initialState, action) {
     switch (action.type) {
-        case IMPORT_WITH_MAPPER: {
+        case GENERIC_IMPORT: {
             return importFrom(state, action.input, action.parent, action.mapper);
         }
         default:

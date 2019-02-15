@@ -39,7 +39,8 @@ TrelloImporter.propTypes = {
         key: PropTypes.string.isRequired,    
     }).isRequired,
     token: PropTypes.string.isRequired,
-    fetchTrello: PropTypes.func.isRequired
+    fetchTrello: PropTypes.func.isRequired,
+    getTrello: PropTypes.func
 };
 
 export default TrelloImporter;

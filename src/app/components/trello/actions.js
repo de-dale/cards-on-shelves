@@ -1,10 +1,6 @@
-import { makeActionCreator } from 'utils';
+import { imports } from 'store/importers/actions';
 import importTrello from 'components/trello/import-trello';
 import fetch from 'node-fetch';
-
-const IMPORT_WITH_MAPPER = 'IMPORT_WITH_MAPPER';
-
-const importer = makeActionCreator(IMPORT_WITH_MAPPER, 'input', 'parent', 'mapper');
 
 function fetchTrello(url, parent, key, token) {
     // https://redux.js.org/advanced/async-actions
@@ -14,7 +10,7 @@ function fetchTrello(url, parent, key, token) {
         .then(json => fetch(trello.getCardById(json)))
         .then(response => response.json())
         .then(
-            json => dispatch(importer(json, parent, importTrello)),
+            json => dispatch(imports(json, parent, importTrello)),
             error => /*eslint-disable no-console*/console.error('An error occurred.', error)
         );
 }
@@ -36,6 +32,6 @@ const _trello = (key, token) => {
 };
 
 export {
-    IMPORT_WITH_MAPPER, fetchTrello
+    fetchTrello
 };
 

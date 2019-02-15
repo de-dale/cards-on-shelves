@@ -8,11 +8,11 @@ const _nextId = (id) => () => id++;
 
 function importCards(trelloCard, parent, nextId) {
     const items = importItems(trelloCard, nextId);
-    const newCard = importCard(trelloCard, parent, nextId, items);
+    const newCard = importCardAsArray(trelloCard, parent, nextId, items);
     return items.concat(newCard);
 }
 
-function importCard(trelloCard, parent, nextId, children) {
+function importCardAsArray(trelloCard, parent, nextId, children) {
     return [ {
         name: trelloCard.name,
         id: nextId(),
