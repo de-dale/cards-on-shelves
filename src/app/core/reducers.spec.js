@@ -1,7 +1,7 @@
 import reducers from './reducers';
 
 describe('reducers', () => {
-    
+
     const DEFAULT_STATE = {
         version: '0.3.0',
         nextEntityId: 1,
@@ -55,7 +55,7 @@ describe('reducers', () => {
             },
             {
                 children: [
-                    3,
+                    3
                 ],
                 id: 2,
                 name: 'Un carte avec l\'item',
@@ -64,7 +64,7 @@ describe('reducers', () => {
             },
             {
                 children: 'item content',
-                id: 3,
+                id: 3
             }
         ]
     };
@@ -92,9 +92,9 @@ describe('reducers', () => {
             type: 'ADD_CARD',
             card: {
                 name: 'Un carte avec l\'item',
-                theme: 'ability',
-                codex: 1
-            }
+                theme: 'ability'
+            },
+            parent: { id: 1 }
         };
 
         expect(reducers(STATE_ONE_CODEX, action)).toEqual(STATE_ONE_CARD);

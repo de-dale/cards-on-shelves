@@ -8,8 +8,8 @@ import TrelloImporter from 'components/trello';
 const CardList = ({ parent, cards, createCard, importCards, removeCard }) => (
     <div className={ styles[ 'card-list' ] }>
         <div className={ styles[ 'card-list-toolbar' ] }>
-            <button type="button" onClick={ () => createCard() }>+</button>
-            <input type="file" onChange={ ({ target: { files } }) => importCards(files) }/>
+            <button type="button" onClick={ () => createCard(parent) }>+</button>
+            <input type="file" onChange={ ({ target: { files } }) => importCards(files, parent) }/>
             <TrelloImporter parent={ parent }/>
         </div>
         <div className={ styles[ 'card-list-items' ] }>

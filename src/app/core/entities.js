@@ -10,30 +10,31 @@ import {
 
 export {
     addEntity,
-    addEntities,
+    indexEntity,
     removeEntity,
-    updateEntity,
+    updateEntity
 };
 
-function addEntity(state, entity, ...parentNames) {
-    const _entity = createEntity(state, entity);
-    const _state = updateParents(state, _entity, parentNames);
-    return insertEntity(_state, _entity);
+function addEntity(state, entity, ...parents) {
+    return indexEntity(state, entity, ...parents).state;
 }
 
-function addEntities(state, entities, ...parentNames) {
-    let _state = state;
-    entities.forEach(entity => {
-        _state = addEntity(_state, entity, parentNames);
-    });
-    return _state;
-}
-
-function createEntity(state, entity) {
-    const entityId = getEntityId(state, entity);
-    return {
+function indexEntity(state, entity, ...parents) {
+    const _entity = {
         ...entity,
-        id: entityId
+        id: getEntityId(state, entity)
+    };
+    const _state = updateParents(state, _entity, parents);
+    return {
+        entity: _entity,
+        state: {
+            ..._state,
+            nextEntityId: (_entity.id + 1),
+            entities: [
+                ..._state.entities,
+                _entity
+            ]
+        }
     };
 }
 
@@ -41,35 +42,22 @@ function getEntityId(state, entity) {
     return Math.max(state.nextEntityId, entity && entity.id || -1);
 }
 
-function insertEntity(state, entity) {
-    return {
-        ...state,
-        nextEntityId: (entity.id + 1),
-        entities: [
-            ...state.entities,
-            entity
-        ]
-    };
+function updateParents(state, entity, parents) {
+    const parentIds = extractParentIds(parents);
+    return updateParentByIds(state, entity, parentIds);
 }
 
-function updateParents(state, entity, ...parentNames) {
-    const parentIds = extractParentIds(entity, parentNames);
-    return updateParentByIds(state, entity, ...parentIds);
-}
-
-function updateParentByIds(state, entity, ...parentIds) {
+function updateParentByIds(state, entity, parentIds) {
     return {
         ...state,
         entities: updateArrayItem(state.entities, isItemIdIn(...parentIds), addChild(entity))
     };
 }
 
-function extractParentIds(obj, ...parents) {
-    return parents.map(parent => {
-        const parentId = obj[ parent ];
-        delete obj[ parent ];
-        return parentId;
-    });
+function extractParentIds(parents) {
+    return parents
+        .filter(parent => parent != null)
+        .map(parent => parent.id);
 }
 
 function addChild(entity) {

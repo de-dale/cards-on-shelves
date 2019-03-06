@@ -1,5 +1,4 @@
 import { GENERIC_IMPORT } from './actions';
-import { addEntities } from 'entities';
 
 const initialState = {
     nextEntityId: 1,
@@ -17,8 +16,5 @@ export default function (state = initialState, action) {
 }
 
 function importFrom(state, input, parent, mapper) {
-    const converted = mapper(input, { parent: parent.id }, _nextId(state.nextEntityId));
-    return addEntities(state, converted.entities, 'parent');
+    return mapper(state, input, parent);
 }
-
-const _nextId = (id) => () => id++;

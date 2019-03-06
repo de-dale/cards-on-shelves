@@ -2,13 +2,13 @@ import { connect } from 'react-redux';
 import { find, isItemIdIn } from 'utils';
 import CardItemList from './CardItemList';
 
-const mapStateToProps =  (state, props) => ({
-    items: findCardItemsById(state, ...props.card.children)
+const mapStateToProps = (state, props) => ({
+    items: findCardItemsById(state, props.card)
 });
 
-function findCardItemsById(state, ...ids) {
+function findCardItemsById(state, { children = [] }) {
     return find(state.entities,
-        isItemIdIn(...ids)
+        isItemIdIn(...children)
     );
 }
 

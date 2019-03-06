@@ -9,7 +9,7 @@ const initialState = {
 export default function (state = initialState, action) {
     switch (action.type) {
         case ADD_CARD:
-            return addCard(state, action.card);
+            return addCard(state, action.card, action.parent);
         case REMOVE_CARD:
             return removeEntity(state, action.card);
         case UPDATE_CARD: {
@@ -37,6 +37,6 @@ export default function (state = initialState, action) {
     }
 }
 
-function addCard(state, card) {
-    return addEntity(state, { ...card, type: 'card' }, 'codex');
+function addCard(state, card, parent) {
+    return addEntity(state, { ...card, type: 'card' }, parent);
 }

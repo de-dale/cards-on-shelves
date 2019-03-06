@@ -1,8 +1,13 @@
 import fs from 'fs';
 import importTrelloCard from './import-trello';
 
+const initialState = {
+    nextEntityId: 1,
+    entities: []
+};
+
 function trelloMapper(trelloCard) {
-    return importTrelloCard(trelloCard);
+    return importTrelloCard(initialState, trelloCard);
 }
 
 describe('trello importer', () => {

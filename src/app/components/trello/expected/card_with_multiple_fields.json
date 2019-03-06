@@ -1,22 +1,23 @@
 {
   "entities": [
     {
-      "content": "Une quote",
+      "children": [
+        2, 3
+      ],
       "id": 1,
-      "type": "field"
+      "name": "Par défaut",
+      "type": "card"
     },
     {
-      "content": "Une autre quote",
+      "content": "Une quote",
       "id": 2,
       "type": "field"
     },
     {
-      "children": [
-        1, 2
-      ],
+      "content": "Une autre quote",
       "id": 3,
-      "name": "Par défaut",
-      "type": "card"
+      "type": "field"
     }
-  ]
+  ],
+  "nextEntityId": 4
 }

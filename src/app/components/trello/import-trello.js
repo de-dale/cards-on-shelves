@@ -1,40 +1,52 @@
-export default function importTrelloCard(trelloCard, parent, nextId = _nextId(1)) {
-    return {
-        entities: importCards(trelloCard, parent, nextId)
-    };
+import { addEntity, indexEntity } from 'entities';
+
+const initialState = {
+    nextEntityId: 1,
+    entities: []
+};
+
+// It is a reducer !
+export default function (state = initialState, trelloCard, parent) {
+    return importCards(state, trelloCard, parent);
 }
 
-const _nextId = (id) => () => id++;
-
-function importCards(trelloCard, parent, nextId) {
-    const items = importItems(trelloCard, nextId);
-    const newCard = importCardAsArray(trelloCard, parent, nextId, items);
-    return items.concat(newCard);
+function importCards(state, trelloCard, parent) {
+    const { state: _state, entity: card } = importCard(state, trelloCard, parent);
+    return importItems(_state, trelloCard, card);
 }
 
-function importCardAsArray(trelloCard, parent, nextId, children) {
-    return [ {
+function importCard(state, trelloCard, parent) {
+    return indexEntity(state, {
         name: trelloCard.name,
-        id: nextId(),
-        type: 'card',
-        children: children.map(child => child.id),
-        ...parent
-    } ];
+        type: 'card'
+    }, parent);
 }
 
-function importItems(trelloCard, nextId) {
+function importItems(state, trelloCard, cardAsParent) {
     const description = trelloCard.desc;
     if (description === '') {
-        return [ createTitle(trelloCard.name, nextId) ];
+        return addEntity(state, createTitle(trelloCard.name), cardAsParent);
     }
-    return makeFactory(createItem, '', '\n\n')(description, nextId);
+
+    const items = createItems(description);
+    return insertItems(state, items, cardAsParent);
+}
+
+function insertItems(state, items, cardAsParent) {
+    let _state = state;
+    items.forEach(item => _state = addEntity(_state, item, cardAsParent));
+    return _state;
+}
+
+function createItems(description) {
+    return makeFactory(createItem, '', '\n\n')(description);
 }
 
 function makeFactory(factory, delimiter, separator) {
-    return (item, nextId) => item.replace(delimiter, '')
+    return (item) => item.replace(delimiter, '')
         .trim()
         .split(separator)
-        .flatMap(sub => factory(sub, nextId));
+        .flatMap(sub => factory(sub));
 }
 
 function createItem(item, nextId) {
@@ -55,8 +67,7 @@ function findFactory(item) {
     return () => [];
 }
 
-function createField(item, nextId) {
-
+function createField(item) {
     const items = item.trim()
         .split('|');
     const content = items.length > 1
@@ -68,24 +79,21 @@ function createField(item, nextId) {
             : undefined
     };
     return {
-        id: nextId(),
         content: content,
         type: 'field',
         ...header
     };
 }
 
-function createText(text, nextId) {
+function createText(text) {
     return {
-        id: nextId(),
         content: text,
         type: 'text'
     };
 }
 
-function createTitle(title, nextId) {
+function createTitle(title) {
     return {
-        id: nextId(),
         content: title,
         type: 'title'
     };

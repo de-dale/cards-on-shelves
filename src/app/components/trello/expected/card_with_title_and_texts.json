@@ -1,29 +1,30 @@
 {
   "entities": [
     {
-      "content": "Par défaut",
+      "children": [
+        2,
+        3,
+        4
+      ],
       "id": 1,
+      "name": "Par défaut",
+      "type": "card"
+    },
+    {
+      "content": "Par défaut",
+      "id": 2,
       "type": "title"
     },
     {
       "content": "Par défaut, un personnage ne peut pas effectuer d'action qu'il ne connaît pas. Les actions qui se passent de formation, se passent de lancer de dé.",
-      "id": 2,
-      "type": "text"
-    },
-    {
-      "content": "Lorsqu'un personnage entreprend une actions facile, pour laquelle il est possible de se passer de formation, et qui nécessité réellement un jet de dé ; alors, la résolution de l'action s'effectue par le lancer de `1d6`.",
       "id": 3,
       "type": "text"
     },
     {
-      "children": [
-        1,
-        2,
-        3
-      ],
+      "content": "Lorsqu'un personnage entreprend une actions facile, pour laquelle il est possible de se passer de formation, et qui nécessité réellement un jet de dé ; alors, la résolution de l'action s'effectue par le lancer de `1d6`.",
       "id": 4,
-      "name": "Par défaut",
-      "type": "card"
+      "type": "text"
     }
-  ]
+  ],
+  "nextEntityId": 5
 }

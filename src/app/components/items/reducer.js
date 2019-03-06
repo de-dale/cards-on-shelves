@@ -20,5 +20,5 @@ export default function (state = initialState, action) {
 }
 
 function addItem(state, item, card) {
-    return addEntity(state, { ...item, card: card.id }, 'card');
+    return addEntity(state, item, card);
 }
