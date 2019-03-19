@@ -75,6 +75,7 @@ module.exports = {
     resolve: {
         extensions: [ '.js', '.jsx', '.styl', '.json', '.md', 'jpeg' ],
         alias: {
+            core: path.resolve(__dirname, 'src', 'app', 'core'),
             entities: path.resolve(__dirname, 'src', 'app', 'core', 'entities'),
             utils: path.resolve(__dirname, 'src', 'app', 'core', 'utils'),
             store: path.resolve(__dirname, 'src', 'app', 'store'),

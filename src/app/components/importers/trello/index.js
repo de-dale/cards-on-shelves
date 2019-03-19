@@ -1,13 +1,13 @@
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import * as actions from 'components/trello/actions';
-import TrelloImporter from 'components/trello/TrelloImporter';
-import secrets from 'components/trello/trello.scratch.requests.secrets';
+import * as actions from 'components/importers/trello/actions';
+import TrelloImporter from 'components/importers/trello/TrelloImporter';
+import secrets from 'components/importers/trello/trello.scratch.requests.secrets';
 
 const mapStateToProps = () => ({
-    token: findToken(),
     trello: {
+        token: findToken(),
         key: findKey()
     }
 });

@@ -1,6 +1,6 @@
 /* global window:true */
 import { applyMiddleware, compose, createStore } from 'redux';
-import reducers from '../core/reducers';
+import reducers from 'core/reducers';
 import thunk from 'redux-thunk';
 
 /*

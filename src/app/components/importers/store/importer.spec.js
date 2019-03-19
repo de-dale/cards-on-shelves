@@ -1,4 +1,4 @@
-import migrate from './migrate-store';
+import importStore from './importer';
 import fs from 'fs';
 
 describe('migrate from 0.2.0 to 0.3.0', () => {
@@ -29,7 +29,7 @@ describe('migrate from 0.2.0 to 0.3.0', () => {
 });
 
 function verifyFileMigration(fileName, origin, target) {
-    expect(migrate(readFileInVersion(fileName, origin)))
+    expect(importStore(readFileInVersion(fileName, origin)))
         .toEqual(readFileInVersion(fileName, target));
 }
 

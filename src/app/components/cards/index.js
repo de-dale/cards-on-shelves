@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { findById } from 'utils';
-import Card from './Card';
+import Card from 'components/cards/Card';
 
 const mapStateToProps = (state, props) => ({
     card: findCard(state, props)

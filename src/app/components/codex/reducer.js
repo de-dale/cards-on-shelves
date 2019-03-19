@@ -1,6 +1,5 @@
 import { ADD_CODEX, SAVE_ALL, SAVE_CODEX } from './actions';
 import FileSaver from 'file-saver';
-import { findByItemId } from 'utils';
 import { addEntity } from 'entities';
 
 const initialState = {
@@ -10,12 +9,10 @@ const initialState = {
 
 export default function (state = initialState, action) {
     switch (action.type) {
-        case ADD_CODEX: {
+        case ADD_CODEX:
             return addCodex(state, action.codex);
-        }
         case SAVE_CODEX: {
-            const codex = findByItemId(state.entities, action.codex);
-            saveCodex(codex);
+            saveCodex(action.codex);
             return state;
         }
         case SAVE_ALL: {

@@ -2,8 +2,8 @@ import fetch from 'node-fetch';
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 
-import * as actions from 'components/trello/actions';
-import importTrelloCard from 'components/trello/import-trello';
+import * as actions from 'components/importers/trello/actions';
+import importTrelloCard from 'components/importers/trello/import-trello';
 
 const mockStore = configureMockStore([ thunk ]);
 const store = mockStore({});

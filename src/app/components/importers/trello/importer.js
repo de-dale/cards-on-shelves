@@ -1,14 +1,8 @@
 import { addEntity, indexEntity } from 'entities';
 
-const initialState = {
-    nextEntityId: 1,
-    entities: []
+export {
+    importCards
 };
-
-// It is a reducer !
-export default function (state = initialState, trelloCard, parent) {
-    return importCards(state, trelloCard, parent);
-}
 
 function importCards(state, trelloCard, parent) {
     const { state: _state, entity: card } = importCard(state, trelloCard, parent);

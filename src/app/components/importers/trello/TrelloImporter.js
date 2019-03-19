@@ -5,11 +5,11 @@ class TrelloImporter extends React.Component {
 
     constructor(props) {
         super(props);
-        const { trello, token, parent, fetchTrello } = props;
+        const { trello, parent, fetchTrello } = props;
         this.state = {
-            url: '',
+            query: '',
             key: trello.key,
-            token: token,
+            token: trello.token,
             parent: parent,
             fetchTrello: fetchTrello
         };
@@ -24,9 +24,12 @@ class TrelloImporter extends React.Component {
         const fetchTrello = this.state.fetchTrello;
         return (
             <div>
-                <input type="text" value={ this.state.url } onChange={ onInputChange('url') } placeholder="Url to Trello card"/>
+                <input type="text"
+                    value={ this.state.query }
+                    onChange={ onInputChange('query') }
+                    placeholder="Rechercher depuis Trello"/>
                 <button
-                    onClick={ () => fetchTrello(this.state.url, this.state.parent, this.state.key, this.state.token) }>Trello
+                    onClick={ () => fetchTrello(this.state.query, this.state.parent, this.state.key, this.state.token) }>Trello
                 </button>
             </div>
         );
@@ -36,11 +39,10 @@ class TrelloImporter extends React.Component {
 TrelloImporter.propTypes = {
     parent: PropTypes.object.isRequired,
     trello: PropTypes.shape({
-        key: PropTypes.string.isRequired,    
+        key: PropTypes.string.isRequired,
+        token: PropTypes.string.isRequired
     }).isRequired,
-    token: PropTypes.string.isRequired,
-    fetchTrello: PropTypes.func.isRequired,
-    getTrello: PropTypes.func
+    fetchTrello: PropTypes.func.isRequired
 };
 
 export default TrelloImporter;

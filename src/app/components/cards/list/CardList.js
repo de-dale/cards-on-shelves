@@ -3,13 +3,14 @@ import PropTypes from 'prop-types';
 
 import styles from './cardList.css';
 import EditableCard from 'components/cards/creation';
-import TrelloImporter from 'components/trello';
+import TrelloImporter from 'components/importers/trello';
+import FileImporter from 'components/importers/file';
 
-const CardList = ({ parent, cards, createCard, importCards, removeCard }) => (
+const CardList = ({ parent, cards, createCard, removeCard }) => (
     <div className={ styles[ 'card-list' ] }>
         <div className={ styles[ 'card-list-toolbar' ] }>
             <button type="button" onClick={ () => createCard(parent) }>+</button>
-            <input type="file" onChange={ ({ target: { files } }) => importCards(files, parent) }/>
+            <FileImporter parent={ parent }/>
             <TrelloImporter parent={ parent }/>
         </div>
         <div className={ styles[ 'card-list-items' ] }>

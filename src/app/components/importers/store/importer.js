@@ -1,5 +1,3 @@
-/* eslint-disable no-console */
-
 export default function migrate(origin) {
     if(origin === undefined) {
         return {
@@ -26,7 +24,6 @@ export default function migrate(origin) {
         version: '0.3.0',
         nextEntityId: _id,
         entities: codex.concat(cards)
-
     };
 }
 
