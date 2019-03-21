@@ -38,7 +38,7 @@
         218
       ],
       "id": 1,
-      "name": "Codex Vide",
+      "name": "Sphérier",
       "type": "codex"
     },
     {
@@ -1591,8 +1591,22 @@
       "header": "Node",
       "id": 229,
       "type": "field"
+    },
+    {
+      "children": [
+        231
+      ],
+      "id": 230,
+      "name": "Codex Vide",
+      "type": "codex"
+    },
+    {
+      "id": 231,
+      "name": "Excédent de dégâts",
+      "theme": "ability",
+      "type": "card"
     }
   ],
-  "nextEntityId": 230,
+  "nextEntityId": 232,
   "version": "0.3.0"
 }

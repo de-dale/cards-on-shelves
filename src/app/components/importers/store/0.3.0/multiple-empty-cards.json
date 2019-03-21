@@ -1,34 +1,40 @@
 {
-  "version": "0.3.0",
-  "nextEntityId": 5,
   "entities": [
     {
-      "id": 1,
-      "type": "card",
-      "name": "Excédent de dégâts",
-      "theme": "ability",
       "children": [
-      ]
+        2,
+        3,
+        4,
+        5
+      ],
+      "id": 1,
+      "name": "Codex Vide",
+      "type": "codex"
     },
     {
       "id": 2,
-      "type": "card",
-      "name": "Position du tigre",
+      "name": "Excédent de dégâts",
       "theme": "ability",
-      "children": []
+      "type": "card"
     },
     {
       "id": 3,
-      "type": "card",
-      "name": "Se déplacer",
-      "theme": "action",
-      "children": []
+      "name": "Position du tigre",
+      "theme": "ability",
+      "type": "card"
     },
     {
       "id": 4,
-      "type": "card",
+      "name": "Se déplacer",
+      "theme": "action",
+      "type": "card"
+    },
+    {
+      "id": 5,
       "name": "Choc",
-      "children": []
+      "type": "card"
     }
-  ]
+  ],
+  "nextEntityId": 6,
+  "version": "0.3.0"
 }

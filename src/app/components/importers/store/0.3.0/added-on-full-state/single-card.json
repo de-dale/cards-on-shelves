@@ -38,7 +38,7 @@
         218
       ],
       "id": 1,
-      "name": "Codex Vide",
+      "name": "Sphérier",
       "type": "codex"
     },
     {
@@ -1591,8 +1591,50 @@
       "header": "Node",
       "id": 229,
       "type": "field"
+    },
+    {
+      "children": [
+        231
+      ],
+      "id": 230,
+      "name": "Codex Vide",
+      "type": "codex"
+    },
+    {
+      "children": [
+        232,
+        233,
+        234,
+        235
+      ],
+      "id": 231,
+      "name": "Excédent de dégâts",
+      "theme": "ability",
+      "type": "card"
+    },
+    {
+      "content": "Excédent de dégâts",
+      "id": 232,
+      "type": "title"
+    },
+    {
+      "content": "Passive",
+      "header": "Capacité",
+      "id": 233,
+      "type": "field"
+    },
+    {
+      "content": "Lors d'une attaque, les succès excédentaires sont rajoutés aus dégâts.",
+      "id": 234,
+      "type": "text"
+    },
+    {
+      "content": "",
+      "header": "SR5",
+      "id": 235,
+      "type": "field"
     }
   ],
-  "nextEntityId": 230,
+  "nextEntityId": 236,
   "version": "0.3.0"
 }

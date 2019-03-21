@@ -1,8 +1,7 @@
 import { importFileContent } from 'components/importers/file/importer';
 
 import storeImporter from 'components/importers/store/importer';
-
-jest.mock('components/importers/store/importer');
+jest.mock('components/importers/store/importer', () => jest.fn());
 
 const initialState = {
     nextEntityId: 1,

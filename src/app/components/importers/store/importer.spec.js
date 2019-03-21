@@ -1,36 +1,57 @@
 import importStore from './importer';
 import fs from 'fs';
+import each from 'jest-each';
 
-describe('migrate from 0.2.0 to 0.3.0', () => {
+describe('imports', () => {
 
-    it('success for single empty card', () => {
-        assertFileIsCorrectlyMigrated('single-empty-card.json');
-    });
+    const latest_version = '0.3.0';
 
-    it('success for multiple empty cards', () => {
-        assertFileIsCorrectlyMigrated('multiple-empty-cards.json');
-    });
+    const EMPTY_STATE = {
+        nextEntityId: 1,
+        entities: [],
+        version: latest_version
+    };
 
-    it('success for single card', () => {
-        assertFileIsCorrectlyMigrated('single-card.json');
-    });
-    
-    it('success for multiple cards', () => {
-        assertFileIsCorrectlyMigrated('multiple-cards.json');
-    });
-    
-    it('success for whole state', () => {
-        assertFileIsCorrectlyMigrated('whole-state.json');
-    });
-
-    function assertFileIsCorrectlyMigrated(fileName) {
-        verifyFileMigration(fileName, '0.2.0', '0.3.0');
+    function getLatestFullState() {
+        return readFileInVersion('whole-state.json', latest_version);
     }
+
+    each([
+        [ '0.2.0', '0.3.0' ],
+        [ latest_version, latest_version ] ])
+        .describe('from versions %s to %s', (origin, target) => {
+
+            each([
+                [ 'single-empty-card' ],
+                [ 'multiple-empty-cards' ],
+                [ 'single-card' ],
+                [ 'multiple-cards' ],
+                [ 'whole-state' ]
+            ]).describe('%s is imported on', (cards) => {
+
+                it('an empty state', () => {
+                    imports.onEmptyState(cards);
+                });
+
+                it('an already filled state', () => {
+                    imports.onGivenState(cards, 'added-on-full-state', getLatestFullState());
+                });
+            });
+
+            const imports = {
+                onEmptyState: (fileName) => verifyJsonMigration(EMPTY_STATE, origin, fileName, target, fileName),
+                onGivenState: (fileName, stateName, state) => verifyJsonMigration(state, origin, fileName, target, stateName + '/' + fileName)
+            };
+        });
 });
 
-function verifyFileMigration(fileName, origin, target) {
-    expect(importStore(readFileInVersion(fileName, origin)))
-        .toEqual(readFileInVersion(fileName, target));
+function verifyJsonMigration(initialState, origin, givenFileName, target, expectedFileName) {
+    verifyFileMigration(initialState, origin, givenFileName + '.json', target, expectedFileName + '.json');
+}
+
+function verifyFileMigration(initialState, origin, givenFileName, target, expectedFileName) {
+    expect(importStore(initialState, readFileInVersion(givenFileName, origin)))
+        .toEqual(readFileInVersion(expectedFileName, target));
 }
 
 function readFileInVersion(fileName, version) {

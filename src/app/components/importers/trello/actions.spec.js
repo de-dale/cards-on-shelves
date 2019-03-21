@@ -3,10 +3,9 @@ import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 
 import * as actions from 'components/importers/trello/actions';
-import importTrelloCard from 'components/importers/trello/import-trello';
 
 const mockStore = configureMockStore([ thunk ]);
-const store = mockStore({});
+let store = {};
 
 describe('trello', () => {
 
@@ -24,6 +23,7 @@ describe('trello', () => {
 
     beforeEach(() => {
         fetch.resetMocks();
+        store = mockStore({});
     });
 
     it('should search by query', () => {
@@ -50,18 +50,20 @@ describe('trello', () => {
         });
     });
 
-    it('should dispatch a generic mapping action, with trello mapper', () => {
-        mockTrello.searchResult().cardResult();
-
-        const action = actions.fetchTrello('', {}, 'key', 'token');
+    it('should dispatch a trello import action', () => {
+        mockTrello.searchResult().cardResult(42);
+        const parent = { id: 37 };
+        
+        const action = actions.fetchTrello('', parent, 'key', 'token');
 
         return store.dispatch(action).then(() => {
             expect(store.getActions()[ 0 ]).toMatchObject(
                 {
-                    type: 'GENERIC_IMPORT',
-                    mapper: importTrelloCard
+                    type: 'IMPORT_TRELLO',
+                    input: { id: 42 },
+                    parent: parent
                 });
         });
     });
-    
+
 });

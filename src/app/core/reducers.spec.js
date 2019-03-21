@@ -1,6 +1,6 @@
 import reducers from './reducers';
 
-describe('reducers', () => {
+describe('all reducers', () => {
 
     const DEFAULT_STATE = {
         version: '0.3.0',

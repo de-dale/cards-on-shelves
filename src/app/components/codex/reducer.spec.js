@@ -63,7 +63,8 @@ describe('codex', () => {
         expect(reducer(INITIAL_STATE, saveCodex)).toEqual(INITIAL_STATE);
     });
 
-    it('should be saved as codex', () => {
+    xit('should be saved as codex', () => {
+        // TODO : Clarifier si on veut l'id du codex en entrée du save, ou le codex complet.
         const saveCodex = actions.saveCodex(codex);
 
         reducer(INITIAL_STATE, saveCodex);

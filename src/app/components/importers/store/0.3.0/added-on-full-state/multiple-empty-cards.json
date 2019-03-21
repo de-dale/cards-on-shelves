@@ -38,7 +38,7 @@
         218
       ],
       "id": 1,
-      "name": "Codex Vide",
+      "name": "Sphérier",
       "type": "codex"
     },
     {
@@ -1591,8 +1591,42 @@
       "header": "Node",
       "id": 229,
       "type": "field"
+    },
+    {
+      "children": [
+        231,
+        232,
+        233,
+        234
+      ],
+      "id": 230,
+      "name": "Codex Vide",
+      "type": "codex"
+    },
+    {
+      "id": 231,
+      "name": "Excédent de dégâts",
+      "theme": "ability",
+      "type": "card"
+    },
+    {
+      "id": 232,
+      "name": "Position du tigre",
+      "theme": "ability",
+      "type": "card"
+    },
+    {
+      "id": 233,
+      "name": "Se déplacer",
+      "theme": "action",
+      "type": "card"
+    },
+    {
+      "id": 234,
+      "name": "Choc",
+      "type": "card"
     }
   ],
-  "nextEntityId": 230,
+  "nextEntityId": 235,
   "version": "0.3.0"
 }

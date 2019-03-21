@@ -2,7 +2,7 @@ import * as actions from 'components/importers/file/actions';
 import reducer from 'components/importers/file/reducer';
 
 import storeImporter from 'components/importers/store/importer';
-jest.mock('components/importers/store/importer');
+jest.mock('components/importers/store/importer', () => jest.fn());
 
 describe('reducer for file importer', () => {
 

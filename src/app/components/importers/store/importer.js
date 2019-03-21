@@ -1,66 +1,112 @@
-export default function migrate(origin) {
-    if(origin === undefined) {
+import { addEntity, indexEntity } from 'entities';
+import { isItemIdIn } from 'utils';
+
+const initialState = {
+    nextEntityId: 1,
+    entities: []
+};
+
+export default function importStore(state = initialState, input) {
+    const version = input.version;
+    switch (version) {
+        case '0.3.0':
+            return importLatest(state, input);
+        default:
+            return importTo_0_3_0(state, input);
+    }
+}
+
+function importLatest(state, input) {
+    const result = input.entities.reduce((accumulator, item) => {
+        const parents = accumulator.parents;
+
+        parents.prepare(item);
+        const index = indexEntity(accumulator.state, { ...item }, ...parents.findParents(item));
+        parents.registerParent(item, index.entity);
+
         return {
-            version: '0.3.0',
-            nextEntityId: 1,
-            entities: [{
-                id: 0,
-                name: 'Codex Vide',
-                type: 'codex',
-                children: []
-            }]
-
+            state: index.state,
+            parents: accumulator.parents
         };
-    }
-    
-    let _id = 1;
-    function nextId() {
-        return _id++;
-    }
+    }, {
+        state: state,
+        parents: new ParentMappings()
+    });
 
-    const cards = migrateCards(origin.cards.cards, nextId);
-    const codex = migrateCodex(origin.codex, nextId, cards.filter(card => card.type === 'card'));
     return {
         version: '0.3.0',
-        nextEntityId: _id,
-        entities: codex.concat(cards)
+        ...result.state
     };
 }
 
-function migrateCodex(codex, nextId, cards) {
-    if (codex === undefined) {
-        return [];
+class ParentMappings {
+    constructor() {
+        this.parents = [];
     }
-    return [{
-        id: nextId(),
-        name: codex.name,
+
+    findParents(item) {
+        return this.parents
+            .filter(parent => isItemIdIn(...parent.input.children)(item))
+            .map(parent => parent.migrated);
+    }
+
+    static isParent(item) {
+        return item.children && item.children.length > 0;
+    }
+
+    prepare(item) {
+        if (ParentMappings.isParent(item)) {
+            this.parents.push({ input: { id: item.id, children: item.children } });
+            delete item.children;
+        }
+    }
+
+    registerParent(item, entity) {
+        this.parents
+            .filter(parent => parent.input.id === item.id)
+            .forEach(parent => parent.migrated = { id: entity.id });
+    }
+}
+
+const defaultInputBefore_0_3_0 = { cards: { cards: [] } };
+
+function importTo_0_3_0(state, input = defaultInputBefore_0_3_0) {
+    const indexedCodex = indexEntity(state, getCodex(input.codex));
+    return {
+        version: '0.3.0',
+        ...importCards(indexedCodex.state, input.cards.cards, indexedCodex.entity)
+    };
+}
+
+function getCodex(codex = {}) {
+    return {
+        name: codex.name
+            ? codex.name
+            : 'Codex Vide',
         type: 'codex',
-        children: cards.map(card => card.id)
-    }];
+        children: []
+    };
 }
 
-function migrateCards(origin, nextId) {
-    return origin.flatMap(card => {
-        const items = migrateItems(card, nextId);
-        const newCard = migrateCard(card, nextId, items);
-        return newCard.concat(items);
+function importCards(state, inputCards, parent) {
+    let _state = state;
+    inputCards.forEach(card => {
+        const indexedCard = indexEntity(_state, toCard(card), parent);
+
+        _state = indexedCard.state;
+
+        card.content.forEach(item => {
+            _state = addEntity(_state, { ...item }, indexedCard.entity);
+        });
     });
+    return _state;
 }
 
-function migrateCard(card, nextId, items) {
-    delete card.content;
-    return [{
+function toCard(card) {
+    const newCard = {
         ...card,
-        id: nextId(),
-        type: 'card',
-        children: items.map(item => item.id)
-    }];
-}
-
-function migrateItems(card, nextId) {
-    return card.content.map(item => migrateItem(item, nextId));
-}
-
-function migrateItem(item, nextId) {
-    return { ...item, id: nextId() };
+        type: 'card'
+    };
+    delete newCard.content;
+    return newCard;
 }
