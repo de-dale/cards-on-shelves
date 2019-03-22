@@ -1,0 +1,5 @@
+{
+  "id": "5be546175d23f22b8f7bd530",
+  "desc": "# Par défaut\n\nPar défaut, un personnage ne peut pas effectuer d'action qu'il ne connaît pas. Les actions qui se passent de formation, se passent de lancer de dé. \n\nLorsqu'un personnage entreprend une actions facile, pour laquelle il est possible de se passer de formation, et qui nécessité réellement un jet de dé ; alors, la résolution de l'action s'effectue par le lancer de `1d6`.",
+  "name": "Par défaut"
+}

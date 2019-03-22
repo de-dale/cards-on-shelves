@@ -12,7 +12,8 @@ module.exports = {
     devServer: {
         contentBase: './dist',
         hot: true,
-        port: 9000
+        port: 9900,
+        public: 'de-dale'
     },
     plugins: [
         new CleanWebpackPlugin([ 'dist' ]),
@@ -34,7 +35,7 @@ module.exports = {
                 test: /\.(js|jsx)$/,
                 exclude: /node_modules/,
                 loader: [ 'babel-loader', 'eslint-loader' ]
-            },
+            }, 
             {
                 test: /\.css$/,
                 use: [
@@ -62,12 +63,19 @@ module.exports = {
                 use: [
                     'file-loader'
                 ]
+            },
+            {
+                test: /\.(secrets)$/,
+                use: [
+                    'json-loader'
+                ]
             }
         ]
     },
     resolve: {
         extensions: [ '.js', '.jsx', '.styl', '.json', '.md', 'jpeg' ],
         alias: {
+            core: path.resolve(__dirname, 'src', 'app', 'core'),
             entities: path.resolve(__dirname, 'src', 'app', 'core', 'entities'),
             utils: path.resolve(__dirname, 'src', 'app', 'core', 'utils'),
             store: path.resolve(__dirname, 'src', 'app', 'store'),

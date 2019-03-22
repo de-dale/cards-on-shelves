@@ -1,0 +1,40 @@
+{
+  "entities": [
+    {
+      "children": [
+        2,
+        3,
+        4,
+        5
+      ],
+      "id": 1,
+      "name": "Codex Vide",
+      "type": "codex"
+    },
+    {
+      "id": 2,
+      "name": "Excédent de dégâts",
+      "theme": "ability",
+      "type": "card"
+    },
+    {
+      "id": 3,
+      "name": "Position du tigre",
+      "theme": "ability",
+      "type": "card"
+    },
+    {
+      "id": 4,
+      "name": "Se déplacer",
+      "theme": "action",
+      "type": "card"
+    },
+    {
+      "id": 5,
+      "name": "Choc",
+      "type": "card"
+    }
+  ],
+  "nextEntityId": 6,
+  "version": "0.3.0"
+}

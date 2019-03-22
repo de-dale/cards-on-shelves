@@ -7,13 +7,13 @@ const Codex = ({ codex }) => (
     <div className='codex'>
         <h1>{ codex.name }</h1>
         <CodexToolbar codex={ codex }/>
-        <CardList cards={ codex.children }/>
+        <CardList parent={ codex } cards={ codex.children }/>
     </div>
 );
 
 Codex.propTypes = {
     codex: PropTypes.shape({
-        name: PropTypes.string.isRequired,
+        name: PropTypes.string.isRequired
     }).isRequired
 };
 

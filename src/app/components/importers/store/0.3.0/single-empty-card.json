@@ -1,0 +1,20 @@
+{
+  "entities": [
+    {
+      "children": [
+        2
+      ],
+      "id": 1,
+      "name": "Codex Vide",
+      "type": "codex"
+    },
+    {
+      "id": 2,
+      "name": "Excédent de dégâts",
+      "theme": "ability",
+      "type": "card"
+    }
+  ],
+  "nextEntityId": 3,
+  "version": "0.3.0"
+}

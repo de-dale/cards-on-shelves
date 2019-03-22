@@ -2,67 +2,63 @@ import reducer from './reducer';
 import * as actions from './actions';
 
 describe('list reducer', () => {
-    
+
     const EMPTY_STATE = {
         nextEntityId: 1,
         entities: []
     };
+
+    const STATE_WITH_CODEX = {
+        nextEntityId: 2,
+        entities: [
+            { id: 1, type: 'codex' }
+        ]
+    };
     
     const FILLED_STATE = {
         nextEntityId: 12,
-        entities: [ aCard(1), aCard(2), aCard(3) ]
+        entities: [ aCardById(1), aCardById(2), aCardById(3) ]
     };
 
     it('should add a card', () => {
-        const action = actions.addCard(aCard(5));
+        const action = actions.addCard(aCardByName('A Card'));
 
         expect(reducer(EMPTY_STATE, action)).toEqual({
-            nextEntityId: 6,
+            nextEntityId: 2,
             entities: [
-                { id: 5, type: 'card' }
+                { id: 1, name: 'A Card', type: 'card' }
             ]
         });
     });
 
-    it('should add a card to a codex', () => {
-        const action = actions.addCard(aCard(5, { codex: 1 }));
+    it('should add a card to any parent', () => {
+        const codex = { id: 1 };
+        const action = actions.addCard(aCardByName('Card Name'), codex);
 
-        expect(reducer({
-            nextEntityId: 1,
-            entities: [
-                { id: 1, type: 'codex' }
-            ]
-        }, action))
+        expect(reducer(STATE_WITH_CODEX, action))
             .toEqual({
-                nextEntityId: 6,
+                nextEntityId: 3,
                 entities: [
-                    { id: 1, type: 'codex', children: [ 5 ] },
-                    { id: 5, type: 'card' }
+                    { id: 1, type: 'codex', children: [ 2 ] },
+                    { id: 2, name: 'Card Name', type: 'card' }
                 ]
             });
     });
 
-    it('should increment id when absent', () => {
-        let state = EMPTY_STATE;
-
+    it('should create a card with default values', () => {
         const action = actions.createCard();
-        const secondAction = actions.createCard();
 
-        state = reducer(state, action);
-        state = reducer(state, secondAction);
-
-        expect(state).toEqual({
-            nextEntityId: 3,
+        expect(reducer(EMPTY_STATE, action)).toEqual({
+            nextEntityId: 2,
             entities:
                 [
-                    { id: 1, type: 'card', name: 'Nouvelle Carte', shape: '', theme: '' },
-                    { id: 2, type: 'card', name: 'Nouvelle Carte', shape: '', theme: '' }
+                    { id: 1, type: 'card', name: 'Nouvelle Carte', shape: '', theme: '' }
                 ]
         });
     });
 
     it('should remove a card', () => {
-        const action = actions.removeCard(aCard(2));
+        const action = actions.removeCard(aCardById(2));
 
         expect(reducer(FILLED_STATE, action)).toEqual(
             {
@@ -75,7 +71,7 @@ describe('list reducer', () => {
     });
 
     it('should edit card name', () => {
-        const action = actions.updateCard(aCard(2), 'name', 'anything');
+        const action = actions.updateCard(aCardById(2), 'name', 'anything');
 
         expect(reducer(FILLED_STATE, action)).toEqual({
             nextEntityId: 12,
@@ -89,11 +85,17 @@ describe('list reducer', () => {
 
 });
 
-function aCard(id, items = []) {
+function aCardById(id, items = []) {
     return {
         id: id,
         type: 'card',
         ...items
     };
 }
-
+function aCardByName(name, items = []) {
+    return {
+        name: name,
+        type: 'card',
+        ...items
+    };
+}

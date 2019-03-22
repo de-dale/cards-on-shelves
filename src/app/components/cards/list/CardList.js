@@ -3,12 +3,15 @@ import PropTypes from 'prop-types';
 
 import styles from './cardList.css';
 import EditableCard from 'components/cards/creation';
+import TrelloImporter from 'components/importers/trello';
+import FileImporter from 'components/importers/file';
 
-const CardList = ({ cards, createCard, importCards, removeCard }) => (
+const CardList = ({ parent, cards, createCard, removeCard }) => (
     <div className={ styles[ 'card-list' ] }>
         <div className={ styles[ 'card-list-toolbar' ] }>
-            <button type="button" onClick={ () => createCard() }>+</button>
-            <input type="file" onChange={ ({ target: { files } }) => importCards(files) }/>
+            <button type="button" onClick={ () => createCard(parent) }>+</button>
+            <FileImporter parent={ parent }/>
+            <TrelloImporter parent={ parent }/>
         </div>
         <div className={ styles[ 'card-list-items' ] }>
             { cards.map((card, index) => (
@@ -23,6 +26,7 @@ const CardList = ({ cards, createCard, importCards, removeCard }) => (
 );
 
 CardList.propTypes = {
+    parent: PropTypes.object.isRequired,
     cards: PropTypes.array.isRequired,
     createCard: PropTypes.func,
     importCards: PropTypes.func,

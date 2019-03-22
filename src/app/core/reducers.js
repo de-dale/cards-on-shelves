@@ -1,11 +1,18 @@
-import codex from '../components/codex/reducer';
-import cards from '../components/cards/reducer';
-import items from '../components/items/reducer';
+import codex from 'components/codex/reducer';
+import cards from 'components/cards/reducer';
+import items from 'components/items/reducer';
+import importers from 'components/importers/reducer';
 
-export default highOrderReducers('0.3.0', [ codex, cards, items ]);
+export default highOrderReducers(
+    [ codex, cards, items, importers ],
+    { version: '0.3.0' });
 
-function highOrderReducers(version, reducers) {
-    const initialState = getFlatInitialsStates(version, reducers);
+export {
+    highOrderReducers
+};
+
+function highOrderReducers(reducers, stateOptions = {}) {
+    const initialState = mergeInitialStates(reducers, stateOptions);
     return (state = initialState, action) => {
         let _state = state;
         reducers.forEach(reducer => _state = reducer(_state, action));
@@ -13,17 +20,15 @@ function highOrderReducers(version, reducers) {
     };
 }
 
-function getFlatInitialsStates(version, reducers) {
+function mergeInitialStates(reducers, options) {
     return {
-        version,
-        ...actIndependently(reducers, undefined, {})
+        ...mergeActions(undefined, reducers, {}),
+        ...options
     };
 }
 
-function actIndependently(reducers, state, action) {
+function mergeActions(state, reducers, action) {
     return reducers
         .map(reducer => reducer(state, action))
-        .reduce((left, right) => {
-            return { ...left, ...right };
-        });
+        .reduce((left, right) => ({ ...left, ...right }));
 }

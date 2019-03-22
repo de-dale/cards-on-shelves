@@ -1,39 +1,47 @@
 {
   "version": "0.3.0",
-  "nextEntityId": 6,
+  "nextEntityId": 7,
   "entities": [
     {
       "children": [
-        1,
-        2,
-        3,
-        4
+        2
       ],
-      "id": 5,
+      "id": 1,
+      "name": "Codex Vide",
+      "type": "codex"
+    },
+    {
+      "children": [
+        3,
+        4,
+        5,
+        6
+      ],
+      "id": 2,
       "name": "Excédent de dégâts",
       "theme": "ability",
       "type": "card"
     },
     {
       "content": "Excédent de dégâts",
-      "id": 1,
+      "id": 3,
       "type": "title"
     },
     {
       "content": "Passive",
       "header": "Capacité",
-      "id": 2,
+      "id": 4,
       "type": "field"
     },
     {
       "content": "Lors d'une attaque, les succès excédentaires sont rajoutés aus dégâts.",
-      "id": 3,
+      "id": 5,
       "type": "text"
     },
     {
       "content": "",
       "header": "SR5",
-      "id": 4,
+      "id": 6,
       "type": "field"
     }
   ]

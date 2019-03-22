@@ -1,0 +1,18 @@
+{
+  "entities": [
+    {
+      "children": [
+        2
+      ],
+      "id": 1,
+      "name": "Par défaut",
+      "type": "card"
+    },
+    {
+      "content": "Par défaut",
+      "id": 2,
+      "type": "title"
+    }
+  ],
+  "nextEntityId": 3
+}
