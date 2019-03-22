@@ -7,6 +7,9 @@ const initialState = {
 };
 
 export default function importStore(state = initialState, input) {
+    if (input === undefined) {
+        return addEntity(state, getCodex());
+    }
     const version = input.version;
     switch (version) {
         case '0.3.0':
