@@ -1,13 +1,14 @@
 import * as actions from './actions';
-import reducer from './reducer';
-import FileSaver from 'file-saver';
 import { addCodex } from './actions';
+import reducer from 'components/codex/reducer';
 
-jest.mock('file-saver');
+import saveFile from './filesave';
+jest.mock('./filesave');
 
 describe('codex', () => {
 
     const INITIAL_STATE = {
+        version: 'a version',
         nextEntityId: 1,
         entities: [
             {
@@ -22,9 +23,15 @@ describe('codex', () => {
                 type: 'codex'
             },
             {
+                children: [ 4 ],
                 id: 3,
                 name: 'Une carte',
                 type: 'card'
+            },
+            {
+                content: 'Par défaut',
+                id: 4,
+                type: 'title'
             }
         ]
     };
@@ -63,38 +70,52 @@ describe('codex', () => {
         expect(reducer(INITIAL_STATE, saveCodex)).toEqual(INITIAL_STATE);
     });
 
-    xit('should be saved as codex', () => {
-        // TODO : Clarifier si on veut l'id du codex en entrée du save, ou le codex complet.
+    it('should save a codex from id', () => {
         const saveCodex = actions.saveCodex(codex);
 
         reducer(INITIAL_STATE, saveCodex);
 
-        expect(FileSaver.saveAs).toHaveBeenCalledWith(aBlobContaining({
-            id: 1,
-            name: 'Un Codex',
-            type: 'codex'
-        }), 'Un Codex.json');
+        expect(saveFile)
+            .toHaveBeenCalledWith('Un Codex.json', {
+                version: INITIAL_STATE.version,
+                entities: [
+                    {
+                        id: 1,
+                        name: 'Un Codex',
+                        type: 'codex'
+                    }
+                ]
+            });
     });
 
-    xit('should be saved as codex with cards', () => {
+    it('should save a codex with cards', () => {
         const saveCodex = actions.saveCodex(codexWithCard);
 
         reducer(INITIAL_STATE, saveCodex);
 
-        expect(FileSaver.saveAs).toHaveBeenCalledWith(aBlobContaining(
-            {
-                content: [ 3 ],
-                id: 2,
-                name: 'Un Codex',
-                type: 'codex'
-            },
-            {
-                content: [],
-                id: 3,
-                name: 'Une carte',
-                type: 'card'
-            }
-        ), 'Un Codex.json');
+        expect(saveFile)
+            .toHaveBeenCalledWith('Un Codex.json', {
+                version: INITIAL_STATE.version,
+                entities: [
+                    {
+                        children: [ 3 ],
+                        id: 2,
+                        name: 'Un Codex',
+                        type: 'codex'
+                    },
+                    {
+                        children: [ 4 ],
+                        id: 3,
+                        name: 'Une carte',
+                        type: 'card'
+                    },
+                    {
+                        content: 'Par défaut',
+                        id: 4,
+                        type: 'title'
+                    }
+                ]
+            });
     });
 
     it('should save all', () => {
@@ -102,13 +123,7 @@ describe('codex', () => {
 
         reducer(INITIAL_STATE, saveAll);
 
-        expect(FileSaver.saveAs).toHaveBeenCalledWith(aBlobContaining(INITIAL_STATE), 'export_all.json');
+        expect(saveFile)
+            .toHaveBeenCalledWith('export_all.json', INITIAL_STATE);
     });
-
-    function aBlobContaining(content) {
-        return new Blob(
-            [ JSON.stringify(content) ],
-            { type: 'text/json;charset=utf-8' }
-        );
-    }
 });

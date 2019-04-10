@@ -1,6 +1,7 @@
 import { ADD_CODEX, SAVE_ALL, SAVE_CODEX } from './actions';
-import FileSaver from 'file-saver';
 import { addEntity } from 'entities';
+import { findById, isItemIdIn } from 'utils';
+import saveFile from './filesave';
 
 const initialState = {
     nextEntityId: 1,
@@ -12,11 +13,16 @@ export default function (state = initialState, action) {
         case ADD_CODEX:
             return addCodex(state, action.codex);
         case SAVE_CODEX: {
-            saveCodex(action.codex);
+            let codex = findById(state.entities, action.codex.id);
+            let ids = findAll(state.entities, [ codex.id ]);
+            saveFile(codex.name + '.json', {
+                version: state.version,
+                entities: state.entities.filter(isItemIdIn(...ids))
+            });
             return state;
         }
         case SAVE_ALL: {
-            save(state, 'export_all');
+            saveFile('export_all.json', state);
             return state;
         }
         default:
@@ -24,13 +30,21 @@ export default function (state = initialState, action) {
     }
 }
 
-function save(content, name) {
-    const blob = new Blob([ JSON.stringify(content) ], { type: 'text/json;charset=utf-8' });
-    FileSaver.saveAs(blob, name + '.json');
+function extractIds(item) {
+    return [
+        item.id,
+        ...(item.children || [])
+    ];
 }
 
-function saveCodex(codex) {
-    save(codex, codex.name);
+function findAll(entities, ids) {
+    const _ids = entities
+        .filter(isItemIdIn(...ids))
+        .map(item => extractIds(item))
+        .flat();
+    return (ids.length !== _ids.length)
+        ? findAll(entities, _ids)
+        : ids;
 }
 
 function addCodex(state, codex) {
