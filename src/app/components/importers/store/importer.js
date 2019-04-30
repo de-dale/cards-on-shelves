@@ -6,10 +6,9 @@ const initialState = {
     entities: []
 };
 
-export default function importStore(state = initialState, input) {
-    if (input === undefined) {
-        return addEntity(state, getCodex());
-    }
+const defaultInputBefore_0_3_0 = { cards: { cards: [] }, version: '' };
+
+export default function importStore(state = initialState, input = defaultInputBefore_0_3_0) {
     const version = input.version;
     switch (version) {
         case '0.3.0':
@@ -71,9 +70,7 @@ class ParentMappings {
     }
 }
 
-const defaultInputBefore_0_3_0 = { cards: { cards: [] } };
-
-function importTo_0_3_0(state, input = defaultInputBefore_0_3_0) {
+function importTo_0_3_0(state, input) {
     const indexedCodex = indexEntity(state, getCodex(input.codex));
     return {
         version: '0.3.0',
